@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import CreateInvoice from './sidebar/create-invoice/page';
 import Sidebar from './sidebar/page';
 
 export default function RootLayout({ children }) {
@@ -6,7 +7,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       {
         <div>
-          <Sidebar />
+          <Sidebar  />
+           {/* <CreateInvoice/>  */}
+          
         </div>
       }
       <head />
