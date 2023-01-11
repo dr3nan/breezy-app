@@ -1,13 +1,14 @@
 import CreateInvoice from "./create-invoice/page";
 import Sidebar from "./page";
 
+import React from "react";
+
 export default function SidebarLayout({ children }) {
   return (
-    <div>
-      <Sidebar/>
-      {/* <CreateInvoice/> */}
+    <>
+      <CreateInvoice/>
       <head />
       <body>{children}</body>
-    </div>
+    </>
   );
 }
