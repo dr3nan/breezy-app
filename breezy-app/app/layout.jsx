@@ -29,7 +29,10 @@ export default function RootLayout({ children }) {
                     <h1 className='bg-green-300'>CLIENTS</h1>
                   </div>
                   <div>
-                    <h1 className='bg-purple-300'>STATS</h1>
+                    <h1 className='bg-orange-300'>STATS</h1>
+                  </div>
+                  <div>
+                    <Link href="/"> <h1 className='bg-purple-300'>HOME</h1></Link>
                   </div>
                 </div>
               </div>
