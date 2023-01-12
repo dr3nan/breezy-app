@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const test = await Test.findById(id);
+        const test = await User.findById(id);
         if (!test) {
           console.log(test);
           return res.status(400).json(test);
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       break;
     case 'DELETE':
       try {
-        const test = await Test.findByIdAndDelete(id);
+        const test = await User.findByIdAndDelete(id);
         res.status(201).json({ success: true });
       } catch (error) {
         res.status(400).json({ success: false });
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       break;
     case 'PUT':
       try {
-        const test = await Test.findOneAndUpdate(id, req.body)
+        const test = await User.findOneAndUpdate(id, req.body)
         if (!test) {
           console.log(req.body)
           return res.status(400).json({ success: false });

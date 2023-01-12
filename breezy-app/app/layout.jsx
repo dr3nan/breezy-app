@@ -23,13 +23,19 @@ export default function RootLayout({ children }) {
                     </Link>
                   </div>
                   <div>
+                    <Link href='/invoices'>
                     <h1 className='bg-pink-300'>INVOICES</h1>
+                    </Link>
                   </div>
                   <div>
+                  <Link href='/clients'>
                     <h1 className='bg-green-300'>CLIENTS</h1>
+                    </Link>
                   </div>
                   <div>
+                    <Link href='/stats'>
                     <h1 className='bg-orange-300'>STATS</h1>
+                    </Link>
                   </div>
                   <div>
                     <Link href="/"> <h1 className='bg-purple-300'>HOME</h1></Link>
@@ -41,8 +47,8 @@ export default function RootLayout({ children }) {
 
           <div>
 
-          <div className='flex p-7 w-96'>
-            <h1 className='bg-red-300 text-6xl text-center h-72'>Breezy</h1>
+          <div className='flex ml-80'>
+            <h1 className='bg-red-300 text-6xl'>Breezy</h1>
           </div>
 
           {children}
