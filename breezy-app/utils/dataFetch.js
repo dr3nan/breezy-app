@@ -9,7 +9,7 @@ export async function getData() {
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
-  console.log(res)
+
   return res.json();
 }
 

@@ -22,7 +22,7 @@ export default async function handler(req, res) {
           res.status(201).json(user)
         } catch(e) {
           console.log(e)
-          res.status(400).json(user)
+          res.status(400).json(req.body)
         }
         break;
         case 'DELETE':

@@ -28,9 +28,6 @@ const InvoiceForm = ({ user, invoice}) => {
     setInvoice([...invoiceData, newInvoice]);
   };
 
-
-  
-  
   function handleSubmit(input) {
     input.preventDefault();
     const newInvoiceData = {
