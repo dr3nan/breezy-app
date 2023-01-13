@@ -2,7 +2,7 @@ import { getDataById } from '../../../utils/dataFetch';
 import DisplayInvoice from '../../../components/displayInvoice';
 import React from 'react';
 
-export default async function displayInvoice({ params }) {
+export default async function FetchInvoice({ params }) {
   const id = params.id;
   const data = await getDataById(id);
 

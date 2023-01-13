@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../public/breezy logo.png'
+import React from 'react';
 
 export default function RootLayout({ children }) {
   return (

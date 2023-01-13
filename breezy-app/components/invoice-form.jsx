@@ -21,8 +21,8 @@ const InvoiceForm = () => {
 
   const [invoiceData, setInvoice] = useState([]);
 
-  const pushInvoice = (invoice) => {
-    const newInvoice = submitData(invoice);
+  const pushInvoice =  async (invoice) => {
+    const newInvoice = await submitData(invoice);
     setInvoice([...invoiceData, newInvoice]);
   };
 

@@ -1,7 +1,10 @@
 'use client';
 import '../components/displayInvoice.css';
+import React from 'react';
+
 
 function DisplayInvoice({ invoice }) {
+
   function GetDate(date) {
     date = new Date(date);
 
