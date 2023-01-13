@@ -1,5 +1,6 @@
 import connectMongo from '../../utils/connectMongo';
-import Test from '../../models/model';
+import user from '../../models/model';
+import User from '../../models/model';
 
 export default async function handler(req, res) {
   await connectMongo();
@@ -9,20 +10,20 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const test = await User.findById(id);
-        if (!test) {
-          console.log(test);
-          return res.status(400).json(test);
+        const user = await User.findById(id);
+        if (!user) {
+          console.log(user);
+          return res.status(400).json(user);
         }
-        res.status(200).json(test);
+        res.status(200).json(user);
       } catch (error) {
         console.log(error);
-        res.status(400).json(test);
+        res.status(400).json(user);
       }
       break;
     case 'DELETE':
       try {
-        const test = await User.findByIdAndDelete(id);
+        const user = await User.findByIdAndDelete(id);
         res.status(201).json({ success: true });
       } catch (error) {
         res.status(400).json({ success: false });
@@ -30,12 +31,12 @@ export default async function handler(req, res) {
       break;
     case 'PUT':
       try {
-        const test = await User.findOneAndUpdate(id, req.body)
-        if (!test) {
+        const user = await User.findOneAndUpdate(id, req.body)
+        if (!user) {
           console.log(req.body)
           return res.status(400).json({ success: false });
         }
-        res.status(200).json(test);
+        res.status(200).json(user);
       } catch (error) {
         console.log(error);
         res.status(400).json({ success: false });

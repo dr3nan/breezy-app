@@ -4,6 +4,7 @@ import { getData } from '../../utils/dataFetch';
 
 export default async function displayInvoiceList() {
     const data = await getData();
+    
     console.log(data);
     return (
       <div>
@@ -17,7 +18,3 @@ export default async function displayInvoiceList() {
      
     )
   }
-
-  // {data.map((data) => (
-  //   <InvoiceForm key={data._id} user={data} />
-  // ))}

@@ -1,9 +1,5 @@
 import '../styles/globals.css';
-import Home from './page';
 import Link from 'next/link';
-import CreateInvoice from './create-invoice/page';
-import InvoiceForm from '../components/invoice-form';
-
 
 export default function RootLayout({ children }) {
   return (
@@ -48,14 +44,13 @@ export default function RootLayout({ children }) {
             </div>
           </div>
 
-          <div>
-            <div className='flex ml-80'>
+            {/* <div className='flex flex-row '>
               <h1 className='bg-red-300 text-6xl'>Breezy</h1>
-            </div>
-            {/* <InvoiceForm/> */}
-
+            </div> */}
+      <div className = "container">
             {children}
-          </div>
+
+      </div>
         </main>
       </body>
     </html>

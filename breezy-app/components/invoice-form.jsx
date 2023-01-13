@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import '../components/component.css';
+import '../components/invoice-form.css';
 import { submitData } from '../utils/dataFetch';
 import { useEffect } from 'react';
 
-const InvoiceForm = ({ user, invoice}) => {
+const InvoiceForm = ({ user, invoice }) => {
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -19,9 +19,7 @@ const InvoiceForm = ({ user, invoice}) => {
   const [quantity, setQuantity] = useState('');
   const [date, setDate] = useState('');
 
-
   const [invoiceData, setInvoice] = useState([]);
-
 
   const pushInvoice = (invoice) => {
     const newInvoice = submitData(invoice);
@@ -44,14 +42,14 @@ const InvoiceForm = ({ user, invoice}) => {
       quantity,
       date,
     };
-    
-    pushInvoice(newInvoiceData)
+
+    pushInvoice(newInvoiceData);
 
     setFullName('');
     setAddress('');
     setPhoneNumber('');
     setEmail('');
-    
+
     setClientFullName('');
     setClientAddress('');
     setClientPhoneNumber('');
@@ -61,141 +59,143 @@ const InvoiceForm = ({ user, invoice}) => {
     setRate('');
     setQuantity('');
     setDate('');
-    
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className='form-container'>
-          <div className='personal-details-container'>
-            <h2>Personal Details</h2>
+    <form onSubmit={handleSubmit}>
+      <div className='form-container'>
+        <div className = 'people-details-container'>
+        <div className='personal-details-container'>
+          <h2>Personal Details</h2>
 
-            <label htmlFor='full-name'>FULL NAME</label>
+          <label htmlFor='full-name'>FULL NAME</label>
 
-            <input
-              type='text'
-              name='full-name'
-              value={fullName}
-              placeholder='insert full name...'
-              onChange={(e) => setFullName(e.target.value)}
-            />
+          <input
+            type='text'
+            name='full-name'
+            value={fullName}
+            placeholder='insert full name...'
+            onChange={(e) => setFullName(e.target.value)}
+          />
 
-            <label htmlFor='address'>ADDRESS</label>
+          <label htmlFor='address'>ADDRESS</label>
 
-            <input
-              type='text'
-              name='address'
-              value={address}
-              placeholder='insert address...'
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <label htmlFor='phone-number'>PHONE NUMBER</label>
+          <input
+            type='text'
+            name='address'
+            value={address}
+            placeholder='insert address...'
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <label htmlFor='phone-number'>PHONE NUMBER</label>
 
-            <input
-              type='text'
-              name='phone-number'
-              value={phoneNumber}
-              placeholder='insert phone number...'
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <label htmlFor='email'>EMAIL ADDRESS</label>
+          <input
+            type='text'
+            name='phone-number'
+            value={phoneNumber}
+            placeholder='insert phone number...'
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <label htmlFor='email'>EMAIL ADDRESS</label>
 
-            <input
-              type='text'
-              name='email'
-              value={email}
-              placeholder='insert email address...'
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <div className='client-details-container'>
-            <h2>Client Details</h2>
-
-            <label htmlFor='client-full-name'>FULL NAME</label>
-
-            <input
-              type='text'
-              name='client-full-name'
-              value={clientFullName}
-              placeholder='insert full name...'
-              onChange={(e) => setClientFullName(e.target.value)}
-            />
-
-            <label htmlFor='client-address'>ADDRESS</label>
-
-            <input
-              type='text'
-              name='client-address'
-              value={clientAddress}
-              placeholder='insert address...'
-              onChange={(e) => setClientAddress(e.target.value)}
-            />
-            <label htmlFor='client-phone-number'>PHONE NUMBER</label>
-
-            <input
-              type='text'
-              name='client-phone-number'
-              value={clientPhoneNumber}
-              placeholder='insert phone number...'
-              onChange={(e) => setClientPhoneNumber(e.target.value)}
-            />
-            <label htmlFor='client-email'>EMAIL ADDRESS</label>
-
-            <input
-              type='text'
-              name='client-email'
-              value={clientEmail}
-              placeholder='insert email address...'
-              onChange={(e) => setClientEmail(e.target.value)}
-            />
-          </div>
-          <div className='job-details-container'>
-            <h2>Job Details</h2>
-
-            <label htmlFor='description'>DESCRIPTION</label>
-
-            <input
-              type='text'
-              name='description'
-              value={description}
-              placeholder='Insert a description...'
-              onChange={(e) => setDescription(e.target.value)}
-            />
-
-            <label htmlFor='rate'>RATE</label>
-            <input
-              type='text'
-              name='rate'
-              value={rate}
-              placeholder='Insert a venue...'
-              onChange={(e) => setRate(e.target.value)}
-            />
-            <label htmlFor='quantity'>QUANTITY</label>
-            <input
-              type='text'
-              name='quantity'
-              value={quantity}
-              placeholder='Insert a venue...'
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-
-            <label htmlFor='date'>DUE BY</label>
-
-            <input
-              type='datetime-local'
-              name='date'
-              value={date}
-              placeholder='Date'
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </div>
-
-          <input type='submit' />
+          <input
+            type='text'
+            name='email'
+            value={email}
+            placeholder='insert email address...'
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
-      </form>
-    </div>
+
+        <div className='client-details-container'>
+          <h2>Client Details</h2>
+
+          <label htmlFor='client-full-name'>FULL NAME</label>
+
+          <input
+            type='text'
+            name='client-full-name'
+            value={clientFullName}
+            placeholder='insert full name...'
+            onChange={(e) => setClientFullName(e.target.value)}
+          />
+
+          <label htmlFor='client-address'>ADDRESS</label>
+
+          <input
+            type='text'
+            name='client-address'
+            value={clientAddress}
+            placeholder='insert address...'
+            onChange={(e) => setClientAddress(e.target.value)}
+          />
+          <label htmlFor='client-phone-number'>PHONE NUMBER</label>
+
+          <input
+            type='text'
+            name='client-phone-number'
+            value={clientPhoneNumber}
+            placeholder='insert phone number...'
+            onChange={(e) => setClientPhoneNumber(e.target.value)}
+          />
+          <label htmlFor='client-email'>EMAIL ADDRESS</label>
+
+          <input
+            type='text'
+            name='client-email'
+            value={clientEmail}
+            placeholder='insert email address...'
+            onChange={(e) => setClientEmail(e.target.value)}
+          />
+        </div>
+
+
+
+        </div>
+        <div className='job-details-container'>
+          <h2>Job Details</h2>
+
+          <label htmlFor='description'>DESCRIPTION</label>
+
+          <input
+            type='text'
+            name='description'
+            value={description}
+            placeholder='Insert a description...'
+            onChange={(e) => setDescription(e.target.value)}
+          />
+
+          <label htmlFor='rate'>RATE</label>
+          <input
+            type='text'
+            name='rate'
+            value={rate}
+            placeholder='Insert a venue...'
+            onChange={(e) => setRate(e.target.value)}
+          />
+          <label htmlFor='quantity'>QUANTITY</label>
+          <input
+            type='text'
+            name='quantity'
+            value={quantity}
+            placeholder='Insert a venue...'
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+
+          <label htmlFor='date'>DUE BY</label>
+
+          <input
+            type='datetime-local'
+            name='date'
+            value={date}
+            placeholder='Date'
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+
+      </div>
+          <input type='submit' value='CREATE INVOICE' />
+    </form>
   );
 };
 

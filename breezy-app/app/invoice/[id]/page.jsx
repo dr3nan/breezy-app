@@ -1,12 +1,25 @@
-import Link from 'next/link';
-import { getData } from '../../../utils/dataFetch';
+import { getDataById } from '../../../utils/dataFetch';
 
-export default async function displayInvoiceList({params}) {
-  const data = await getData();
-  console.log(params);
+import DisplayInvoice from '../../../components/displayInvoice';
+export default async function displayInvoice({ params }) {
+  const id = params.id;
+  const data = await getDataById(id);
+
+  const {
+    fullName,
+    phoneNumber,
+    email,
+    clientFullName,
+    clientAddress,
+    clientPhoneNumber,
+    clientEmail,
+    quantity,
+    date,
+  } = data;
+
   return (
     <div>
-    <p>Hello</p>
+      <DisplayInvoice invoice={data} />
     </div>
   );
 }
