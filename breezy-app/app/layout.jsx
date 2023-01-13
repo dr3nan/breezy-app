@@ -1,16 +1,18 @@
 import '../styles/globals.css';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../public/breezy logo.png'
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head />
       <body>
-        <header></header>
+        {/* <header className='bg-red-100 text-6xl text-center sticky top-0 z-50'>Breezy</header> */}
         <main className='flex'>
-          <div className='bg-blue-300 h-screen w-72 p-10'>
+          <div className=' bg-blue-200 h-screen w-72 p-10'>
             <div className=''>
-              <h1 className=' bg-yellow-300'>LOGO</h1>
+              <Image src={Logo} alt='Breezy Logo' width={1000} height={500} />
             </div>
             <div className=' mt-40'>
               <div className=' space-y-10'>
@@ -44,9 +46,6 @@ export default function RootLayout({ children }) {
             </div>
           </div>
 
-            {/* <div className='flex flex-row '>
-              <h1 className='bg-red-300 text-6xl'>Breezy</h1>
-            </div> */}
       <div className = "container">
             {children}
 
