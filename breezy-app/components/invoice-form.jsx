@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import '../components/invoice-form.css';
 import { submitData } from '../utils/dataFetch';
-import { useEffect } from 'react';
+import React from 'react';
 
-const InvoiceForm = ({ user, invoice }) => {
+const InvoiceForm = () => {
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -64,93 +64,90 @@ const InvoiceForm = ({ user, invoice }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='form-container'>
-        <div className = 'people-details-container'>
-        <div className='personal-details-container'>
-          <h2>Personal Details</h2>
+        <div className='people-details-container'>
+          <div className='personal-details-container'>
+            <h2>Personal Details</h2>
 
-          <label htmlFor='full-name'>FULL NAME</label>
+            <label htmlFor='full-name'>FULL NAME</label>
 
-          <input
-            type='text'
-            name='full-name'
-            value={fullName}
-            placeholder='insert full name...'
-            onChange={(e) => setFullName(e.target.value)}
-          />
+            <input
+              type='text'
+              name='full-name'
+              value={fullName}
+              placeholder='insert full name...'
+              onChange={(e) => setFullName(e.target.value)}
+            />
 
-          <label htmlFor='address'>ADDRESS</label>
+            <label htmlFor='address'>ADDRESS</label>
 
-          <input
-            type='text'
-            name='address'
-            value={address}
-            placeholder='insert address...'
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <label htmlFor='phone-number'>PHONE NUMBER</label>
+            <input
+              type='text'
+              name='address'
+              value={address}
+              placeholder='insert address...'
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <label htmlFor='phone-number'>PHONE NUMBER</label>
 
-          <input
-            type='text'
-            name='phone-number'
-            value={phoneNumber}
-            placeholder='insert phone number...'
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-          <label htmlFor='email'>EMAIL ADDRESS</label>
+            <input
+              type='text'
+              name='phone-number'
+              value={phoneNumber}
+              placeholder='insert phone number...'
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <label htmlFor='email'>EMAIL ADDRESS</label>
 
-          <input
-            type='text'
-            name='email'
-            value={email}
-            placeholder='insert email address...'
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+            <input
+              type='text'
+              name='email'
+              value={email}
+              placeholder='insert email address...'
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div className='client-details-container'>
-          <h2>Client Details</h2>
+          <div className='client-details-container'>
+            <h2>Client Details</h2>
 
-          <label htmlFor='client-full-name'>FULL NAME</label>
+            <label htmlFor='client-full-name'>FULL NAME</label>
 
-          <input
-            type='text'
-            name='client-full-name'
-            value={clientFullName}
-            placeholder='insert full name...'
-            onChange={(e) => setClientFullName(e.target.value)}
-          />
+            <input
+              type='text'
+              name='client-full-name'
+              value={clientFullName}
+              placeholder='insert full name...'
+              onChange={(e) => setClientFullName(e.target.value)}
+            />
 
-          <label htmlFor='client-address'>ADDRESS</label>
+            <label htmlFor='client-address'>ADDRESS</label>
 
-          <input
-            type='text'
-            name='client-address'
-            value={clientAddress}
-            placeholder='insert address...'
-            onChange={(e) => setClientAddress(e.target.value)}
-          />
-          <label htmlFor='client-phone-number'>PHONE NUMBER</label>
+            <input
+              type='text'
+              name='client-address'
+              value={clientAddress}
+              placeholder='insert address...'
+              onChange={(e) => setClientAddress(e.target.value)}
+            />
+            <label htmlFor='client-phone-number'>PHONE NUMBER</label>
 
-          <input
-            type='text'
-            name='client-phone-number'
-            value={clientPhoneNumber}
-            placeholder='insert phone number...'
-            onChange={(e) => setClientPhoneNumber(e.target.value)}
-          />
-          <label htmlFor='client-email'>EMAIL ADDRESS</label>
+            <input
+              type='text'
+              name='client-phone-number'
+              value={clientPhoneNumber}
+              placeholder='insert phone number...'
+              onChange={(e) => setClientPhoneNumber(e.target.value)}
+            />
+            <label htmlFor='client-email'>EMAIL ADDRESS</label>
 
-          <input
-            type='text'
-            name='client-email'
-            value={clientEmail}
-            placeholder='insert email address...'
-            onChange={(e) => setClientEmail(e.target.value)}
-          />
-        </div>
-
-
-
+            <input
+              type='text'
+              name='client-email'
+              value={clientEmail}
+              placeholder='insert email address...'
+              onChange={(e) => setClientEmail(e.target.value)}
+            />
+          </div>
         </div>
         <div className='job-details-container'>
           <h2>Job Details</h2>
@@ -192,11 +189,16 @@ const InvoiceForm = ({ user, invoice }) => {
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
-
       </div>
-          <input type='submit' value='CREATE INVOICE' />
+
+      <input type='submit' value='CREATE INVOICE' />
     </form>
   );
 };
 
 export default InvoiceForm;
+
+{
+  /* <Link href='/invoice-list'>
+</Link> */
+}

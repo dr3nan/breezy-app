@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import { getData } from '../../utils/dataFetch';
+import React from 'react';
 
 export default async function displayInvoiceList() {
     const data = await getData();
