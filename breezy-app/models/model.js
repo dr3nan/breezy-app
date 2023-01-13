@@ -1,16 +1,61 @@
 
 import { Schema, model, models } from 'mongoose';
 
-const testSchema = new Schema({
-  name: String,
-  email: {
+const userSchema = new Schema({
+  fullName: {
     type: String,
     required: true,
-    unique: true,
+  },
+  address: {
+    type: String,
+    required: false,
+  },
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
+  
+  clientFullName: {
+    type: String,
+    required: false,
+  },
+  clientAddress: {
+    type: String,
+    required: false,
+  },
+  clientPhoneNumber: {
+    type: Number,
+    required: false,
+  },
+  clientEmail: {
+    type: String,
+    required: false,
+  },
+
+  description: {
+    type: String,
+    required: false,
+  },
+  rate: {
+    type: Number,
+    required: false,
+  },
+  quantity: {
+    type: Number,
+    require: false,
+  },
+
+  date: {
+    type: Date,
+    required: false,
   },
 });
 
-const Test = models.Test || model('Test', testSchema);
+const User = models.User || model('User', userSchema);
 
-export default Test;
+export default User;
 

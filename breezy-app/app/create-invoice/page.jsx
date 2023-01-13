@@ -1,36 +1,29 @@
-
-
 import InvoiceForm from '../../components/invoice-form';
-import getData from '../../utils/getData';
+import { getData, submitData } from '../../utils/dataFetch';
 
-
-// async function submitData(data) {
-//   try {
-//     const res = await fetch(`${uri}/api/hello`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     });
-//     return res.json();
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
-
-export default async function CreateInvoice() {
-  const data = await getData();
+export default async function CreateInvoice(data) {
+  const invoice = await submitData(data);
   console.log(data);
+  console.log(invoice);
+
   return (
     <div>
-      {data.map((data) => (
-
-      <InvoiceForm key = {data._id} user={data} />
-      ))}
+      <InvoiceForm invoice={invoice} />
     </div>
   );
 }
+
+// export async function displayInvoice() {
+//   const data = await getData();
+//   console.log(data);
+//   return (
+//     <div>
+//       {data.map((data) => (
+//         <InvoiceForm key={data._id} user={data} />
+//       ))}
+//     </div>
+//   );
+// }
 
 /* <div>
       <div className='flex flex-col m-20 h-40 bg-red-500'>

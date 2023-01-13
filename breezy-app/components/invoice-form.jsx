@@ -1,25 +1,39 @@
-'use client'
+'use client';
 
-import { useState } from "react"
-import './component.css'
+import { useState } from 'react';
+import '../components/component.css';
+import { submitData } from '../utils/dataFetch';
+import { useEffect } from 'react';
 
-const InvoiceForm = ({user}) => {
-  const [fullName, setFullName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [clientFullName, setClientFullName] = useState("");
-  const [clientAddress, setClientAddress] = useState("");
-  const [clientPhoneNumber, setClientPhoneNumber] = useState("");
-  const [clientEmail, setClientEmail] = useState("");
-  const [description, setDescription] = useState("");
-  const [rate, setRate] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [date, setDate] = useState("");
+const InvoiceForm = ({ user, invoice}) => {
+  const [fullName, setFullName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [clientFullName, setClientFullName] = useState('');
+  const [clientAddress, setClientAddress] = useState('');
+  const [clientPhoneNumber, setClientPhoneNumber] = useState('');
+  const [clientEmail, setClientEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [rate, setRate] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [date, setDate] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const newEvent = {
+
+  const [invoiceData, setInvoice] = useState([]);
+
+
+  const pushInvoice = (invoice) => {
+    const newInvoice = submitData(invoice);
+    setInvoice([...invoiceData, newInvoice]);
+  };
+
+
+  
+  
+  function handleSubmit(input) {
+    input.preventDefault();
+    const newInvoiceData = {
       fullName,
       address,
       phoneNumber,
@@ -33,162 +47,159 @@ const InvoiceForm = ({user}) => {
       quantity,
       date,
     };
+    
+    pushInvoice(newInvoiceData)
 
-    pushEvent(newEvent);
+    setFullName('');
+    setAddress('');
+    setPhoneNumber('');
+    setEmail('');
+    
+    setClientFullName('');
+    setClientAddress('');
+    setClientPhoneNumber('');
+    setClientEmail('');
 
-    setFullName("");
-    setAddress("");
-    setPhoneNumber("");
-    setEmail("");
-
-    setClientFullName("");
-    setClientAddress("");
-    setClientPhoneNumber("");
-    setClientEmail("");
-
-    setDescription("");
-    setRate("");
-    setQuantity("");
-    setDate("");
-
-    console.log(newEvent);
+    setDescription('');
+    setRate('');
+    setQuantity('');
+    setDate('');
+    
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="form-container">
-          <div className="personal-details-container">
+        <div className='form-container'>
+          <div className='personal-details-container'>
             <h2>Personal Details</h2>
 
-            <label htmlFor="full-name">FULL NAME</label>
+            <label htmlFor='full-name'>FULL NAME</label>
 
             <input
-              type="text"
-              name="full-name"
+              type='text'
+              name='full-name'
               value={fullName}
-              placeholder="insert full name..."
+              placeholder='insert full name...'
               onChange={(e) => setFullName(e.target.value)}
             />
 
-            <label htmlFor="address">ADDRESS</label>
+            <label htmlFor='address'>ADDRESS</label>
 
             <input
-              type="text"
-              name="address"
+              type='text'
+              name='address'
               value={address}
-              placeholder="insert address..."
+              placeholder='insert address...'
               onChange={(e) => setAddress(e.target.value)}
             />
-            <label htmlFor="phone-number">PHONE NUMBER</label>
+            <label htmlFor='phone-number'>PHONE NUMBER</label>
 
             <input
-              type="text"
-              name="phone-number"
+              type='text'
+              name='phone-number'
               value={phoneNumber}
-              placeholder="insert phone number..."
+              placeholder='insert phone number...'
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
-            <label htmlFor="email">EMAIL ADDRESS</label>
+            <label htmlFor='email'>EMAIL ADDRESS</label>
 
             <input
-              type="text"
-              name="email"
+              type='text'
+              name='email'
               value={email}
-              placeholder="insert email address..."
+              placeholder='insert email address...'
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
-          <div className="client-details-container">
+          <div className='client-details-container'>
             <h2>Client Details</h2>
 
-            <label htmlFor="client-full-name">FULL NAME</label>
+            <label htmlFor='client-full-name'>FULL NAME</label>
 
             <input
-              type="text"
-              name="client-full-name"
+              type='text'
+              name='client-full-name'
               value={clientFullName}
-              placeholder="insert full name..."
+              placeholder='insert full name...'
               onChange={(e) => setClientFullName(e.target.value)}
             />
 
-            <label htmlFor="client-address">ADDRESS</label>
+            <label htmlFor='client-address'>ADDRESS</label>
 
             <input
-              type="text"
-              name="client-address"
+              type='text'
+              name='client-address'
               value={clientAddress}
-              placeholder="insert address..."
+              placeholder='insert address...'
               onChange={(e) => setClientAddress(e.target.value)}
             />
-            <label htmlFor="client-phone-number">PHONE NUMBER</label>
+            <label htmlFor='client-phone-number'>PHONE NUMBER</label>
 
             <input
-              type="text"
-              name="client-phone-number"
+              type='text'
+              name='client-phone-number'
               value={clientPhoneNumber}
-              placeholder="insert phone number..."
+              placeholder='insert phone number...'
               onChange={(e) => setClientPhoneNumber(e.target.value)}
             />
-            <label htmlFor="client-email">EMAIL ADDRESS</label>
+            <label htmlFor='client-email'>EMAIL ADDRESS</label>
 
             <input
-              type="text"
-              name="client-email"
+              type='text'
+              name='client-email'
               value={clientEmail}
-              placeholder="insert email address..."
+              placeholder='insert email address...'
               onChange={(e) => setClientEmail(e.target.value)}
             />
           </div>
-          <div className="job-details-container">
+          <div className='job-details-container'>
             <h2>Job Details</h2>
 
-            <label htmlFor="description">DESCRIPTION</label>
+            <label htmlFor='description'>DESCRIPTION</label>
 
             <input
-              type="text"
-              name="description"
+              type='text'
+              name='description'
               value={description}
-              placeholder="Insert a description..."
+              placeholder='Insert a description...'
               onChange={(e) => setDescription(e.target.value)}
             />
 
-            <label htmlFor="rate">RATE</label>
+            <label htmlFor='rate'>RATE</label>
             <input
-              type="text"
-              name="rate"
+              type='text'
+              name='rate'
               value={rate}
-              placeholder="Insert a venue..."
+              placeholder='Insert a venue...'
               onChange={(e) => setRate(e.target.value)}
             />
-            <label htmlFor="quantity">QUANTITY</label>
+            <label htmlFor='quantity'>QUANTITY</label>
             <input
-              type="text"
-              name="quantity"
+              type='text'
+              name='quantity'
               value={quantity}
-              placeholder="Insert a venue..."
+              placeholder='Insert a venue...'
               onChange={(e) => setQuantity(e.target.value)}
             />
 
-            <label htmlFor="date">DUE BY</label>
+            <label htmlFor='date'>DUE BY</label>
 
             <input
-              type="datetime-local"
-              name="date"
+              type='datetime-local'
+              name='date'
               value={date}
-              placeholder="Date"
+              placeholder='Date'
               onChange={(e) => setDate(e.target.value)}
             />
           </div>
 
-          <input type="submit" />
+          <input type='submit' />
         </div>
       </form>
-    </div> 
-    
-  )
-}
+    </div>
+  );
+};
 
-export default InvoiceForm
-
+export default InvoiceForm;
