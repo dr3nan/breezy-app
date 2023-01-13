@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
                   </Link>
                 </div>
                 <div>
-                  <Link href='/invoices'>
+                  <Link href='/invoice-list'>
                     <h1 className='bg-pink-300'>INVOICES</h1>
                   </Link>
                 </div>

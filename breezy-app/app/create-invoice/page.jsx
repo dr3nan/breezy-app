@@ -3,8 +3,8 @@ import { getData, submitData } from '../../utils/dataFetch';
 
 export default async function CreateInvoice(data) {
   const invoice = await submitData(data);
-  console.log(data);
-  console.log(invoice);
+  // console.log(data);
+  // console.log(invoice);
 
   return (
     <div>
