@@ -1,5 +1,4 @@
 import InvoiceForm from '../../components/invoice-form';
-import { getData, submitData } from '../../utils/dataFetch';
 
 export default async function CreateInvoice() {
   

@@ -5,12 +5,12 @@ import '../components/displayClient.css';
 import React from 'react';
 import Link from 'next/link';
 
-function DisplayClients({ clientData }) {
+function DisplayClients({ clientData}) {
   console.log(clientData);
   return (
     <div className='container'>
       <div className='grid'>
-        <Link href="/create-invoice">
+        <Link href={`/invoice/${clientData._id}`}>
 
         <div className='box'>
           <p>{clientData.clientFullName}</p>

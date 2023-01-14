@@ -7,7 +7,6 @@ import DisplayInvoiceList from '../../components/displayInvoiceList';
 export default async function FetchInvoiceList() {
     const data = await getData();
     
-    console.log(data);
     return (
       <div>
         {data.map((data) => (

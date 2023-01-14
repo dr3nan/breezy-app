@@ -6,17 +6,7 @@ export default async function FetchInvoice({ params }) {
   const id = params.id;
   const data = await getDataById(id);
 
-  const {
-    fullName,
-    phoneNumber,
-    email,
-    clientFullName,
-    clientAddress,
-    clientPhoneNumber,
-    clientEmail,
-    quantity,
-    date,
-  } = data;
+  console.log(data);
 
   return (
     <div>
@@ -24,3 +14,15 @@ export default async function FetchInvoice({ params }) {
     </div>
   );
 }
+
+// const {
+//   fullName,
+//   phoneNumber,
+//   email,
+//   clientFullName,
+//   clientAddress,
+//   clientPhoneNumber,
+//   clientEmail,
+//   quantity,
+//   date,
+// } = data;

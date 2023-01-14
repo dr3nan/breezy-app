@@ -50,10 +50,10 @@ function DisplayInvoice({ invoice }) {
             <p>{invoice.email}</p>
           </div>
           <div className='flex flex-col justify-self-end '>
-            <h2>{invoice.fullName}</h2>
-            <p>{invoice.address}</p>
-            <p>{invoice.phoneNumber}</p>
-            <p>{invoice.email}</p>
+            <h2>{invoice.clientFullName}</h2>
+            <p>{invoice.clientAddress}</p>
+            <p>{invoice.clientPhoneNumber}</p>
+            <p>{invoice.clientEmail}</p>
           </div>
         </div>
         <div className='client-details'>
