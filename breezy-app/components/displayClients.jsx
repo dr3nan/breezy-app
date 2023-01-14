@@ -6,7 +6,7 @@ import React from 'react';
 import Link from 'next/link';
 
 function DisplayClients({ clientData}) {
-  console.log(clientData);
+
   return (
     <div className='container'>
       <div className='grid'>

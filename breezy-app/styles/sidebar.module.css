@@ -1,0 +1,31 @@
+.pageContainer {
+  display: flex;
+  /* flex-direction: column; */
+/* justify-content: center;   */
+/* align-content: center; */
+}
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  /* justify-self: flex-start; */
+  justify-content: space-between;
+  height: 100vh;
+  width: 35vh;
+  background-color: rgb(191,219,254);
+  font-size: 30px;
+}
+.logo {
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+
+  align-content: space-between;
+  padding: 50px;
+
+
+}
