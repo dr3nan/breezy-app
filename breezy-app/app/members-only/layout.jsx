@@ -4,14 +4,14 @@ import '../../styles/globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../public/For Web/png/Black logo - no background.png';
-// import React from 'react';
+import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import Login from './login';
 import Profile from './profile';
 import Logout from './logout';
 // import { useUser } from '@auth0/nextjs-auth0/client';
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang='en'>
       <head />
@@ -26,22 +26,22 @@ export default function RootLayout({ children }) {
               <div className=' mt-40'>
                 <div className=' space-y-10'>
                   <div>
-                    <Link href='/create-invoice'>
+                    <Link href='/members-only/create-invoice'>
                       <h1 className='bg-red-300'>CREATE INVOICE</h1>
                     </Link>
                   </div>
                   <div>
-                    <Link href='/invoice-list'>
+                    <Link href='/members-only/invoice-list'>
                       <h1 className='bg-pink-300'>INVOICES</h1>
                     </Link>
                   </div>
                   <div>
-                    <Link href='/clients'>
+                    <Link href='/members-only/clients'>
                       <h1 className='bg-green-300'>CLIENTS</h1>
                     </Link>
                   </div>
                   <div>
-                    <Link href='/stats'>
+                    <Link href='/members-only/stats'>
                       <h1 className='bg-orange-300'>STATS</h1>
                     </Link>
                   </div>

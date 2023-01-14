@@ -1,5 +1,5 @@
-import { getDataById } from '../../../utils/dataFetch';
-import DisplayInvoice from '../../../components/displayInvoice';
+import { getDataById } from '../../../../utils/dataFetch';
+import DisplayInvoice from '../../../../components/displayInvoice';
 import React from 'react';
 
 export default async function FetchInvoice({ params }) {

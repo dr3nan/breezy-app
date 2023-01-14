@@ -10,7 +10,7 @@ function DisplayClients({ clientData}) {
   return (
     <div className='container'>
       <div className='grid'>
-        <Link href={`/invoice/${clientData._id}`}>
+        <Link href={`/members-only/invoice/${clientData._id}`}>
 
         <div className='box'>
           <p>{clientData.clientFullName}</p>

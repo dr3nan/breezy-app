@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@900&display=swap');
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: red; 
+  height: 20vh;
+  background: rgb(191,219,254);
+background: radial-gradient(circle, rgba(191,219,254,1) 4%, rgba(226,235,241,1) 100%);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgb(255, 255, 255);
+}
+
+.logo {
+  padding: 20px;
+  margin-left: 50px;
+  display: flex;
+}
+
+.container { 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  height: 40vh;
+  margin-top: 150px;
+  float:center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 50px;
+  
+}
+
+.loginBox {
+  padding: 40px;
+  margin: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-color: black;
+}
+

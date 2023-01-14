@@ -9,7 +9,7 @@ function DisplayInvoiceList({ invoiceData }) {
   return (
     <div className="container">
       <div className='grid'>
-      <Link href={`/invoice/${invoiceData._id}`}>
+      <Link href={`/members-only/invoice/${invoiceData._id}`}>
 
         <div className='box' id='invoice-box'>
           <p>{invoiceData.fullName}</p>
