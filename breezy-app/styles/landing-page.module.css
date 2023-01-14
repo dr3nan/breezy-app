@@ -8,10 +8,8 @@
   color: red; 
   height: 20vh;
   background: rgb(191,219,254);
-background: radial-gradient(circle, rgba(191,219,254,1) 4%, rgba(226,235,241,1) 100%);
-  border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
 }
 
 .logo {
@@ -34,10 +32,16 @@ background: radial-gradient(circle, rgba(191,219,254,1) 4%, rgba(226,235,241,1) 
 }
 
 .loginBox {
+  display: flex;
+  flex-wrap: wrap;
   padding: 40px;
   margin: 20px;
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-color: black;
+}
+
+.loginBox:hover {
+  opacity: 0.5;
 }
 

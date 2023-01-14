@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
   margin: 0;
-  background-color: #e5e5f7;
-
+  background-color: #f0f0fd;
+  font-size: 20px;
 }
