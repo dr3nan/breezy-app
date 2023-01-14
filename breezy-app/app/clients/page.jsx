@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import picture1 from '../../public/pexels-pixabay-268533.jpeg';
+
 import React from 'react';
 import DisplayClients from '../../components/displayClients';
 import { getData } from '../../utils/dataFetch';

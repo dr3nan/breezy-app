@@ -1,5 +1,4 @@
 
-import Link from 'next/link';
 import { getData } from '../../utils/dataFetch';
 import React from 'react';
 import DisplayInvoiceList from '../../components/displayInvoiceList';
