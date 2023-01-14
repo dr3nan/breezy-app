@@ -1,14 +1,14 @@
 // 'use client'
 
-import '../styles/globals.css';
+import '../../styles/globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../public/For Web/png/Black logo - no background.png';
+import Logo from '../../public/For Web/png/Black logo - no background.png';
 // import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-// import Login from './login';
-// import Profile from './profile';
-// import Logout from './logout';
+import Login from './login';
+import Profile from './profile';
+import Logout from './logout';
 // import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function RootLayout({ children }) {
@@ -51,19 +51,18 @@ export default function RootLayout({ children }) {
                       <h1 className='bg-purple-300'>HOME</h1>
                     </Link>
                   </div>
-                  
-                  {/* <div>
+                  <div>
                     <Login></Login>
                   </div>
                   <div>
                     <Logout></Logout>
                   </div>
-                  <Profile></Profile> */}
+                  <Profile></Profile>
                 </div>
               </div>
             </div>
 
-            {/* <div className='container'>{children}</div> */}
+            <div className='container'>{children}</div>
           </main>
         </body>
       </UserProvider>
