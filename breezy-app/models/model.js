@@ -54,6 +54,10 @@ const userSchema = new Schema({
     type: Date,
     required: false,
   },
+  status: {
+    type: Boolean,
+    required: false 
+  }
 });
 
 const User = models.User || model('User', userSchema);

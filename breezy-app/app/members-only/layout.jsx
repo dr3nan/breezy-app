@@ -6,8 +6,8 @@ import Logo from '../../public/For Web/png/Black logo - no background.png';
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import Profile from './profile';
+import Logout from './logout';
 
-// import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Layout({ children }) {
   return (
@@ -40,6 +40,7 @@ export default function Layout({ children }) {
               </Link>
             </div>
           </div>
+          <Logout></Logout>
           <div className={styles.logout}>LOGOUT BUTTON</div>
         </div>
       {children}

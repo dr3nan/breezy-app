@@ -1,8 +1,6 @@
 .pageContainer {
   display: flex;
-  /* flex-direction: column; */
-/* justify-content: center;   */
-/* align-content: center; */
+
 }
 
 
@@ -15,6 +13,13 @@
   width: 35vh;
   background-color: rgb(191,219,254);
   font-size: 30px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 .logo {
   padding: 20px;

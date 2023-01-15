@@ -4,6 +4,7 @@ import '../components/displayClient.css';
 
 import React from 'react';
 import Link from 'next/link';
+import { Button } from '@chakra-ui/react';
 
 function DisplayClients({ clientData}) {
 
