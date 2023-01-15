@@ -1,39 +1,32 @@
-/* .form-container {
-
-  
-  width: 70%;
-  margin-left: 100px;
-  padding: 15px;
-  color: black;
-  border-radius: 10px;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-} */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@900&display=swap');
 
 .form-container {
-  padding: 25px;
+  padding: 50px;
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .people-details-container{
   display: flex;
+  justify-content:space-evenly;
+
   
 }
 
 .personal-details-container {
   max-height: 20%;
-  border-color: black;
+
   border-style: solid;
   border-radius: 10px;
   border-width: 2px;
-  max-width: 50%;
+  max-width: 40%;
   padding: 15px;
 }
 .client-details-container {
 
   flex-direction: column;
-  max-width: 50%;
-  border-color: black;
+  max-width: 40%;
+
   border-style: solid;
   border-radius: 10px;
   border-width: 2px;
@@ -42,17 +35,15 @@
 }
 
 .job-details-container {
-  border-color: black;
+
   border-style: solid;
   border-radius: 10px;
   border-width: 2px;
   padding: 15px;
+  max-width: 40%;
+
 }
 
-
-.form-container h2 {
-  color: black;
-}
 
 input[type='text'],
 [type='datetime-local'],
@@ -69,18 +60,18 @@ select {
 }
 
 input[type='submit'] {
-  width:50%;
-  background-color: #fdffa0;
+
+  background-color: rgb(191,219,254);
   color: rgb(0, 0, 0);
   padding: 14px 20px;
   margin: 8px 0;
-
+  margin-left: 100px;
   border-radius: 10px;
   cursor: pointer;
 }
-input[type='submit']:hover {
+/* input[type='submit']:hover {
   opacity: 90%;
-}
+} */
 
 h2 {
   font-size: 30px;

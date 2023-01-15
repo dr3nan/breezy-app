@@ -28,9 +28,15 @@
 .info {
   display: flex;
   flex-direction: column;
-
-  align-content: space-between;
+  /* align-content: space-between; */
   padding: 50px;
+  margin-bottom: 150px;
+  line-height: 80px;
+}
 
+.profile {
+  display: flex;
+  justify-content: flex-end;
+  /* align-self: flex-end; */
 
 }

@@ -3,7 +3,7 @@
 // import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
-export default function Profile() {
+export default function UserProfile() {
   const { user, error, isLoading } = useUser();
   console.log(user);
   if (isLoading) return <div>Loading...</div>;

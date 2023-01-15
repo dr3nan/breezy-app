@@ -1,9 +1,16 @@
-'use client'
+'use client';
 
-import React from "react";
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 export default function Logout() {
-  return <a href="/api/auth/logout"><Button>LOGOUT</Button></a>;
+  return (
+    <ChakraProvider>
+      <a href='/api/auth/logout'>
+        <Button colorScheme='teal' size='lg'>LOGOUT</Button>
+      </a>
+    </ChakraProvider>
+  );
 }
