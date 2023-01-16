@@ -8,8 +8,8 @@ export default async function FetchInvoice({ params }) {
   const id = params.id;
   const data = await getDataById(id);
   const invoice = data;
-  
-  console.log(invoice)
+
+  console.log(invoice);
 
   function GetDate(date) {
     date = new Date(date);
@@ -47,75 +47,71 @@ export default async function FetchInvoice({ params }) {
 
   return (
     <>
-    <div className='invoice-box'>
-      <table cellpadding='0' cellspacing='0'>
-        <tr className='top'>
-          <td colspan='2'>
-            <table>
-              <tr>
-                <td className='title'>
-                  <Image src={Logo} width={200}></Image>
-                </td>
+      <div className='invoice-box'>
+        <table cellpadding='0' cellspacing='0'>
+          <tr className='top'>
+            <td colspan='2'>
+              <table>
+                <tr>
+                  <td className='title'>
+                    <Image src={Logo} width={200}></Image>
+                  </td>
 
-                <td>
-                  Invoice #1
-                  <br />
-                  {currentDate}
-                  <br />
-                  {dueDate}
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+                  <td>
+                    Invoice #1
+                    <br />
+                    {currentDate}
+                    <br />
+                    {dueDate}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-        <tr className='information'>
-          <td colspan='2'>
-            <table>
-              <tr>
-                <td>
-                  {invoice.fullName}
-                  <br />
-                  {invoice.address}
-                  <br />
-                  {invoice.address}
-                </td>
+          <tr className='information'>
+            <td colspan='2'>
+              <table>
+                <tr>
+                  <td>
+                    {invoice.fullName}
+                    <br />
+                    {invoice.address}
+                    <br />
+                    {invoice.address}
+                  </td>
 
-                <td>
-                  {invoice.fullName}
-                  <br />
-                  {invoice.fullName}
-                  <br />
-                  {invoice.email}
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+                  <td>
+                    {invoice.fullName}
+                    <br />
+                    {invoice.fullName}
+                    <br />
+                    {invoice.email}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-        
+          <tr className='heading'>
+            <td>Item</td>
 
-        <tr className='heading'>
-          <td>Item</td>
+            <td>Price</td>
+          </tr>
 
-          <td>Price</td>
-        </tr>
+          <tr className='item'>
+            <td>{invoice.description}</td>
 
-        <tr className='item'>
-          <td>{invoice.description}</td>
+            <td>{invoice.rate}</td>
+          </tr>
 
-          <td>{invoice.rate}</td>
-        </tr>
+          <tr className='total'>
+            <td></td>
 
-        
-
-        <tr className='total'>
-          <td></td>
-
-          <td>{invoice.amount}</td>
-        </tr>
-      </table>
-    </div>
+            <td>{invoice.amount}</td>
+          </tr>
+        </table>
+      </div>
     </>
   );
 }
