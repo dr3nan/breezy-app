@@ -28,7 +28,6 @@ export default async function handler(req, res) {
         break;
         case 'DELETE':
         try {
-          console.log(req.query.id)
           const user = await User.findByIdAndDelete(req.query.id)
           res.status(201).json(user)
         } catch(e) {
@@ -36,6 +35,5 @@ export default async function handler(req, res) {
           res.status(400).json()
         }
   }
-  // res.end()
 }
 

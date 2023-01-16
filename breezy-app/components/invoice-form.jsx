@@ -208,9 +208,10 @@ const InvoiceForm = () => {
               <FormControl>
                 <FormLabel>Email full</FormLabel>
                 <Input type='email' />
-                <FormHelperText>We'll never share your email.</FormHelperText>
               </FormControl>
-          <Button type="submit" colorScheme='blue' size="lg">CREATE INVOICE</Button>
+              <Button type='submit' colorScheme='blue' size='lg'>
+                CREATE INVOICE
+              </Button>
             </div>
           </div>
           {/* </div> */}

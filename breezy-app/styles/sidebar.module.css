@@ -1,18 +1,16 @@
 .pageContainer {
   display: flex;
-
 }
-
 
 .sidebar {
   display: flex;
   flex-direction: column;
   /* justify-self: flex-start; */
-  justify-content: space-between;
+  /* justify-content: space-around; */
   height: 100vh;
-  width: 35vh;
-  background-color: rgb(191,219,254);
-  font-size: 30px;
+  width: 30vh;
+  background-color: rgb(191, 219, 254);
+  font-size: 20px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -25,18 +23,39 @@
   padding: 20px;
 }
 
-.info {
+.menuInfo {
   display: flex;
+  justify-items: center;
+  justify-content: space-evenly;
   flex-direction: column;
-  /* align-content: space-between; */
-  padding: 50px;
-  margin-bottom: 150px;
-  line-height: 80px;
+
+  /* padding: 50px; */
+  margin-top: 30px;
+  /* line-height: 50px; */
 }
 
+
+/* .menuItem {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+}
+.menuIcon {
+  display: flex;
+  position: absolute;
+  
+} */
 .profile {
   display: flex;
   justify-content: flex-end;
   /* align-self: flex-end; */
+}
 
+.logout {
+  display: flex;
+  margin-top: 100px;
+  /* justify-self: center; */
+  align-self: center;
 }

@@ -32,7 +32,6 @@ export default async function handler(req, res) {
       try {
         const user = await User.findOneAndUpdate(id, req.body)
         if (!user) {
-          console.log(req.body)
           return res.status(400).json({ success: false });
         }
         res.status(200).json(user);
