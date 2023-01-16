@@ -55,12 +55,16 @@ const userSchema = new Schema({
     required: false,
   },
   status: {
-    type: Boolean,
-    required: false 
+    type: Boolean,  
+    required: false
   }
+  
 });
 
 const User = models.User || model('User', userSchema);
 
 export default User;
+
+
+
 

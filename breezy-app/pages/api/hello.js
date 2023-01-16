@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     case 'GET':
       try {
         const user = await User.find({});
+        console.log(user)
         res.status(200).json(user);
 
       } catch (e) {

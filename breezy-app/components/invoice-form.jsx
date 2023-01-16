@@ -52,7 +52,8 @@ const InvoiceForm = () => {
       date,
     };
 
-    pushInvoice(newInvoiceData);
+    // pushInvoice(newInvoiceData); 
+    pushInvoice({...newInvoiceData, status:true})
 
     setFullName('');
     setAddress('');

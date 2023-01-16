@@ -3,39 +3,39 @@ import '../components/displayInvoice.css';
 import React from 'react';
 
 function DisplayInvoice({ invoice }) {
-  function GetDate(date) {
-    date = new Date(date);
+  // function GetDate(date) {
+  //   date = new Date(date);
 
-    let month = date.toLocaleString([], {
-      month: 'numeric',
-    });
-    let day = date.toLocaleString([], {
-      day: 'numeric',
-    });
+  //   let month = date.toLocaleString([], {
+  //     month: 'numeric',
+  //   });
+  //   let day = date.toLocaleString([], {
+  //     day: 'numeric',
+  //   });
 
-    let year = date.toLocaleString([], {
-      year: 'numeric',
-    });
+  //   let year = date.toLocaleString([], {
+  //     year: 'numeric',
+  //   });
 
-    if (month < 10) {
-      month = `0${month}`;
-    }
-    if (day < 10) {
-      day = `0${day}`;
-    }
+  //   if (month < 10) {
+  //     month = `0${month}`;
+  //   }
+  //   if (day < 10) {
+  //     day = `0${day}`;
+  //   }
 
-    const formatedDate = `${day}/${month}/${year}`;
+  //   const formatedDate = `${day}/${month}/${year}`;
 
-    return formatedDate;
-  }
+  //   return formatedDate;
+  // }
 
-  const amount = `£${invoice.quantity * invoice.rate}`;
-  const currentDate = GetDate(Date.now());
-  const dueDate = GetDate(invoice.date);
+  // const amount = `£${invoice.quantity * invoice.rate}`;
+  // const currentDate = GetDate(Date.now());
+  // const dueDate = GetDate(invoice.date);
 
-  const hardCodeDate = '13/01/2023'.toString();
+  // const hardCodeDate = '13/01/2023'.toString();
 
-  if (hardCodeDate === dueDate) console.log('true');
+  // if (hardCodeDate === dueDate) console.log('true');
 
   return (
     <></>

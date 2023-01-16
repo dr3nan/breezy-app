@@ -30,6 +30,7 @@
 }
 
 .loginBox {
+
   display: flex;
   flex-wrap: wrap;
   padding: 40px;
@@ -43,6 +44,29 @@
   opacity: 0.5;
 }
 
+.inputBox { 
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+
+  /* border-style: solid;
+  border-width: 10px; */
+}
+.input {
+  display: flex;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: black;
+
+}
+
+
+.payButton {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+}
 
 
 

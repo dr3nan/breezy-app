@@ -6,6 +6,9 @@ import Link from 'next/link';
 function DisplayInvoiceList({ invoiceData }) {
   
   console.log(invoiceData);
+
+  if(invoiceData.status === false) 
+
   return (
     <div className="container">
       <div className='grid'>
