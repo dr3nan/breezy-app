@@ -41,7 +41,9 @@
 }
 
 .loginBox:hover {
-  opacity: 0.5;
+  /* transition: transform 250ms, opacity 400ms;
+  transform: translateY(-10px) translateX(-10px); */
+  opacity: 0.4;
 }
 
 .inputBox { 

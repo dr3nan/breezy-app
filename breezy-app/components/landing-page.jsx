@@ -21,8 +21,6 @@ export default function LandingPage() {
     setInputValue('')
   }
 
-  console.log(inputValue);
-
   return (
     <>
       <div className={styles.header}>
@@ -49,9 +47,9 @@ export default function LandingPage() {
         </div>
       </div>
       <div className={styles.inputBox}>
-        <span className={styles.input}>
+        {/* <span className={styles.input}> */}
           {showInput && (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.input}>
               <input
               onChange={(e) => setInputValue(e.target.value)}
               value={inputValue}
@@ -61,10 +59,6 @@ export default function LandingPage() {
 
             </form>
           )}
-        </span>
-        <span className={styles.button}>
-          {showInput && <button>Submit</button>}
-        </span>
       </div>
     </>
   );

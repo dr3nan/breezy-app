@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import connectMongo from '../../utils/connectMongo'
-import User from '../../models/model'
+import Invoice from '../../models/model'
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -9,9 +9,9 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const user = await User.find({});
-        console.log(user)
-        res.status(200).json(user);
+        const invoice = await Invoice.find({});
+
+        res.status(200).json(invoice);
 
       } catch (e) {
         res.status(400).json({ success: false });
@@ -20,8 +20,8 @@ export default async function handler(req, res) {
       case 'POST':
         try {
           
-          const user = await User.create(req.body)
-          res.status(201).json(user)
+          const invoice = await Invoice.create(req.body)
+          res.status(201).json(invoice)
         } catch(e) {
           console.log(e)
           res.status(400).json(req.body)
@@ -29,8 +29,8 @@ export default async function handler(req, res) {
         break;
         case 'DELETE':
         try {
-          const user = await User.findByIdAndDelete(req.query.id)
-          res.status(201).json(user)
+          const invoice = await Invoice.findByIdAndDelete(req.query.id)
+          res.status(201).json(invoice)
         } catch(e) {
           console.log(e)
           res.status(400).json()

@@ -2,7 +2,7 @@
 import { Schema, model, models } from 'mongoose';
 
 
-const userSchema = new Schema({
+const invoiceSchema = new Schema({
   fullName: {
     type: String,
     required: false,
@@ -54,16 +54,16 @@ const userSchema = new Schema({
     type: Date,
     required: false,
   },
-  status: {
+  paid: {
     type: Boolean,  
     required: false
   }
   
 });
 
-const User = models.User || model('User', userSchema);
+const Invoice = models.Invoice|| model('Invoice', invoiceSchema);
 
-export default User;
+export default Invoice;
 
 
 

@@ -14,7 +14,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-const InvoiceForm = () => {
+function InvoiceForm() {
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -52,8 +52,7 @@ const InvoiceForm = () => {
       date,
     };
 
-    // pushInvoice(newInvoiceData); 
-    pushInvoice({...newInvoiceData, status:true})
+    pushInvoice({...newInvoiceData, paid:false})
 
     setFullName('');
     setAddress('');
@@ -122,7 +121,7 @@ const InvoiceForm = () => {
                 />
               </FormControl>
 
-              <h2>CLIENT DETAILS</h2>
+              <h2>Client Details</h2>
 
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
@@ -170,15 +169,16 @@ const InvoiceForm = () => {
             <div className='job-details-container'>
               <h2>Job Details</h2>
 
-              <label htmlFor='description'>DESCRIPTION</label>
-
-              <input
-                type='text'
-                name='description'
-                value={description}
-                placeholder='Insert a description...'
-                onChange={(e) => setDescription(e.target.value)}
-              />
+              <FormControl>
+                <FormLabel>Description</FormLabel>
+                <Input
+                  type='text'
+                  name='description'
+                  value={description}
+                  placeholder='insert description'
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </FormControl>
 
               <label htmlFor='rate'>RATE</label>
               <input
@@ -187,14 +187,6 @@ const InvoiceForm = () => {
                 value={rate}
                 placeholder='Insert a venue...'
                 onChange={(e) => setRate(e.target.value)}
-              />
-              <label htmlFor='quantity'>QUANTITY</label>
-              <input
-                type='text'
-                name='quantity'
-                value={quantity}
-                placeholder='Insert a venue...'
-                onChange={(e) => setQuantity(e.target.value)}
               />
 
               <label htmlFor='date'>DUE BY</label>
@@ -206,10 +198,7 @@ const InvoiceForm = () => {
                 placeholder='Date'
                 onChange={(e) => setDate(e.target.value)}
               />
-              <FormControl>
-                <FormLabel>Email full</FormLabel>
-                <Input type='email' />
-              </FormControl>
+      
               <Button type='submit' colorScheme='blue' size='lg'>
                 CREATE INVOICE
               </Button>

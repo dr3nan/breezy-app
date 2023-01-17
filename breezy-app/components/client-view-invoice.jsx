@@ -4,99 +4,125 @@ import React from 'react';
 import styles from '../styles/landing-page.module.css';
 import Image from 'next/image';
 import Logo from '../public/Black logo - no background.png';
-import { Box, ChakraProvider } from '@chakra-ui/react'
-import { BsArrowRight } from 'react-icons/bs';
+import { ChakraProvider } from '@chakra-ui/react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import DisplayInvoice from './displayInvoice';
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, ButtonGroup } from '@chakra-ui/react';
+import { updateData } from '../utils/dataFetch';
 
-export default function ClientViewInvoice({invoice, dueDate, currentDate, amount}) {
+export default function ClientViewInvoice({
+  invoice,
+  dueDate,
+  currentDate,
+  amount,
+}) {
+  const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
 
-  
+  const updateStatus = async (invoice) => {
+    const newInvoiceStatus = await updateData(invoice._id, invoice);
+    setInvoiceStatus(newInvoiceStatus.paid);
+  };
+
+  function handleOnClick() {
+    updateStatus({ ...invoice, paid: true });
+  }
+
+  // if (invoiceStatus === true)
   return (
     <>
-     <ChakraProvider>
-      <div className={styles.header}>
-        <div className={styles.logo}>
-          <Image src={Logo} height={120} priority alt='logo' />
+      <ChakraProvider>
+        <div className={styles.header}>
+          <div className={styles.logo}>
+            <Image src={Logo} height={120} alt='logo' priority />
+          </div>
         </div>
-      </div>
-      <div className={styles.container}>
-        <div className='invoice-box'>
-          <table cellpadding='0' cellspacing='0'>
-            <tr className='top'>
-              <td colspan='2'>
-                <table>
-                  <tr>
-                    <td className='title'>
-                      <Image src={Logo} width={200}></Image>
-                    </td>
+        <div className={styles.container}>
+          {invoiceStatus ? (
+            <div>
+              <h1>Thanks for your payment!</h1>
+              <a href='/'>
+                <Button bg='#bfdbfe' size='lg'>
+                  BACK TO HOME
+                </Button>
+              </a>
+            </div>
+          ) : (
+            <div className='invoice-box'>
+              <table cellpadding='0' cellspacing='0'>
+                <tr className='top'>
+                  <td colspan='2'>
+                    <table>
+                      <tr>
+                        <td className='title'>
+                          <Image src={Logo} width={200} alt='logo'></Image>
+                        </td>
 
-                    <td>
-                      Invoice #1
-                      <br />
-                      {currentDate}
-                      <br />
-                      {dueDate}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+                        <td>
+                          {invoice.length}
+                          <br />
+                          {currentDate}
+                          <br />
+                          {dueDate}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
-            <tr className='information'>
-              <td colspan='2'>
-                <table>
-                  <tr>
-                    <td>
-                      {invoice.fullName}
-                      <br />
-                      {invoice.address}
-                      <br />
-                      {invoice.address}
-                    </td>
+                <tr className='information'>
+                  <td colspan='2'>
+                    <table>
+                      <tr>
+                        <td>
+                          {invoice.fullName}
+                          <br />
+                          {invoice.address}
+                          <br />
+                          {invoice.address}
+                        </td>
 
-                    <td>
-                      {invoice.fullName}
-                      <br />
-                      {invoice.fullName}
-                      <br />
-                      {invoice.email}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+                        <td>
+                          {invoice.fullName}
+                          <br />
+                          {invoice.fullName}
+                          <br />
+                          {invoice.email}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
-            <tr className='heading'>
-              <td>Item</td>
+                <tr className='heading'>
+                  <td>Item</td>
 
-              <td>Price</td>
-            </tr>
+                  <td>Price</td>
+                </tr>
 
-            <tr className='item'>
-              <td>{invoice.description}</td>
+                <tr className='item'>
+                  <td>{invoice.description}</td>
 
-              <td>{invoice.rate}</td>
-            </tr>
+                  <td>{invoice.rate}</td>
+                </tr>
 
-            <tr className='total'>
-              <td></td>
+                <tr className='total'>
+                  <td></td>
 
-              <td>{invoice.amount}</td>
-            </tr>
-          </table>
+                  <td>{invoice.amount}</td>
+                </tr>
+              </table>
+              <div className={styles.payButton}>
+                {!invoiceStatus ? (
+                  <Button onClick={handleOnClick} bg='#bfdbfe'>
+                    PAY INVOICE
+                  </Button>
+                ) : (
+                  'paid!'
+                )}
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-      <div className = {styles.payButton}>
-   
-      <Button bg = '#bfdbfe'>PAY INVOICE</Button>
-      </div>
-
-
-     </ChakraProvider>
-
+      </ChakraProvider>
     </>
   );
 }

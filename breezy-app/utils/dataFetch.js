@@ -34,3 +34,20 @@ export async function submitData(data) {
     console.log(error);
   }
 }
+
+export async function updateData(id, data) {
+  try {
+    // delete data._id;
+
+    const res = await fetch(`${uri}/api/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
