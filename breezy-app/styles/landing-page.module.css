@@ -30,7 +30,6 @@
 }
 
 .loginBox {
-
   display: flex;
   flex-wrap: wrap;
   padding: 40px;
@@ -38,6 +37,9 @@
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-color: black;
+}
+.arrow { 
+padding: 18px;
 }
 
 .loginBox:hover {
@@ -50,17 +52,14 @@
   display: flex;
   font-size: 25px;
   justify-content: center;
-
-  /* border-style: solid;
-  border-width: 10px; */
 }
+
 .input {
   display: flex;
   border-style: solid;
   border-width: 2px;
   border-radius: 10px;
   border-color: black;
-
 }
 
 

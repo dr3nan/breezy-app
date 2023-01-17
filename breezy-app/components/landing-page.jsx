@@ -5,11 +5,12 @@ import styles from '../styles/landing-page.module.css';
 import Image from 'next/image';
 import logo from '../public/Black logo - no background.png';
 import { BsArrowRight } from 'react-icons/bs';
+
 import { useState } from 'react';
-import {useRouter} from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 export default function LandingPage() {
-  const router = useRouter()
+  const router = useRouter();
   const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('');
 
   const [showInput, setShowInput] = useState(false);
@@ -17,8 +18,8 @@ export default function LandingPage() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    router.push(`/pay-invoice/${inputValue}`)
-    setInputValue('')
+    router.push(`/pay-invoice/${inputValue}`);
+    setInputValue('');
   }
 
   return (
@@ -33,7 +34,7 @@ export default function LandingPage() {
           <a href='/members-only'>
             <h2>Freelancer Login </h2>
           </a>
-          <span>
+          <span className={styles.arrow}>
             <BsArrowRight />
           </span>
         </div>
@@ -41,24 +42,23 @@ export default function LandingPage() {
           <button onClick={() => setShowInput(!showInput)}>
             <h2>Pay An Invoice</h2>
           </button>
-          <span>
+          <span className={styles.arrow}>
             <BsArrowRight />
           </span>
         </div>
       </div>
       <div className={styles.inputBox}>
         {/* <span className={styles.input}> */}
-          {showInput && (
-            <form onSubmit={handleSubmit} className={styles.input}>
-              <input
+        {showInput && (
+          <form onSubmit={handleSubmit} className={styles.input}>
+            <input
               onChange={(e) => setInputValue(e.target.value)}
               value={inputValue}
               type='text'
               placeholder='Insert PO number'
             />
-
-            </form>
-          )}
+          </form>
+        )}
       </div>
     </>
   );

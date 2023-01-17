@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { BsGrid3X3GapFill } from 'react-icons/bs';
 
@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Logo from '../../public/For Web/png/Black logo - no background.png';
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-// import { ChakraProvider} from '@chakra-ui/react';
+import { ChakraProvider} from '@chakra-ui/react';
 
 
 import Logout from './logout';
@@ -33,7 +33,7 @@ export default function Layout({ children }) {
   const keyProp = 1 
   return (
     <UserProvider>
-      {/* <ChakraProvider> */}
+      <ChakraProvider>
         <div className={styles.pageContainer}>
           <div className={styles.sidebar}>
             <div className={styles.logo}>
@@ -43,7 +43,8 @@ export default function Layout({ children }) {
             <ul key = {keyProp}>
               {menus.map((menu, index) => (
                 <>
-                  <li key={menu} className={styles.menuInfo} >
+                  <li key ={index}className={styles.menuInfo} >
+                  {console.log(index)} 
                     <span className={styles.menuIcon}>
                       <BsGrid3X3GapFill />
                     </span>
@@ -61,37 +62,9 @@ export default function Layout({ children }) {
           </div>
           {children}
         </div>
-      {/* </ChakraProvider> */}
+      </ChakraProvider>
     </UserProvider>
   );
 }
 
-{
-  /* <div className={styles.menuItem}>
-                <span>
-                  <BsGrid3X3GapFill />
-                </span>
-                <span>
-                  <Link href='/members-only/create-invoice'>
-                    <p> Create Invoice</p>
-                  </Link>
-                </span>
-                
-              </div>
-              <div>
-                <Link href='/members-only/invoice-list'>
-                  <p className=''> Invoices</p>
-                </Link>
-              </div>
-              <div>
-                <Link href='/members-only/clients'>
-                  <p className=''>Clients</p>
-                </Link>
-              </div>
-              <div>
-                <Link href='/members-only/stats'>
-                  <p className=''>Stats</p>
-                </Link>
-              </div>
-            </div> */
-}
+

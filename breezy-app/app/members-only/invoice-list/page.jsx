@@ -9,7 +9,7 @@ export default async function FetchInvoiceList() {
 
   return (
     <>
-      <table class='GeneratedTable'>
+      <table className='GeneratedTable'>
         <thead>
           <tr>
             <th>Invoice</th>
