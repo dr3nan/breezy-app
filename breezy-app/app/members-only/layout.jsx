@@ -47,9 +47,6 @@ export default function Layout({ children }) {
                   <span className = {styles.menuIcon}>
                     {menu.icon } 
                     </span> 
-                    {/* <span className={styles.menuIcon}>
-                      <BsGrid3X3GapFill />
-                    </span> */}
                     <Link href={menu.link}>
                       <span className={styles.menuItem}>{menu.title}</span>
                     </Link>

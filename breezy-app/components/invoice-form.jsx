@@ -23,6 +23,7 @@ function InvoiceForm() {
   const [clientAddress, setClientAddress] = useState('');
   const [clientPhoneNumber, setClientPhoneNumber] = useState('');
   const [clientEmail, setClientEmail] = useState('');
+  const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('')
   const [description, setDescription] = useState('');
   const [rate, setRate] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -46,6 +47,7 @@ function InvoiceForm() {
       clientAddress,
       clientPhoneNumber,
       clientEmail,
+      purchaseOrderNumber,
       description,
       rate,
       quantity,
@@ -65,6 +67,7 @@ function InvoiceForm() {
     setClientEmail('');
 
     setDescription('');
+    setPurchaseOrderNumber('')
     setRate('');
     setQuantity('');
     setDate('');
@@ -76,7 +79,8 @@ function InvoiceForm() {
         <div className='form-container'>
           <div className='people-details-container'>
             <div className='personal-details-container'>
-              <h2>Personal Details</h2>
+            <h2><strong>Personal Details</strong></h2>
+              <br/>
 
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
@@ -84,7 +88,7 @@ function InvoiceForm() {
                   type='text'
                   name='client-full'
                   value={fullName}
-                  placeholder='insert full'
+                  placeholder='Insert full name...'
                   onChange={(e) => setFullName(e.target.value)}
                 />
               </FormControl>
@@ -95,7 +99,7 @@ function InvoiceForm() {
                   type='text'
                   name='phone-number'
                   value={address}
-                  placeholder='insert address...'
+                  placeholder='Insert address...'
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </FormControl>
@@ -105,7 +109,7 @@ function InvoiceForm() {
                   type='text'
                   name='phone-number'
                   value={phoneNumber}
-                  placeholder='insert phone number...'
+                  placeholder='Insert phone number...'
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </FormControl>
@@ -116,12 +120,14 @@ function InvoiceForm() {
                   type='email'
                   name='email-address'
                   value={email}
-                  placeholder='insert email address'
+                  placeholder='Insert email address...'
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
+              <br/>
 
-              <h2>Client Details</h2>
+              <h2><strong>Client Details</strong></h2>
+              <br/>
 
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
@@ -129,7 +135,7 @@ function InvoiceForm() {
                   type='text'
                   name='client-full'
                   value={clientFullName}
-                  placeholder='insert full'
+                  placeholder='Insert full name...'
                   onChange={(e) => setClientFullName(e.target.value)}
                 />
               </FormControl>
@@ -140,7 +146,7 @@ function InvoiceForm() {
                   type='text'
                   name='client-address'
                   value={clientAddress}
-                  placeholder='insert full'
+                  placeholder='Insert Address...'
                   onChange={(e) => setClientAddress(e.target.value)}
                 />
               </FormControl>
@@ -150,7 +156,7 @@ function InvoiceForm() {
                   type='text'
                   name='client-phone-number'
                   value={clientPhoneNumber}
-                  placeholder='insert phone number...'
+                  placeholder='Insert phone number...'
                   onChange={(e) => setClientPhoneNumber(e.target.value)}
                 />
               </FormControl>
@@ -165,9 +171,21 @@ function InvoiceForm() {
                   onChange={(e) => setClientEmail(e.target.value)}
                 />
               </FormControl>
+           
             </div>
             <div className='job-details-container'>
-              <h2>Job Details</h2>
+              <h2><strong>Job Details</strong></h2>
+              <br/>
+              <FormControl>
+                <FormLabel>PO Number</FormLabel>
+                <Input
+                  type='text'
+                  name='po-number'
+                  value={purchaseOrderNumber}
+                  placeholder='insert Purchase Order Number...'
+                  onChange={(e) => setPurchaseOrderNumber(e.target.value)}
+                />
+              </FormControl>
 
               <FormControl>
                 <FormLabel>Description</FormLabel>
@@ -175,33 +193,35 @@ function InvoiceForm() {
                   type='text'
                   name='description'
                   value={description}
-                  placeholder='insert description'
+                  placeholder='Insert description...'
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </FormControl>
 
-              <label htmlFor='rate'>RATE</label>
-              <input
-                type='text'
-                name='rate'
-                value={rate}
-                placeholder='Insert a venue...'
-                onChange={(e) => setRate(e.target.value)}
-              />
+              <FormControl>
+                <FormLabel>Rate</FormLabel>
+                <Input
+                  type='text'
+                  name='rate'
+                  value={rate}
+                  placeholder='Insert rate...'
+                  onChange={(e) => setRate(e.target.value)}
+                />
+              </FormControl>
 
-              <label htmlFor='date'>DUE BY</label>
-
-              <input
-                type='datetime-local'
-                name='date'
-                value={date}
-                placeholder='Date'
-                onChange={(e) => setDate(e.target.value)}
-              />
+              <FormControl>
+                <FormLabel>Due By</FormLabel>
+                <Input
+                  type='datetime-local'
+                  name='date'
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </FormControl>
       
-              <Button type='submit' colorScheme='blue' size='lg'>
+              <button type='submit'>
                 CREATE INVOICE
-              </Button>
+              </button>
             </div>
           </div>
           {/* </div> */}

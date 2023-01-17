@@ -28,5 +28,13 @@ table.GeneratedTable thead {
 }
 
 .filter-buttons {
-  background-color: blue;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
