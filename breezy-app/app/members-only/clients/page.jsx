@@ -6,12 +6,15 @@ import { getData } from '../../../utils/dataFetch';
 export default async function FetchClients() {
   const data = await getData();
 
+  console.log(data._id)
+
   return (
     <>
       {data.map((data) => (
         <div key={data._id}>
+          {console.log(data._id)}
         {/* <Link href={`/invoice/${data._id}`}>Invoice: {data._id} Phone Number: {data.phoneNumber}</Link> */}
-        <DisplayClients  clientData = {data}/>
+        <DisplayClients  key={data._id} clientData = {data}/>
         </div>
       ))}
     </>

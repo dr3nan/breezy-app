@@ -167,7 +167,7 @@ function InvoiceForm() {
                   type='email'
                   name='client-phone-number'
                   value={clientEmail}
-                  placeholder='insert email address'
+                  placeholder='Insert email address'
                   onChange={(e) => setClientEmail(e.target.value)}
                 />
               </FormControl>
@@ -182,10 +182,12 @@ function InvoiceForm() {
                   type='text'
                   name='po-number'
                   value={purchaseOrderNumber}
-                  placeholder='insert Purchase Order Number...'
+                  placeholder='Insert purchase order number...'
                   onChange={(e) => setPurchaseOrderNumber(e.target.value)}
                 />
               </FormControl>
+
+              <button >Add Item</button>
 
               <FormControl>
                 <FormLabel>Description</FormLabel>
@@ -219,9 +221,8 @@ function InvoiceForm() {
                 />
               </FormControl>
       
-              <button type='submit'>
-                CREATE INVOICE
-              </button>
+              <input type='submit' value="CREATE INVOICE"/>
+             
             </div>
           </div>
           {/* </div> */}

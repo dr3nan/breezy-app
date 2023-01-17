@@ -3,10 +3,19 @@
 import '../components/displayInvoiceList.css';
 import React from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, ButtonGButton, roup, ChakraProvider } from '@chakra-ui/react';
+import { getData } from '../utils/dataFetch';
 
 function DisplayInvoiceList({ invoice }) {
+  const [invoiceList, setInvoiceList] = useState([])
+
+  useEffect(() => {
+    getData().then((data) => {
+      if (data) setInvoiceList(data);
+    });
+  }, []);
+
   console.log(invoice);
 
   const [isPaid, setPaidStatus] = useState([]);
@@ -27,7 +36,37 @@ function DisplayInvoiceList({ invoice }) {
     setPaidRender(false);
   }
 
-  // if(invoice[0].paid === false)
+  function GetDate(date) {
+    date = new Date(date);
+
+    let month = date.toLocaleString([], {
+      month: 'short',
+    });
+    let day = date.toLocaleString([], {
+      day: 'numeric',
+    });
+
+    let year = date.toLocaleString([], {
+      year: 'numeric',
+    });
+
+    if (month < 10) {
+      month = `0${month}`;
+    }
+    if (day < 10) {
+      day = `0${day}`;
+    }
+
+    const formatedDate = `${month} ${day}, ${year}`;
+    return formatedDate;
+  }
+
+  const currentDate = GetDate(Date.now());
+  const dueDate = GetDate(invoice.date);
+  console.log(invoice.date)
+  
+  const newDate = GetDate(invoice.date)
+
   return (
     <>
       <ChakraProvider>
@@ -43,7 +82,7 @@ function DisplayInvoiceList({ invoice }) {
             <tr>
               <th>Invoice</th>
               <th>Client</th>
-              <th>Date</th>
+              <th>Due Date</th>
               <th>Due</th>
             </tr>
           </thead>
@@ -58,7 +97,7 @@ function DisplayInvoiceList({ invoice }) {
                     </Link>
                   </td>
                   <td>{invoice.clientFullName}</td>
-                  <td>{invoice.date}</td>
+                  <td>{GetDate(invoice.date)}</td>
                   <td>£{invoice.rate}</td>
                 </tr>
               ))}
@@ -73,7 +112,7 @@ function DisplayInvoiceList({ invoice }) {
                     </Link>
                   </td>
                   <td>{invoice.clientFullName}</td>
-                  <td>{invoice.date}</td>
+                  <td>{GetDate(invoice.date)}</td>
                   <td>£{invoice.rate}</td>
                 </tr>
               ))}

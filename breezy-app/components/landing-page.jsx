@@ -5,16 +5,24 @@ import styles from '../styles/landing-page.module.css';
 import Image from 'next/image';
 import logo from '../public/Black logo - no background.png';
 import { BsArrowRight } from 'react-icons/bs';
+import { getData } from '../utils/dataFetch';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function LandingPage() {
   const router = useRouter();
-  const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('');
 
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState('');
+
+  const [invoice, setInvoiceList] = useState([])
+
+  useEffect(() => {
+    getData().then((data) => {
+      if (data) setInvoiceList(data);
+    });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

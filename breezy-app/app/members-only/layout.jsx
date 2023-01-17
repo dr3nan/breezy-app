@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare,BsFront} from 'react-icons/bs';
 
@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Logo from '../../public/For Web/png/Black logo - no background.png';
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-import { ChakraProvider} from '@chakra-ui/react';
+// import { ChakraProvider} from '@chakra-ui/react';
 
 
 import Logout from './logout';
@@ -33,7 +33,7 @@ export default function Layout({ children }) {
   const keyProp = 1 
   return (
     <UserProvider>
-      <ChakraProvider>
+      {/* <ChakraProvider> */}
         <div className={styles.pageContainer}>
           <div className={styles.sidebar}>
             <div className={styles.logo}>
@@ -61,7 +61,7 @@ export default function Layout({ children }) {
           </div>
           {children}
         </div>
-      </ChakraProvider>
+      {/* </ChakraProvider> */}
     </UserProvider>
   );
 }

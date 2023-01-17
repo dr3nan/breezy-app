@@ -54,11 +54,11 @@ export default async function FetchInvoice({ params }) {
                     INVOICE #1
                     <br />
                     <br/>
-                    <strong>PO Number:#</strong>
+                    <strong>PO Number:#{invoice.purchaseOrderNumber}</strong>
                     <br/>
                     <strong>Date:</strong> {currentDate}
                     <br />
-                    <strong>Due:</strong> {dueDate}
+                    <strong>Due:</strong> {dueDate === currentDate ? 'On Receipt' : dueDate}
                   </td>
                 </tr>
               </table>

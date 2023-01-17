@@ -1,6 +1,4 @@
-
 import { Schema, model, models } from 'mongoose';
-
 
 const invoiceSchema = new Schema({
   fullName: {
@@ -19,7 +17,7 @@ const invoiceSchema = new Schema({
     type: String,
     required: false,
   },
-  
+
   clientFullName: {
     type: String,
     required: false,
@@ -36,8 +34,19 @@ const invoiceSchema = new Schema({
     type: String,
     required: false,
   },
-
-  description: {
+  purchaseOrderNumber: {
+    type: Number,
+    required: false,
+  },
+  item1: {
+    type: String,
+    required: false,
+  },
+  item2: {
+    type: String,
+    required: false,
+  },
+  item3: {
     type: String,
     required: false,
   },
@@ -45,26 +54,17 @@ const invoiceSchema = new Schema({
     type: Number,
     required: false,
   },
-  quantity: {
-    type: Number,
-    require: false,
-  },
 
   date: {
     type: Date,
     required: false,
   },
   paid: {
-    type: Boolean,  
-    required: false
-  }
-  
+    type: Boolean,
+    required: false,
+  },
 });
 
-const Invoice = models.Invoice|| model('Invoice', invoiceSchema);
+const Invoice = models.Invoice || model('Invoice', invoiceSchema);
 
 export default Invoice;
-
-
-
-

@@ -24,13 +24,14 @@ table.GeneratedTable tr:hover {
 }
 
 table.GeneratedTable thead {
-  background-color: rgb(191,219,254)
+  background-color: rgb(220, 236, 255);
 }
 
 .filter-buttons {
  display: flex;
  align-items: center;
  justify-content: space-between;
+ 
 }
 
 .container {
