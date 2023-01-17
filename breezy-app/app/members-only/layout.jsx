@@ -1,6 +1,6 @@
 'use client';
 
-import { BsGrid3X3GapFill } from 'react-icons/bs';
+import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare,BsFront} from 'react-icons/bs';
 
 import '../../styles/globals.css';
 import Link from 'next/link';
@@ -16,18 +16,18 @@ import Logout from './logout';
 
 export default function Layout({ children }) {
   const menus = [
-    { title: 'Create Invoice', link: '/members-only/create-invoice' },
+    { title: 'Create Invoice', link: '/members-only/create-invoice', icon: <BsPencilSquare/> },
     {
       title: 'Invoices',
-      icon: <BsGrid3X3GapFill />,
+      icon: <BsFillFileEarmarkTextFill />,
       link: '/members-only/invoice-list',
     },
     {
       title: 'Clients',
-      icon: <BsGrid3X3GapFill />,
+      icon: < BsPeopleFill />,
       link: '/members-only/clients',
     },
-    { title: 'Dashboard', icon: <BsGrid3X3GapFill />, link: '/members-only/stats' },
+    { title: 'Dashboard', icon: <BsFront/>, link: '/members-only/stats' },
   ];
 
   const keyProp = 1 
@@ -40,14 +40,16 @@ export default function Layout({ children }) {
               <Image src={Logo} alt='breezy-logo' width={250} priority></Image>
             </div>
             
-            <ul key = {keyProp}>
+            <ul key = {keyProp} className={styles.menuItems}>
               {menus.map((menu, index) => (
                 <>
                   <li key ={index}className={styles.menuInfo} >
-                  {console.log(index)} 
-                    <span className={styles.menuIcon}>
+                  <span className = {styles.menuIcon}>
+                    {menu.icon } 
+                    </span> 
+                    {/* <span className={styles.menuIcon}>
                       <BsGrid3X3GapFill />
-                    </span>
+                    </span> */}
                     <Link href={menu.link}>
                       <span className={styles.menuItem}>{menu.title}</span>
                     </Link>

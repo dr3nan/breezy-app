@@ -5,8 +5,8 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  /* justify-self: flex-start; */
-  /* justify-content: space-around; */
+  justify-content: space-between;
+  align-items: center;
   height: 100vh;
   width: 30vh;
   background-color: rgb(191, 219, 254);
@@ -25,28 +25,31 @@
 
 .menuInfo {
   display: flex;
-  justify-items: center;
-  justify-content: space-evenly;
+  flex-direction: row; 
+  align-items: center;
+  justify-content:left;
+  /* justify-content: space-evenly;
   flex-direction: column;
-
-  /* padding: 50px; */
-  margin-top: 30px;
-  /* line-height: 50px; */
+  margin-top: 30px;  */
+}
+.menuItems {
+  display: flex;
+  flex-direction: column;
+  line-height: 50px;
+}
+.menuItem {
+  display: flex;
 }
 
-
-/* .menuItem {
-  display: flex;
-  position: relative;
-  align-items: center;
-  padding: 10px;
-  gap: 15px;
+.menuItem:hover {
+  opacity: 0.5;
 }
 .menuIcon {
-  display: flex;
-  position: absolute;
+
+  margin-right: 10px;
   
-} */
+}
+
 .profile {
   display: flex;
   justify-content: flex-end;
@@ -55,8 +58,8 @@
 
 .logout {
   display: flex;
-  margin-top: 100px;
-  justify-self: center;
+  margin-bottom: 100px; 
+  /* justify-self: center; */
   z-index: 1;
-  align-self: center;
+  /* align-self: center; */
 }
