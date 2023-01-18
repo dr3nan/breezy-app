@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from '../styles/landing-page.module.css';
+import './displayInvoice.css'
 import Image from 'next/image';
 import Logo from '../public/Black logo - no background.png';
 import { ChakraProvider } from '@chakra-ui/react';

@@ -1,5 +1,6 @@
 import { getDataById } from '../../../../utils/dataFetch';
-
+// import DisplayInvoice from '../../../../components/displayInvoice';
+import '../../../../components/displayInvoice.css'
 import React from 'react';
 import Logo from '../../../../public/For Web/png/Black logo - no background.png';
 import Image from 'next/image';
@@ -36,6 +37,7 @@ export default async function FetchInvoice({ params }) {
 
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
+  
 
   return (
     <>
@@ -50,15 +52,14 @@ export default async function FetchInvoice({ params }) {
                   </td>
 
                   <td>
-                    #{invoice.purchaseOrderNumber}
+                    INVOICE #1
                     <br />
-                    <br />
+                    <br/>
                     <strong>PO Number:#{invoice.purchaseOrderNumber}</strong>
-                    <br />
+                    <br/>
                     <strong>Date:</strong> {currentDate}
                     <br />
-                    <strong>Due:</strong>{' '}
-                    {dueDate === currentDate ? 'On Receipt' : dueDate}
+                    <strong>Due:</strong> {dueDate === currentDate ? 'On Receipt' : dueDate}
                   </td>
                 </tr>
               </table>
@@ -68,7 +69,7 @@ export default async function FetchInvoice({ params }) {
           <tr className='information'>
             <td colSpan='2'>
               <table>
-                <tr>
+                <tr> 
                   <td>
                     {invoice.fullName}
                     <br />
@@ -79,7 +80,7 @@ export default async function FetchInvoice({ params }) {
 
                   <td>
                     <strong>Bill To</strong>
-                    <br />
+                    <br/>
                     {invoice.clientFullName}
                     <br />
                     {invoice.clientAddress}
@@ -112,3 +113,5 @@ export default async function FetchInvoice({ params }) {
     </>
   );
 }
+
+
