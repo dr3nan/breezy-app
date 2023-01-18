@@ -16,7 +16,7 @@ export default function LandingPage() {
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  const [invoice, setInvoiceList] = useState([])
+  const [invoice, setInvoiceList] = useState([]);
 
   useEffect(() => {
     getData().then((data) => {

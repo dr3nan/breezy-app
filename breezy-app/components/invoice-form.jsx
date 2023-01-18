@@ -21,7 +21,7 @@ function InvoiceForm() {
   const [clientAddress, setClientAddress] = useState('');
   const [clientPhoneNumber, setClientPhoneNumber] = useState('');
   const [clientEmail, setClientEmail] = useState('');
-  const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('')
+  const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('');
   const [description, setDescription] = useState('');
   const [rate, setRate] = useState('');
   const [date, setDate] = useState('');
@@ -50,9 +50,9 @@ function InvoiceForm() {
       date,
     };
 
-    console.log(newInvoiceData)
+    console.log(newInvoiceData);
 
-    pushInvoice({...newInvoiceData, paid:false})
+    pushInvoice({ ...newInvoiceData, paid: false });
 
     setFullName('');
     setAddress('');
@@ -64,7 +64,7 @@ function InvoiceForm() {
     setClientPhoneNumber('');
     setClientEmail('');
 
-    setPurchaseOrderNumber('')
+    setPurchaseOrderNumber('');
     setDescription('');
     setRate('');
     setDate('');
@@ -72,12 +72,14 @@ function InvoiceForm() {
 
   return (
     <ChakraProvider>
-      <form onSubmit={handleSubmit} autoComplete="off" >
+      <form onSubmit={handleSubmit} autoComplete='off'>
         <div className='form-container'>
           <div className='people-details-container'>
             <div className='personal-details-container'>
-            <h2><strong>Personal Details</strong></h2>
-              <br/>
+              <h2>
+                <strong>Personal Details</strong>
+              </h2>
+              <br />
 
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
@@ -121,10 +123,12 @@ function InvoiceForm() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
-              <br/>
+              <br />
 
-              <h2><strong>Client Details</strong></h2>
-              <br/>
+              <h2>
+                <strong>Client Details</strong>
+              </h2>
+              <br />
 
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
@@ -168,11 +172,12 @@ function InvoiceForm() {
                   onChange={(e) => setClientEmail(e.target.value)}
                 />
               </FormControl>
-           
             </div>
             <div className='job-details-container'>
-              <h2><strong>Job Details</strong></h2>
-              <br/>
+              <h2>
+                <strong>Job Details</strong>
+              </h2>
+              <br />
               <FormControl>
                 <FormLabel>PO Number</FormLabel>
                 <Input
@@ -217,9 +222,8 @@ function InvoiceForm() {
                   onChange={(e) => setDate(e.target.value)}
                 />
               </FormControl>
-              
-              <input type='submit' value="CREATE INVOICE"/>
-             
+
+              <input type='submit' value='CREATE INVOICE' />
             </div>
           </div>
           {/* </div> */}
@@ -227,7 +231,7 @@ function InvoiceForm() {
       </form>
     </ChakraProvider>
   );
-};
+}
 
 export default InvoiceForm;
 

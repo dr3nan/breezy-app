@@ -1,6 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import connectMongo from '../../utils/connectMongo'
-import Invoice from '../../models/model'
+import connectMongo from '../../utils/connectMongo';
+import Invoice from '../../models/model';
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -10,32 +9,29 @@ export default async function handler(req, res) {
     case 'GET':
       try {
         const invoice = await Invoice.find({});
-        console.log(invoice)
+        console.log(invoice);
         res.status(200).json(invoice);
-
       } catch (e) {
         res.status(400).json({ success: false });
       }
-      break
-      case 'POST':
-        try {
-          
-          const invoice = await Invoice.create(req.body)
-          console.log(invoice)
-          res.status(201).json(invoice)
-        } catch(e) {
-          console.log(e)
-          res.status(400).json(req.body)
-        }
-        break;
-        case 'DELETE':
-        try {
-          const invoice = await Invoice.findByIdAndDelete(req.query.id)
-          res.status(201).json(invoice)
-        } catch(e) {
-          console.log(e)
-          res.status(400).json()
-        }
+      break;
+    case 'POST':
+      try {
+        const invoice = await Invoice.create(req.body);
+        console.log(invoice);
+        res.status(201).json(invoice);
+      } catch (e) {
+        console.log(e);
+        res.status(400).json(req.body);
+      }
+      break;
+    case 'DELETE':
+      try {
+        const invoice = await Invoice.findByIdAndDelete(req.query.id);
+        res.status(201).json(invoice);
+      } catch (e) {
+        console.log(e);
+        res.status(400).json();
+      }
   }
 }
-

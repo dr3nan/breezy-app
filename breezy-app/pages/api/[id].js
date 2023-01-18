@@ -29,16 +29,16 @@ export default async function handler(req, res) {
       break;
     case 'PUT':
       try {
-        // const invoiceExists = await Invoice.findOne({email: req.body.email})
-        // if (invoiceExists) return res.status(400).json('email already exists')
+        const invoice = await Invoice.findOneAndReplace(
+          { _id: req.body._id },
+          req.body
+        );
 
-        const invoice = await Invoice.findOneAndReplace({_id:req.body._id}, req.body)
-        
         if (!invoice) {
           return res.status(400).json({ success: false });
         }
-        invoice.paid = true 
-        invoice.save()
+        invoice.paid = true;
+        invoice.save();
 
         res.status(200).json(invoice);
       } catch (error) {

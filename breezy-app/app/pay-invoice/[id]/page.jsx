@@ -1,8 +1,5 @@
 import { getDataById } from '../../../utils/dataFetch';
-import DisplayInvoice from '../../../components/displayInvoice';
 import React from 'react';
-import Logo from '../../../public/For Web/png/Black logo - no background.png';
-import Image from 'next/image';
 import ClientViewInvoice from '../../../components/client-view-invoice';
 
 export default async function FetchInvoice({ params }) {
@@ -40,11 +37,14 @@ export default async function FetchInvoice({ params }) {
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
 
-
   return (
     <>
-    <ClientViewInvoice invoice = {invoice} amount = {amount} currentDate = {currentDate} dueDate ={dueDate}/>
-    
+      <ClientViewInvoice
+        invoice={invoice}
+        amount={amount}
+        currentDate={currentDate}
+        dueDate={dueDate}
+      />
     </>
   );
 }

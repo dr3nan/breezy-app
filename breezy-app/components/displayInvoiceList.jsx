@@ -4,23 +4,12 @@ import '../components/displayInvoiceList.css';
 import React from 'react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { button, buttonGbutton, roup, ChakraProvider } from '@chakra-ui/react';
-import { getData } from '../utils/dataFetch';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function DisplayInvoiceList({ invoice }) {
-
-  // const [invoiceList, setInvoiceList] = useState([])
-
-  // useEffect(() => {
-  //   getData().then((data) => {
-  //     if (data) setInvoiceList(data);
-  //   });
-  // }, []);
-
-  
   const [isPaid, setPaidStatus] = useState([]);
   const [paidRender, setPaidRender] = useState(false);
-  
+
   function findPaid() {
     let paid = invoice.filter((invoice) => invoice.paid === true);
     setPaidStatus(paid);
@@ -31,16 +20,16 @@ function DisplayInvoiceList({ invoice }) {
     setPaidStatus(unPaid);
     setPaidRender(true);
   }
-  
+
   function allInvoices() {
     setPaidRender(false);
   }
-  
+
   console.log(invoice);
-  
+
   function GetDate(date) {
     date = new Date(date);
-    
+
     let month = date.toLocaleString([], {
       month: 'short',
     });
@@ -65,26 +54,20 @@ function DisplayInvoiceList({ invoice }) {
 
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
-  console.log(invoice.date)
-  
-  const newDate = GetDate(invoice.date)
+  console.log(invoice.date);
+
+  const newDate = GetDate(invoice.date);
 
   return (
     <>
       <ChakraProvider>
-
-
-
         <div className='filter-buttons'>
-          <button onClick={findUnpaid}  >OUTSTANDING </button>
-          <button onClick={findPaid} >PAID</button>
-          <button onClick={allInvoices} >ALL INVOICES</button>
+          <button onClick={findUnpaid}>OUTSTANDING </button>
+          <button onClick={findPaid}>PAID</button>
+          <button onClick={allInvoices}>ALL INVOICES</button>
         </div>
 
         <table className='GeneratedTable'>
-
-
-
           <thead>
             <tr>
               <th>Invoice</th>

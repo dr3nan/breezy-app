@@ -1,6 +1,4 @@
-
 .invoice-container {
-
   padding: 40px;
   margin-left: 250px;
   margin-top: 70px;
@@ -12,7 +10,7 @@
   height: 80vh;
   border-radius: 10px;
   line-height: 35px;
-   padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .personal-details {
@@ -22,17 +20,15 @@
   border-bottom-color: black;
   border-bottom-width: 2px;
   padding-bottom: 20px;
-  
 }
 .client-details {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   border-bottom-style: solid;
-  border-bottom-color:black;
+  border-bottom-color: black;
   border-bottom-width: 2px;
   padding-bottom: 20px;
-
 }
 h2 {
   font-size: 25px;
@@ -132,7 +128,8 @@ h2 {
 
 .invoice-box.rtl {
   direction: rtl;
-  font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial,
+    sans-serif;
 }
 
 .invoice-box.rtl table {
@@ -142,140 +139,3 @@ h2 {
 .invoice-box.rtl table tr td:nth-child(2) {
   text-align: left;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .invoice-container {
-  display: flex;
-
-  flex-direction: column; 
-  justify-content: space-around;
-  position: relative;
-  margin-top: 10px;
-  border-color: black;
-  border-style: solid;
-  color: black;
-  border-width: 1px;
-  height: 100vh;
-  margin: 15px;
-  margin-top: 40px;
-  border-radius: 10px;
-  line-height: 15px;
-}
-
-.personal-details {
-  margin: 35px;
-  position: relative;
-  border-bottom-style: solid;
-  border-color: #fdffa0;
-  border-width: 2px;
-}
-
-.personal-details h2 {
-  color: black;
-}
-
-.invoice-basic-details {
-  display: flex;
-  flex-direction: column;
-  line-height: 0px;
-  margin-top: 15px;
-  float: center;
-  margin-left: 670px;
-}
-
-.invoice-basic-details h5 {
-  color: black;
-}
-
-.client-details {
-  margin-left: 35px;
-  margin-right: 35px;
-}
-
-.client-details h2 {
-  color: black;
-}
-
-.job-details {
-  margin-left: 35px;
-  margin-right: 35px;
-  display: flex;
-  flex-direction: column;
-}
-
-.job-details-headers {
-  display: flex;
-  text-align: right;
-  justify-content: space-around;
-  border-bottom-style: solid;
-  border-top-style: solid;
-  border-color: black;
-  border-width: 2px;
-}
-
-.job-details-description {
-  margin-right: 360px;
-  margin-left: -22px;
-}
-
-.job-details-values {
-  display: flex;
-  text-align: right;
-  justify-content: space-around;
-  border-bottom-style: solid;
-  border-color: black;
-  border-width: 2px;
-}
-
-.job-details-values #description {
-  padding-right: 300px;
-}
-.job-details-values #rate {
-  padding-right: 20px;
-}
-.job-details-values #quantity {
-  padding-right: 40px;
-}
-.job-details-values #amount {
-  padding-right: 10px;
-}
-
-.total-amount-details {
-  margin-left: 35px;
-  margin-right: 35px;
-  float: right;
-  display: flex;
-  flex-direction: column;
-}
-.sub-total {
-  display: flex;
-}   */

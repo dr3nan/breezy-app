@@ -9,7 +9,7 @@ export default async function FetchInvoiceList() {
 
   return (
     <>
-    <DisplayInvoiceList invoice={invoice}/>
+      <DisplayInvoiceList invoice={invoice} />
     </>
   );
 }

@@ -1,12 +1,9 @@
-import React from "react"
+import React from 'react';
 
-export default function ClientViewInvoice({children}) {
+export default function ClientViewInvoice({ children }) {
   return (
     <>
-    <section>
-    {children}
-
-    </section>
+      <section>{children}</section>
     </>
-  )
+  );
 }

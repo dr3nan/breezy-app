@@ -32,23 +32,18 @@
   padding: 10px;
 }
 .menuInfo:hover {
-
   background-color: #e2e8f0;
   z-index: 1;
-
 }
 .menuItems {
   display: flex;
   gap: 10px;
   flex-direction: column;
   line-height: 50px;
-
-  
 }
 .menuItem {
   display: flex;
   flex-direction: column;
-  
 }
 
 .menuItem:hover {
@@ -61,20 +56,16 @@
 .profile {
   display: flex;
   justify-content: flex-end;
-  /* align-self: flex-end; */
 }
 
 .logout {
   display: flex;
   margin-bottom: 100px;
-  /* justify-self: center; */
   z-index: 1;
-  /* align-self: center; */
 }
 
 .logoContainer {
   opacity: 0.2;
   padding: 150px;
   margin-left: 350px;
-
 }

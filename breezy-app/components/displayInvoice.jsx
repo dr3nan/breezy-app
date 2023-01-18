@@ -3,13 +3,7 @@ import '../components/displayInvoice.css';
 import React from 'react';
 
 function DisplayInvoice({ invoice }) {
-
-  return (
-    <>
-    </>
-    
-  );
+  return <></>;
 }
 
 export default DisplayInvoice;
-

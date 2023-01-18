@@ -1,15 +1,5 @@
-import React from "react"
-import { getData } from "../../../../utils/dataFetch"
+import React from 'react';
 
-export default function InvoiceLayout ({children}) {
-
-  return (
-    <>
-    {children}
-    </>
-  )
+export default function InvoiceLayout({ children }) {
+  return <>{children}</>;
 }
-
-// className = 'flex flex-col justify-center ml-72 '
-
-

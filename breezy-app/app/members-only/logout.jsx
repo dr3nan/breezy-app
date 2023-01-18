@@ -9,7 +9,9 @@ export default function Logout() {
   return (
     <ChakraProvider>
       <a href='/api/auth/logout'>
-        <Button  bg='gray.200' color='black' variant='solid'size='lg'>LOGOUT</Button>
+        <Button bg='gray.200' color='black' variant='solid' size='lg'>
+          LOGOUT
+        </Button>
       </a>
     </ChakraProvider>
   );

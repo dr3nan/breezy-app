@@ -1,22 +1,17 @@
-
 import React from 'react';
 import DisplayClients from '../../../components/displayClients';
 import { getData } from '../../../utils/dataFetch';
 
- export default async function FetchClients() {
+export default async function FetchClients() {
   const data = await getData();
-
-  console.log(data._id)
 
   return (
     <>
       {data.map((data) => (
         <div key={data._id}>
-        <DisplayClients  key={data._id} clientData = {data}/>
+          <DisplayClients key={data._id} clientData={data} />
         </div>
       ))}
     </>
-   
-  )
+  );
 }
-

@@ -25,12 +25,11 @@ table.GeneratedTable tr:hover {
 table.GeneratedTable thead {
   background-color: rgb(220, 236, 255);
 }
- 
+
 .filter-buttons {
   display: flex;
   align-content: center;
   margin-left: 100px;
-
 }
 
 .filter-buttons button {

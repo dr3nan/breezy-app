@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@900&display=swap');
 
-
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 20vh;
-  background: rgb(191,219,254);
+  background: rgb(191, 219, 254);
   border-bottom-width: 1px;
 }
 
@@ -16,17 +15,16 @@
   display: flex;
 }
 
-.container { 
+.container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
   height: 40vh;
   margin-top: 150px;
-  float:center;
+  float: center;
   font-family: 'DM Sans', sans-serif;
   font-size: 50px;
-  
 }
 
 .loginBox {
@@ -38,17 +36,15 @@
   border-bottom-width: 2px;
   border-color: black;
 }
-.arrow { 
-padding: 18px;
+.arrow {
+  padding: 18px;
 }
 
 .loginBox:hover {
-  /* transition: transform 250ms, opacity 400ms;
-  transform: translateY(-10px) translateX(-10px); */
   opacity: 0.4;
 }
 
-.inputBox { 
+.inputBox {
   display: flex;
   font-size: 25px;
   justify-content: center;
@@ -62,15 +58,7 @@ padding: 18px;
   border-color: black;
 }
 
-
 .payButton {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
 }
-
-
-
-
-
-
