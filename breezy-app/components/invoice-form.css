@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@900&display=swap');
 
 .form-container {
+  display: flex;
+  flex-direction: column;
+   
   padding: 50px;
   font-size: 15px;
   width:110ch;
@@ -37,7 +40,7 @@
   border-width: 2px;
   padding: 15px;
   gap: 15px;
-  max-height: 50%;
+  height: 55vh;
 }
 
 input[type='text'],
@@ -72,6 +75,5 @@ h2 {
   background-color:#e2e8f0 ;
   padding:10px;
   border-radius: 10px;
-
   opacity: 0.7;
 }

@@ -1,9 +1,13 @@
 import React from "react";
+import UserProfile from "../profile";
 
 export default function Dashboard() {
   return (
     <>
-      STATS
+    {/* <div className = 'user-profile'>
+      <UserProfile/>
+
+    </div> */}
     </>
   );
 }

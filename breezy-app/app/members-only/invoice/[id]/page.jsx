@@ -51,7 +51,7 @@ export default async function FetchInvoice({ params }) {
                   </td>
 
                   <td>
-                    INVOICE #1
+                    #{invoice.purchaseOrderNumber}
                     <br />
                     <br/>
                     <strong>PO Number:#{invoice.purchaseOrderNumber}</strong>

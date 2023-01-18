@@ -38,15 +38,7 @@ const invoiceSchema = new Schema({
     type: Number,
     required: false,
   },
-  item1: {
-    type: String,
-    required: false,
-  },
-  item2: {
-    type: String,
-    required: false,
-  },
-  item3: {
+  description: {
     type: String,
     required: false,
   },

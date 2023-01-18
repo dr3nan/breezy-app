@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     case 'GET':
       try {
         const invoice = await Invoice.find({});
-
+        console.log(invoice)
         res.status(200).json(invoice);
 
       } catch (e) {
@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         try {
           
           const invoice = await Invoice.create(req.body)
+          console.log(invoice)
           res.status(201).json(invoice)
         } catch(e) {
           console.log(e)

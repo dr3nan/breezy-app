@@ -3,15 +3,13 @@
 import { useState } from 'react';
 import '../components/invoice-form.css';
 import { submitData } from '../utils/dataFetch';
+import Link from 'next/link';
 import React from 'react';
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   ChakraProvider,
   Input,
-  Button,
 } from '@chakra-ui/react';
 
 function InvoiceForm() {
@@ -26,7 +24,6 @@ function InvoiceForm() {
   const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('')
   const [description, setDescription] = useState('');
   const [rate, setRate] = useState('');
-  const [quantity, setQuantity] = useState('');
   const [date, setDate] = useState('');
 
   const [invoiceData, setInvoice] = useState([]);
@@ -50,9 +47,10 @@ function InvoiceForm() {
       purchaseOrderNumber,
       description,
       rate,
-      quantity,
       date,
     };
+
+    console.log(newInvoiceData)
 
     pushInvoice({...newInvoiceData, paid:false})
 
@@ -66,16 +64,15 @@ function InvoiceForm() {
     setClientPhoneNumber('');
     setClientEmail('');
 
-    setDescription('');
     setPurchaseOrderNumber('')
+    setDescription('');
     setRate('');
-    setQuantity('');
     setDate('');
   }
 
   return (
     <ChakraProvider>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off" >
         <div className='form-container'>
           <div className='people-details-container'>
             <div className='personal-details-container'>
@@ -187,7 +184,7 @@ function InvoiceForm() {
                 />
               </FormControl>
 
-              <button >Add Item</button>
+              {/* <button >Add Item</button> */}
 
               <FormControl>
                 <FormLabel>Description</FormLabel>
@@ -220,7 +217,7 @@ function InvoiceForm() {
                   onChange={(e) => setDate(e.target.value)}
                 />
               </FormControl>
-      
+              
               <input type='submit' value="CREATE INVOICE"/>
              
             </div>

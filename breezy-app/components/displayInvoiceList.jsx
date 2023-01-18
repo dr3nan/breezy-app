@@ -4,23 +4,23 @@ import '../components/displayInvoiceList.css';
 import React from 'react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Button, ButtonGButton, roup, ChakraProvider } from '@chakra-ui/react';
+import { button, buttonGbutton, roup, ChakraProvider } from '@chakra-ui/react';
 import { getData } from '../utils/dataFetch';
 
 function DisplayInvoiceList({ invoice }) {
-  const [invoiceList, setInvoiceList] = useState([])
 
-  useEffect(() => {
-    getData().then((data) => {
-      if (data) setInvoiceList(data);
-    });
-  }, []);
+  // const [invoiceList, setInvoiceList] = useState([])
 
-  console.log(invoice);
+  // useEffect(() => {
+  //   getData().then((data) => {
+  //     if (data) setInvoiceList(data);
+  //   });
+  // }, []);
 
+  
   const [isPaid, setPaidStatus] = useState([]);
   const [paidRender, setPaidRender] = useState(false);
-
+  
   function findPaid() {
     let paid = invoice.filter((invoice) => invoice.paid === true);
     setPaidStatus(paid);
@@ -31,14 +31,16 @@ function DisplayInvoiceList({ invoice }) {
     setPaidStatus(unPaid);
     setPaidRender(true);
   }
-
+  
   function allInvoices() {
     setPaidRender(false);
   }
-
+  
+  console.log(invoice);
+  
   function GetDate(date) {
     date = new Date(date);
-
+    
     let month = date.toLocaleString([], {
       month: 'short',
     });
@@ -70,14 +72,19 @@ function DisplayInvoiceList({ invoice }) {
   return (
     <>
       <ChakraProvider>
-        <div className='container'>
 
-        <span className='filter-Buttons'>
-          <Button onClick={findUnpaid} bg='blue'>OUTSTANDING </Button>
-          <Button onClick={findPaid} bg='blue'>PAID</Button>
-          <Button onClick={allInvoices} bg='blue'>All Invoices</Button>
-        </span>
+
+
+        <div className='filter-buttons'>
+          <button onClick={findUnpaid}  >OUTSTANDING </button>
+          <button onClick={findPaid} >PAID</button>
+          <button onClick={allInvoices} >ALL INVOICES</button>
+        </div>
+
         <table className='GeneratedTable'>
+
+
+
           <thead>
             <tr>
               <th>Invoice</th>
@@ -93,7 +100,7 @@ function DisplayInvoiceList({ invoice }) {
                 <tr key={invoice._id}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>
-                      {invoice.fullName}
+                      #{invoice.purchaseOrderNumber}
                     </Link>
                   </td>
                   <td>{invoice.clientFullName}</td>
@@ -108,7 +115,7 @@ function DisplayInvoiceList({ invoice }) {
                 <tr key={invoice._id}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>
-                      {invoice.fullName}
+                      {`#${invoice.purchaseOrderNumber}`}
                     </Link>
                   </td>
                   <td>{invoice.clientFullName}</td>
@@ -119,8 +126,6 @@ function DisplayInvoiceList({ invoice }) {
             </tbody>
           )}
         </table>
-
-        </div>
       </ChakraProvider>
     </>
   );

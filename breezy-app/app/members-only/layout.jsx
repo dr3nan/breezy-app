@@ -19,7 +19,7 @@ export default function Layout({ children }) {
     { title: 'Create Invoice', link: '/members-only/create-invoice', icon: <BsPencilSquare/> },
     {
       title: 'Invoices',
-      icon: <BsFillFileEarmarkTextFill />,
+      icon: <BsFillFileEarmarkTextFill  />,
       link: '/members-only/invoice-list',
     },
     {
@@ -27,25 +27,24 @@ export default function Layout({ children }) {
       icon: < BsPeopleFill />,
       link: '/members-only/clients',
     },
-    { title: 'Dashboard', icon: <BsFront/>, link: '/members-only/stats' },
+    { title: 'Dashboard', icon: <BsFront/>, link: '/members-only/' },
   ];
 
-  const keyProp = 1 
   return (
     <UserProvider>
-      {/* <ChakraProvider> */}
+
         <div className={styles.pageContainer}>
           <div className={styles.sidebar}>
             <div className={styles.logo}>
               <Image src={Logo} alt='breezy-logo' width={250} priority></Image>
             </div>
             
-            <ul key = {keyProp} className={styles.menuItems}>
+            <ul  className={styles.menuItems}>
               {menus.map((menu, index) => (
                 <>
                   <li key ={index}className={styles.menuInfo} >
                   <span className = {styles.menuIcon}>
-                    {menu.icon } 
+                    {menu.icon  } 
                     </span> 
                     <Link href={menu.link}>
                       <span className={styles.menuItem}>{menu.title}</span>
@@ -61,7 +60,7 @@ export default function Layout({ children }) {
           </div>
           {children}
         </div>
-      {/* </ChakraProvider> */}
+
     </UserProvider>
   );
 }

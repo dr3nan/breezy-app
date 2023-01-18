@@ -71,3 +71,10 @@
   z-index: 1;
   /* align-self: center; */
 }
+
+.logoContainer {
+  opacity: 0.2;
+  padding: 150px;
+  margin-left: 350px;
+
+}

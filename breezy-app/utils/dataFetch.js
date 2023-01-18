@@ -2,6 +2,7 @@
 
 const uri = 'http://localhost:3000';
 
+
 export async function getData() {
   const res = await fetch(`${uri}/api/hello`);
   if (!res.ok) {
@@ -37,7 +38,6 @@ export async function submitData(data) {
 
 export async function updateData(id, data) {
   try {
-    // delete data._id;
 
     const res = await fetch(`${uri}/api/${id}`, {
       method: 'PUT',
