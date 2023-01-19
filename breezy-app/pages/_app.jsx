@@ -3,13 +3,16 @@
 import '../styles/globals.css';
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-// import { UserProvider } from '@auth0/nextjs-auth0/client';
+// TODO: reload home page with user provider from Auth0, faster loading
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 function myApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <UserProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </UserProvider>
   );
 }
 
