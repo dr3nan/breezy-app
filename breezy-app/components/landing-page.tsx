@@ -24,7 +24,7 @@ export default function LandingPage() {
     });
   }, []);
 
-  function handleSubmit(e: string) {
+  function handleSubmit(e) {
     e.preventDefault();
     router.push(`/pay-invoice/${inputValue}`);
     setInputValue('');
