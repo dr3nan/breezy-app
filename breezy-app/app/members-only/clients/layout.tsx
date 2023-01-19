@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react';
 
-export default function ClientLayout({ children }: unknown) {
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  console.log('children from clients layout', children);
   return (
     <>
       <section>
         {children}
-
       </section>
     </>
   )

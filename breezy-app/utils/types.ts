@@ -1,5 +1,7 @@
+import { Key } from "react";
+
 export interface invoiceFields {
-  _id: String;
+  _id: Key;
   fullName: String;
   phoneNumber: Number;
   email: String;

@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayClients from '../../../components/displayClients';
 import { getData } from '../../../utils/dataFetch';
+import { invoiceFields } from '../../../utils/types';
 
 export default async function FetchClients() {
   const data = await getData();
@@ -8,7 +9,7 @@ export default async function FetchClients() {
 
   return (
     <>
-      {data.map((data) => (
+      {data.map((data: invoiceFields) => (
         <div key={data._id}>
           <DisplayClients key={data._id} clientData={data} />
         </div>
