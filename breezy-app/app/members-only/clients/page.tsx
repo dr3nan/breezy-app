@@ -4,6 +4,7 @@ import { getData } from '../../../utils/dataFetch';
 
 export default async function FetchClients() {
   const data = await getData();
+  console.log('data from api', data);
 
   return (
     <>

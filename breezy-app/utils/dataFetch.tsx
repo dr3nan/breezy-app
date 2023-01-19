@@ -2,14 +2,15 @@
 
 const uri = 'http://localhost:3000';
 
-
 export async function getData() {
   const res = await fetch(`${uri}/api/hello`);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
+  const parsed = await res.json()
+  console.log(parsed)
 
-  return res.json();
+  return parsed;
 }
 
 export async function getDataById(id) {
