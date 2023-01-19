@@ -14,6 +14,7 @@ export default async function handler(req, res) {
           return res.status(400).json(invoice);
         }
         res.status(200).json(invoice);
+        res.send(invoice);
       } catch (error) {
         console.log(error);
         res.status(400).json(invoice);

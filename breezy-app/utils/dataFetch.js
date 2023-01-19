@@ -14,10 +14,10 @@ export async function getData() {
 
 export async function getDataById(id) {
   const res = await fetch(`${uri}/api/${id}`);
+  console.log('res', res.body);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
-
   return res.json();
 }
 
