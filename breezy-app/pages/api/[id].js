@@ -11,13 +11,14 @@ export default async function handler(req, res) {
       try {
         const invoice = await Invoice.findById(id);
         if (!invoice) {
-          return res.status(400).json(invoice);
+          return await res.status(400).json(invoice);
         }
         res.status(200).json(invoice);
-        res.send(invoice);
+        // res.send(invoice);
       } catch (error) {
         console.log(error);
-        res.status(400).json(invoice);
+        res.status(400);
+        // res.status(400);
       }
       break;
     case 'DELETE':

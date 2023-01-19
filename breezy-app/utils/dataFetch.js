@@ -18,7 +18,7 @@ export async function getDataById(id) {
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
-  return res.json();
+  return await res.json();
 }
 
 export async function submitData(data) {
@@ -37,16 +37,17 @@ export async function submitData(data) {
 }
 
 export async function updateData(id, data) {
+  console.log('id from param', id);
+  console.log('data from param', data);
   try {
-
-    const res = await fetch(`${uri}/api/${id}`, {
+    const response = await fetch(`${uri}/api/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-    return res.json();
+    return await response.json();
   } catch (error) {
     console.log(error);
   }
