@@ -2,7 +2,6 @@
 
 const uri = 'http://localhost:3000';
 
-
 export async function getData() {
   const res = await fetch(`${uri}/api/hello`);
   if (!res.ok) {
