@@ -12,4 +12,4 @@ export default async function FetchInvoiceList() {
       <DisplayInvoiceList invoice={invoice} />
     </>
   );
-}
+};

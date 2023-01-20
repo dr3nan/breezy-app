@@ -6,4 +6,4 @@ export default function InvoiceLayout({ children }: { children: React.ReactNode 
       <section>{children}</section>
     </>
   )
-}
+};

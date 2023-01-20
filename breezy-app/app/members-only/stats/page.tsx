@@ -1,6 +1,6 @@
 import React from "react";
 import UserProfile from "../profile";
-// TODO
+// TODO: what is this...?
 export default function Dashboard() {
   return (
     <>
@@ -10,4 +10,4 @@ export default function Dashboard() {
     </div> */}
     </>
   );
-}
+};
