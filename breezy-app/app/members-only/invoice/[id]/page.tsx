@@ -52,7 +52,7 @@ export default async function FetchInvoice({ params }: Params ) {
       <div className='invoice-box'>
         <table cellPadding='0' cellSpacing='0'>
           <tr className='top'>
-            <td colSpan='3'>
+            <td colSpan={Number('3')}>
               <table>
                 <tr>
                   <td className='title'>
@@ -75,7 +75,7 @@ export default async function FetchInvoice({ params }: Params ) {
           </tr>
 
           <tr className='information'>
-            <td colSpan='2'>
+            <td colSpan={Number('2')}>
               <table>
                 <tr>
                   <td>
