@@ -50,4 +50,4 @@ export default async function FetchInvoice({ params }) {
       />
     </>
   );
-}
+};

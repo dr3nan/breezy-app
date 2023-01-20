@@ -12,13 +12,14 @@ export default async function FetchInvoice({ params }) {
   function GetDate(date) {
     date = new Date();
 
+    let day = date.toLocaleString([], {
+      day: 'numeric',
+    });
+    
     let month = date.toLocaleString([], {
       month: 'numeric',
     });
 
-    let day = date.toLocaleString([], {
-      day: 'numeric',
-    });
 
     let year = date.toLocaleString([], {
       year: 'numeric',
@@ -26,10 +27,11 @@ export default async function FetchInvoice({ params }) {
 
     if (month < 10) {
       month = `0${month}`;
-    }
+    };
+
     if (day < 10) {
       day = `0${day}`;
-    }
+    };
 
     const formatedDate = `${day}/${month}/${year}`;
 

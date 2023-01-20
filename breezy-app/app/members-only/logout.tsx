@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-// TODO
+// TODO: check what the ButtonGroup was for
 import { Button, ButtonGroup } from '@chakra-ui/react';
 
 export default function Logout() {
