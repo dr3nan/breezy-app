@@ -93,12 +93,6 @@
       "esnext"
     ],
     "allowJs": true,
-<<<<<<< HEAD
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-=======
->>>>>>> 039f06fd41ff99d70f03d1f4e7bb81b3ca9e112a
     "noEmit": true,
     "incremental": true,
     "moduleResolution": "node",

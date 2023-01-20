@@ -16,3 +16,25 @@ export interface invoiceFields {
   paid: Boolean;
 }
 
+export interface Params {
+  params: {
+    id: String;
+  };
+}
+
+export interface Params2 {
+    id: String;
+}
+
+export interface dateFormatted {
+  date: {
+    year: String;
+    month: String;
+    day: String;
+    hour: String;
+    minute: String;
+    seconds: String;
+
+  }
+}
+

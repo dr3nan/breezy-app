@@ -5,31 +5,37 @@ import React from 'react';
 import Logo from '../../../../public/For Web/png/Black logo - no background.png';
 import Image from 'next/image';
 // TODO: find type of params
-export default async function FetchInvoice({ params }) {
+
+import { invoiceFields, Params } from '../../../../utils/types';
+
+
+
+export default async function FetchInvoice({ params }: Params ) {
   console.log('params from invoice | [id]', params);
+  console.log('typeof params :', typeof params)
   const id = params.id;
   const data = await getDataById(id);
   const invoice = data;
 
-  function GetDate(date) {
+  function GetDate(date: number) {
     console.log('date from invoice page', date);
-    date = new Date(date);
+    const date2 = new Date(date);
 
-    let month = date.toLocaleString([], {
+    let month = date2.toLocaleString([], {
       month: 'numeric',
     });
-    let day = date.toLocaleString([], {
+    let day = date2.toLocaleString([], {
       day: 'numeric',
     });
 
-    let year = date.toLocaleString([], {
+    let year = date2.toLocaleString([], {
       year: 'numeric',
     });
 
-    if (month < 10) {
+    if (Number(month) < 10) {
       month = `0${month}`;
     }
-    if (day < 10) {
+    if (Number(day) < 10) {
       day = `0${day}`;
     }
 
