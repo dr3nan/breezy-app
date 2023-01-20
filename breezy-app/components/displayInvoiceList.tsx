@@ -7,18 +7,18 @@ import { useState, useEffect } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { invoiceFields } from '../utils/types';
 
-function DisplayInvoiceList({ invoice }: {invoice: []}) {
-  const [isPaid, setPaidStatus] = useState([]);
+function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
+  const [isPaid, setPaidStatus] = useState<invoiceFields[]>([]);
   const [paidRender, setPaidRender] = useState(false);
   console.log('invoice in displayInvoiceList: ', invoice);
 
   function findPaid() {
-    let paid = invoice.filter((invoice: { paid: boolean; }) => invoice.paid === true);
+    let paid = invoice.filter((invoice) => invoice.paid === true);
     setPaidStatus(paid);
     setPaidRender(true);
   }
   function findUnpaid() {
-    let unPaid = invoice.filter((invoice: { paid: boolean; }) => invoice.paid === false);
+    let unPaid = invoice.filter((invoice) => invoice.paid === false);
     setPaidStatus(unPaid);
     setPaidRender(true);
   }
@@ -29,7 +29,7 @@ function DisplayInvoiceList({ invoice }: {invoice: []}) {
 
   console.log(invoice);
 
-  function GetDate(date: string | number | Date) {
+  function GetDate(date: Date) {
     date = new Date(date);
 
     let month = date.toLocaleString([], {
@@ -80,16 +80,21 @@ function DisplayInvoiceList({ invoice }: {invoice: []}) {
 
           {!paidRender ? (
             <tbody>
-              {invoice.map((invoice: { _id: React.Key | null | undefined; purchaseOrderNumber: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; clientFullName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; date: any; rate: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
+              {invoice.map((invoice) => (
                 <tr key={invoice._id}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>
-                      #{invoice.purchaseOrderNumber}
+                      <>
+                        #{invoice.purchaseOrderNumber}
+                      </>
                     </Link>
                   </td>
                   <td>{invoice.clientFullName}</td>
                   <td>{GetDate(invoice.date)}</td>
-                  <td>£{invoice.rate}</td>
+                  <td>
+                    <>
+                      £{invoice.rate}
+                    </></td>
                 </tr>
               ))}
             </tbody>
@@ -104,7 +109,11 @@ function DisplayInvoiceList({ invoice }: {invoice: []}) {
                   </td>
                   <td>{invoice.clientFullName}</td>
                   <td>{GetDate(invoice.date)}</td>
-                  <td>£{invoice.rate}</td>
+                  <td>
+                    <>
+                      £{invoice.rate}
+                    </>
+                  </td>
                 </tr>
               ))}
             </tbody>

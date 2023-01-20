@@ -12,7 +12,7 @@ export interface invoiceFields {
   purchaseOrderNumber: Number;
   description: String;
   rate: Number;
-  date: String;
+  date: Date;
   paid: Boolean;
   address: String;
 }
