@@ -5,10 +5,12 @@ import React from 'react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
+import { invoiceFields } from '../utils/types';
 
-function DisplayInvoiceList({ invoice }) {
+function DisplayInvoiceList({ invoice }: {invoice: []}) {
   const [isPaid, setPaidStatus] = useState([]);
   const [paidRender, setPaidRender] = useState(false);
+  console.log('invoice in displayInvoiceList: ', invoice);
 
   function findPaid() {
     let paid = invoice.filter((invoice: { paid: boolean; }) => invoice.paid === true);
@@ -41,10 +43,10 @@ function DisplayInvoiceList({ invoice }) {
       year: 'numeric',
     });
 
-    if (month < 10) {
+    if (Number(month) < 10) {
       month = `0${month}`;
     }
-    if (day < 10) {
+    if (Number(day) < 10) {
       day = `0${day}`;
     }
 
