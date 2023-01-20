@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Logo from '../public/Black logo - no background.png';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useState } from 'react';
-import { Button} from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { updateData } from '../utils/dataFetch';
 import { invoiceFields } from '../utils/types';
 

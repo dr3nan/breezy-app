@@ -1,5 +1,3 @@
-import { Key } from 'react';
-
 export interface invoiceFields {
   _id: String;
   fullName: String;

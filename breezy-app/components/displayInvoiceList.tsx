@@ -10,7 +10,7 @@ import { invoiceFields } from '../utils/types';
 function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
   const [isPaid, setPaidStatus] = useState<invoiceFields[]>([]);
   const [paidRender, setPaidRender] = useState(false);
-  console.log('invoice in displayInvoiceList: ', invoice);
+  // console.log('invoice in displayInvoiceList: ', invoice);
 
   function findPaid() {
     let paid = invoice.filter((invoice) => invoice.paid === true);
@@ -27,19 +27,18 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
     setPaidRender(false);
   }
 
-  console.log(invoice);
+  function GetDate(date: String) {
+    const date2 = new Date(`${date}`)
+    // date = new Date();
 
-  function GetDate(date: Date) {
-    date = new Date(date);
-
-    let month = date.toLocaleString([], {
+    let month = date2.toLocaleString([], {
       month: 'short',
     });
-    let day = date.toLocaleString([], {
+    let day = date2.toLocaleString([], {
       day: 'numeric',
     });
 
-    let year = date.toLocaleString([], {
+    let year = date2.toLocaleString([], {
       year: 'numeric',
     });
 
