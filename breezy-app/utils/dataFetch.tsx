@@ -3,12 +3,14 @@
 const uri = 'http://localhost:3000';
 
 export async function getData() {
-  const res = await fetch(`${uri}/api/hello`);
-  if (!res.ok) {
-    throw new Error('failed to fetch data');
-  }
 
-  return res.json();
+  try {
+    const res = await fetch(`${uri}/api/hello`);
+    console.log('getData response: ', await res.json());
+    return await res.json();
+  } catch (error) {
+    console.log('error in getData: ', error);
+  }
 }
 
 export async function getDataById(id) {
@@ -17,7 +19,7 @@ export async function getDataById(id) {
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
-  return res.json();
+  return await res.json();
 }
 
 export async function submitData(data) {
@@ -29,7 +31,7 @@ export async function submitData(data) {
       },
       body: JSON.stringify(data),
     });
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.log(error);
   }
@@ -45,7 +47,7 @@ export async function updateData(id, data) {
       },
       body: JSON.stringify(data),
     });
-    return res.json();
+    return await res.json();
   } catch (error) {
     console.log(error);
   }

@@ -52,11 +52,10 @@ function DisplayInvoiceList({ invoice }) {
     return formatedDate;
   }
 
-  const currentDate = GetDate(Date.now());
-  const dueDate = GetDate(invoice.date);
-  console.log(invoice.date);
-
-  const newDate = GetDate(invoice.date);
+  //const currentDate = GetDate(Date.now());
+  //const dueDate = GetDate(invoice.date);
+  //console.log(invoice.date);
+  //const newDate = GetDate(invoice.date);
 
   return (
     <>
@@ -79,7 +78,7 @@ function DisplayInvoiceList({ invoice }) {
 
           {!paidRender ? (
             <tbody>
-              {invoice.map((invoice) => (
+              {invoice?.map((invoice) => (
                 <tr key={invoice._id}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>

@@ -1,7 +1,5 @@
 'use client';
-
 import '../components/displayClient.css';
-
 import React from 'react';
 import Link from 'next/link';
 import { BsPersonCircle } from 'react-icons/bs';
