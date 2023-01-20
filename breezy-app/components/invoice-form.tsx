@@ -12,19 +12,20 @@ function InvoiceForm() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const form = {
-      fullName: formData.get('fullName'),
-      phoneNumber: formData.get('phoneNumber'),
-      email: formData.get('email'),
-      clientFullName: formData.get('clientFullName'),
-      clientAddress: formData.get('clientAddress'),
-      clientPhoneNumber: formData.get('clientPhoneNumber'),
-      clientEmail: formData.get('clientEmail'),
-      purchaseOrderNumber: formData.get('purchaseOrderNumber'),
-      description: formData.get('description'),
-      rate: formData.get('rate'),
-      date: formData.get('date'),
+      _id: '',
+      fullName: formData.get('fullName') as String,
+      phoneNumber: formData.get('phoneNumber') as unknown as Number,
+      email: formData.get('email') as String,
+      clientFullName: formData.get('clientFullName') as String,
+      clientAddress: formData.get('clientAddress') as String,
+      clientPhoneNumber: formData.get('clientPhoneNumber') as unknown as Number,
+      clientEmail: formData.get('clientEmail') as String,
+      purchaseOrderNumber: formData.get('purchaseOrderNumber') as unknown as Number,
+      description: formData.get('description') as String,
+      rate: formData.get('rate') as unknown as Number,
+      date: formData.get('date') as String,
       paid: false,
-      address: formData.get('address')
+      address: formData.get('address') as String
     }
     await submitData(form);
     if (formRef && formRef.current) {

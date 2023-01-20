@@ -1,7 +1,7 @@
 import { Key } from 'react';
 
 export interface invoiceFields {
-  _id: Key;
+  _id: String;
   fullName: String;
   phoneNumber: Number;
   email: String;
@@ -12,7 +12,7 @@ export interface invoiceFields {
   purchaseOrderNumber: Number;
   description: String;
   rate: Number;
-  date: Date;
+  date: String;
   paid: Boolean;
   address: String;
 }

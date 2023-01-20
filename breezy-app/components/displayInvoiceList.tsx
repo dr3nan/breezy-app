@@ -74,7 +74,7 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
           {!paidRender ? (
             <tbody>
               {invoice.map((invoice) => (
-                <tr key={invoice._id}>
+                <tr key={String(invoice._id)}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>
                       <>
@@ -94,7 +94,7 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
           ) : (
             <tbody>
               {isPaid.map((invoice) => (
-                <tr key={invoice._id}>
+                <tr key={String(invoice._id)}>
                   <td>
                     <Link href={`/members-only/invoice/${invoice._id}`}>
                       {`#${invoice.purchaseOrderNumber}`}
