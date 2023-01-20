@@ -9,13 +9,14 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
 import { updateData } from '../utils/dataFetch';
+import { invoiceFields } from '../utils/types';
 
 export default function ClientViewInvoice({
   invoice,
   dueDate,
   currentDate,
   amount
-}) {
+}: {invoice: invoiceFields, dueDate: String, currentDate: String, amount: String}) {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   console.log('invoice id', invoice);
 
