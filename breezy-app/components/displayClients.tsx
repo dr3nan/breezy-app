@@ -3,8 +3,10 @@ import '../components/displayClient.css';
 import React from 'react';
 import Link from 'next/link';
 import { BsPersonCircle } from 'react-icons/bs';
+import { invoiceFields } from '../utils/types';
 
-function DisplayClients({ clientData }) {
+function DisplayClients({ clientData }: { clientData: invoiceFields }) {
+  console.log('client data', clientData);
   return (
     <div className='container'>
       <div className='grid'>
