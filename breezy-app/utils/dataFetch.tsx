@@ -3,18 +3,27 @@
 const uri = 'http://localhost:3000';
 
 export async function getData() {
-
-  try {
-    const res = await fetch(`${uri}/api/hello`);
-    console.log('getData response: ', await res.json());
-    return await res.json();
-  } catch (error) {
-    console.log('error in getData: ', error);
+  const res = await fetch(`${uri}/api/hello`);
+  if (!res.ok) {
+    throw new Error('failed to fetch data');
   }
+  const parsed = await res.json()
+  console.log(parsed)
+
+  return parsed;
 }
 
 export async function getDataById(id) {
   const res = await fetch(`${uri}/api/${id}`);
+  console.log('res', res.body);
+  if (!res.ok) {
+    throw new Error('failed to fetch data');
+  }
+  return await res.json();
+} 
+
+export async function getInvoiceDataById(id) {
+  const res = await fetch(`${uri}/api/pay-invoice/${id}`);
   console.log('res', res.body);
   if (!res.ok) {
     throw new Error('failed to fetch data');
@@ -38,16 +47,17 @@ export async function submitData(data) {
 }
 
 export async function updateData(id, data) {
+  console.log('id from param', id);
+  console.log('data from param', data);
   try {
-
-    const res = await fetch(`${uri}/api/${id}`, {
+    const response = await fetch(`${uri}/api/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-    return await res.json();
+    return await response.json();
   } catch (error) {
     console.log(error);
   }

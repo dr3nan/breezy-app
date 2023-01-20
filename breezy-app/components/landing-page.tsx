@@ -23,8 +23,8 @@ export default function LandingPage() {
       if (data) setInvoiceList(data);
     });
   }, []);
-
-  function handleSubmit(e) {
+  // TODO
+  function handleSubmit(e: unknown) {
     e.preventDefault();
     router.push(`/pay-invoice/${inputValue}`);
     setInputValue('');

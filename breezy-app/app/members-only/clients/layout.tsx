@@ -1,13 +1,12 @@
-import { jsx } from "@emotion/react"
-import React from "react"
+import React from 'react';
 
-export default function ClientLayout ({children}: jsx.element) {
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  console.log('children from clients layout', children);
   return (
     <>
-    <section>
-    {children}
-
-    </section>
+      <section>
+        {children}
+      </section>
     </>
   )
 }
