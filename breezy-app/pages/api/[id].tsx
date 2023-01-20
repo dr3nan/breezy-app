@@ -1,7 +1,8 @@
 import connectMongo from '../../utils/connectMongo';
 import Invoice from '../../models/model';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
   const { method } = req;
   const { id } = req.query;

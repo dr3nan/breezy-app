@@ -1,8 +1,10 @@
 import connectMongo from '../../utils/connectMongo';
 import Invoice from '../../models/model';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
+
   await connectMongo();
   switch (method) {
     case 'GET':
@@ -10,7 +12,7 @@ export default async function handler(req, res) {
       try {
         const invoice = await Invoice.find({});
         console.log('hello api get data: ', invoice);
-        await res.status(200).json(invoice);
+        return res.status(200).json(invoice);
       } catch (e) {
         res.status(400).json({ success: false });
       }
@@ -22,16 +24,16 @@ export default async function handler(req, res) {
         await res.status(201).json(invoice);
       } catch (e) {
         console.log(e);
-        await res.status(400).json(req.body);
+        return res.status(400).json(req.body);
       }
       break;
     case 'DELETE':
       try {
         const invoice = await Invoice.findByIdAndDelete(req.query.id);
-        await res.status(201).json(invoice);
+        return res.status(201).json(invoice);
       } catch (e) {
         console.log(e);
-        await res.status(400).json();
+        return res.status(400).json(req.query);
       }
   }
 }
