@@ -11,6 +11,7 @@ import {
   ChakraProvider,
   Input,
 } from '@chakra-ui/react';
+import { invoiceFields } from '../utils/types';
 
 function InvoiceForm() {
   const [fullName, setFullName] = useState('');
@@ -26,15 +27,16 @@ function InvoiceForm() {
   const [rate, setRate] = useState('');
   const [date, setDate] = useState('');
 
-  const [invoiceData, setInvoice] = useState([]);
+  const [invoiceData, setInvoice] = useState<invoiceFields[]>([]);
 
-  const pushInvoice = async (invoice) => {
+  const pushInvoice = async (invoice: invoiceFields) => {
     const newInvoice = await submitData(invoice);
+    console.log('newInvoice is: ', newInvoice)
     setInvoice([...invoiceData, newInvoice]);
   };
 
-  function handleSubmit(input) {
-    input.preventDefault();
+  function handleSubmit(event: HTMLFormElement) {
+    event.preventDefault();
     const newInvoiceData = {
       fullName,
       address,
@@ -48,6 +50,7 @@ function InvoiceForm() {
       description,
       rate,
       date,
+      paid: false
     };
 
     console.log(newInvoiceData);
