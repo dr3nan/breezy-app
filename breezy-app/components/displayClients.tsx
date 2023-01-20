@@ -19,7 +19,7 @@ function DisplayClients({ clientData }: { clientData: invoiceFields }) {
               <p>{clientData.clientFullName}</p>
             </strong>
             <p>{clientData.clientAddress}</p>
-            <p>{clientData.clientPhoneNumber}</p>
+            <p>{String(clientData.clientPhoneNumber)}</p>
             <p>{clientData.clientEmail}</p>
           </div>
         </Link>

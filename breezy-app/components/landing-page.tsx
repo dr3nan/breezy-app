@@ -24,8 +24,8 @@ export default function LandingPage() {
     });
   }, []);
   // TODO
-  function handleSubmit(e: unknown) {
-    e.preventDefault();
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     router.push(`/pay-invoice/${inputValue}`);
     setInputValue('');
   }
@@ -56,7 +56,6 @@ export default function LandingPage() {
         </div>
       </div>
       <div className={styles.inputBox}>
-        {/* <span className={styles.input}> */}
         {showInput && (
           <form onSubmit={handleSubmit} className={styles.input}>
             <input
