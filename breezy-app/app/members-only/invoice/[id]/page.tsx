@@ -11,14 +11,13 @@ import { invoiceFields, Params } from '../../../../utils/types';
 
 
 export default async function FetchInvoice({ params }: Params ) {
-  console.log('params from invoice | [id]', params);
-  console.log('typeof params :', typeof params)
+
   const id = params.id;
   const data = await getDataById(id);
   const invoice = data;
 
   function GetDate(date: number) {
-    console.log('date from invoice page', date);
+
     const date2 = new Date(date);
 
     let month = date2.toLocaleString([], {

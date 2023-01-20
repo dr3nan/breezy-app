@@ -5,7 +5,6 @@ import { invoiceFields } from '../../../utils/types';
 
 export default async function FetchClients() {
   const data = await getData();
-  console.log('data from api', data);
 
   return (
     <>

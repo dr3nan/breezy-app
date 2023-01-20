@@ -18,7 +18,7 @@ export default function ClientViewInvoice({
   amount
 }: { invoice: invoiceFields, dueDate: String, currentDate: String, amount: String }) {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
-  console.log('invoice id', invoice);
+
 
   const updateStatus = async (invoice: invoiceFields) => {
     const newInvoiceStatus = await updateData(invoice._id, invoice);

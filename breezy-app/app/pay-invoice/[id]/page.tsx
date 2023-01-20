@@ -4,9 +4,9 @@ import ClientViewInvoice from '../../../components/client-view-invoice';
 import { Params } from '../../../utils/types';
 
 export default async function FetchInvoice({ params }: Params) {
-  console.log('params', params);
+
   const id = params.id;
-  console.log('id from params', id);
+
   const data = await getInvoiceDataById(id);
   const invoice = data;
 
