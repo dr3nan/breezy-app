@@ -20,6 +20,15 @@ export async function getDataById(id) {
     throw new Error('failed to fetch data');
   }
   return await res.json();
+} 
+
+export async function getInvoiceDataById(id) {
+  const res = await fetch(`${uri}/api/pay-invoice/${id}`);
+  console.log('res', res.body);
+  if (!res.ok) {
+    throw new Error('failed to fetch data');
+  }
+  return await res.json();
 }
 
 export async function submitData(data) {
