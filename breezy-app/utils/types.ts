@@ -14,6 +14,7 @@ export interface invoiceFields {
   rate: Number;
   date: String;
   paid: Boolean;
+  address: String;
 }
 
 export interface Params {

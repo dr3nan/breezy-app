@@ -16,11 +16,11 @@ export default function ClientViewInvoice({
   dueDate,
   currentDate,
   amount
-}: {invoice: invoiceFields, dueDate: String, currentDate: String, amount: String}) {
+}: { invoice: invoiceFields, dueDate: String, currentDate: String, amount: String }) {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   console.log('invoice id', invoice);
 
-  const updateStatus = async (invoice) => {
+  const updateStatus = async (invoice: invoiceFields) => {
     const newInvoiceStatus = await updateData(invoice._id, invoice);
     setInvoiceStatus(newInvoiceStatus.paid);
   };
@@ -51,25 +51,29 @@ export default function ClientViewInvoice({
             <div className='invoice-box'>
               <table cellPadding='0' cellSpacing='0'>
                 <tr className='top'>
-                  <td colSpan='3'>
+                  <td colSpan={Number('3')}>
                     <table>
                       <tr>
                         <td className='title'>
-                          <Image src={Logo} width={150}></Image>
+                          <Image alt={'logo'} src={Logo} width={150}></Image>
                         </td>
 
                         <td>
-                          #{invoice.purchaseOrderNumber}
-                          <br />
-                          <br />
-                          <strong>
-                            PO Number:#{invoice.purchaseOrderNumber}
-                          </strong>
-                          <br />
-                          <strong>Date:</strong> {currentDate}
-                          <br />
-                          <strong>Due:</strong>{' '}
-                          {dueDate === currentDate ? 'On Receipt' : dueDate}
+                          <>
+                            #{invoice.purchaseOrderNumber}
+                            <br />
+                            <br />
+                            <strong>
+                              <>
+                                PO Number:#{invoice.purchaseOrderNumber}
+                              </>
+                            </strong>
+                            <br />
+                            <strong>Date:</strong> {currentDate}
+                            <br />
+                            <strong>Due:</strong>{' '}
+                            {dueDate === currentDate ? 'On Receipt' : dueDate}
+                          </>
                         </td>
                       </tr>
                     </table>
@@ -77,7 +81,7 @@ export default function ClientViewInvoice({
                 </tr>
 
                 <tr className='information'>
-                  <td colSpan='2'>
+                  <td colSpan={Number('2')}>
                     <table>
                       <tr>
                         <td>
@@ -110,13 +114,21 @@ export default function ClientViewInvoice({
                 <tr className='item'>
                   <td>{invoice.description}</td>
 
-                  <td>£{invoice.rate}</td>
+                  <td>
+                    <>
+                      £{invoice.rate}
+                    </>
+                  </td>
                 </tr>
 
                 <tr className='total'>
                   <td></td>
 
-                  <td>Total: £{invoice.rate}</td>
+                  <td>
+                    <>
+                      Total: £{invoice.rate}
+                    </>
+                  </td>
                 </tr>
               </table>
               <div className={styles.payButton}>
