@@ -9,7 +9,7 @@ import style from '../../styles/sidebar.module.css';
 export default withPageAuthRequired(function MembersOnly() {
   return (
     <div className={style.logoContainer}>
-      <Image src={Logo} width={600} />
+      <Image alt='logo of the application' src={Logo} width={600} />
     </div>
   );
 });
