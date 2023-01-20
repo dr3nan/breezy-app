@@ -1,7 +1,8 @@
 import connectMongo from '../../../utils/connectMongo';
 import Invoice from '../../../models/model';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
   const { method } = req;
   const { id } = req.query;
@@ -11,7 +12,7 @@ export default async function handler(req, res) {
       try {
         const invoice = await Invoice.findOne({ purchaseOrderNumber: id });
         if (!invoice) {
-          return await res.status(400).json(invoice);
+          return res.status(400).json(invoice);
         }
         res.status(200).json(invoice);
         // res.send(invoice);
