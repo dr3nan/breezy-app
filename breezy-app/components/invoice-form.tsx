@@ -1,81 +1,39 @@
 'use client';
 
-import { useState } from 'react';
-import '../components/invoice-form.css';
-import { submitData } from '../utils/dataFetch';
-import Link from 'next/link';
 import React from 'react';
-import {
-  FormControl,
-  FormLabel,
-  ChakraProvider,
-  Input,
-} from '@chakra-ui/react';
-import { invoiceFields } from '../utils/types';
+// import { useState } from 'react';
+import { submitData } from '../utils/dataFetch';
+import { FormControl, FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
+// import { invoiceFields } from '../utils/types';
+import '../components/invoice-form.css';
 
 function InvoiceForm() {
-  const [fullName, setFullName] = useState('');
-  const [address, setAddress] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [clientFullName, setClientFullName] = useState('');
-  const [clientAddress, setClientAddress] = useState('');
-  const [clientPhoneNumber, setClientPhoneNumber] = useState('');
-  const [clientEmail, setClientEmail] = useState('');
-  const [purchaseOrderNumber, setPurchaseOrderNumber] = useState('');
-  const [description, setDescription] = useState('');
-  const [rate, setRate] = useState('');
-  const [date, setDate] = useState('');
 
-  const [invoiceData, setInvoice] = useState<invoiceFields[]>([]);
-
-  const pushInvoice = async (invoice: invoiceFields) => {
-    const newInvoice = await submitData(invoice);
-    console.log('newInvoice is: ', newInvoice)
-    setInvoice([...invoiceData, newInvoice]);
-  };
-
-  function handleSubmit(event: HTMLFormElement) {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const newInvoiceData = {
-      fullName,
-      address,
-      phoneNumber,
-      email,
-      clientFullName,
-      clientAddress,
-      clientPhoneNumber,
-      clientEmail,
-      purchaseOrderNumber,
-      description,
-      rate,
-      date,
-      paid: false
-    };
-
-    console.log(newInvoiceData);
-
-    pushInvoice({ ...newInvoiceData, paid: false });
-
-    setFullName('');
-    setAddress('');
-    setPhoneNumber('');
-    setEmail('');
-
-    setClientFullName('');
-    setClientAddress('');
-    setClientPhoneNumber('');
-    setClientEmail('');
-
-    setPurchaseOrderNumber('');
-    setDescription('');
-    setRate('');
-    setDate('');
+    const formData = new FormData(event.currentTarget);
+    const form = {
+      fullName: formData.get('fullName'),
+      phoneNumber: formData.get('phoneNumber'),
+      email: formData.get('email'),
+      clientFullName: formData.get('clientFullName'),
+      clientAddress: formData.get('clientAddress'),
+      clientPhoneNumber: formData.get('clientPhoneNumber'),
+      clientEmail: formData.get('clientEmail'),
+      purchaseOrderNumber: formData.get('purchaseOrderNumber'),
+      description: formData.get('description'),
+      rate: formData.get('rate'),
+      date: formData.get('date'),
+      paid: false,
+      address: formData.get('address')
+    }
+    await submitData(form);
+    // event.currentTarget.reset();
   }
 
   return (
     <ChakraProvider>
-      <form onSubmit={handleSubmit} autoComplete='off'>
+      <form onSubmit={event => handleSubmit(event)} autoComplete='off'>
         <div className='form-container'>
           <div className='people-details-container'>
             <div className='personal-details-container'>
@@ -88,10 +46,10 @@ function InvoiceForm() {
                 <FormLabel>Full Name</FormLabel>
                 <Input
                   type='text'
-                  name='client-full'
-                  value={fullName}
+                  // name='client-full'
+                  name='fullName'
+                  // value={fullName}
                   placeholder='Insert full name...'
-                  onChange={(e) => setFullName(e.target.value)}
                 />
               </FormControl>
 
@@ -99,20 +57,18 @@ function InvoiceForm() {
                 <FormLabel>Address</FormLabel>
                 <Input
                   type='text'
-                  name='phone-number'
-                  value={address}
+                  name='address'
+                  // value={address}
                   placeholder='Insert address...'
-                  onChange={(e) => setAddress(e.target.value)}
                 />
               </FormControl>
               <FormControl>
                 <FormLabel>Phone Number</FormLabel>
                 <Input
-                  type='text'
-                  name='phone-number'
-                  value={phoneNumber}
+                  type='number'
+                  name='phoneNumber'
+                  // value={phoneNumber}
                   placeholder='Insert phone number...'
-                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </FormControl>
 
@@ -120,10 +76,9 @@ function InvoiceForm() {
                 <FormLabel>Email Address</FormLabel>
                 <Input
                   type='email'
-                  name='email-address'
-                  value={email}
+                  name='email'
+                  // value={email}
                   placeholder='Insert email address...'
-                  onChange={(e) => setEmail(e.target.value)}
                 />
               </FormControl>
               <br />
@@ -137,10 +92,9 @@ function InvoiceForm() {
                 <FormLabel>Full Name</FormLabel>
                 <Input
                   type='text'
-                  name='client-full'
-                  value={clientFullName}
+                  name='clientFullName'
+                  // value={clientFullName}
                   placeholder='Insert full name...'
-                  onChange={(e) => setClientFullName(e.target.value)}
                 />
               </FormControl>
 
@@ -148,20 +102,18 @@ function InvoiceForm() {
                 <FormLabel>Address</FormLabel>
                 <Input
                   type='text'
-                  name='client-address'
-                  value={clientAddress}
+                  name='clientAddress'
+                  // value={clientAddress}
                   placeholder='Insert Address...'
-                  onChange={(e) => setClientAddress(e.target.value)}
                 />
               </FormControl>
               <FormControl>
                 <FormLabel>Phone Number</FormLabel>
                 <Input
-                  type='text'
-                  name='client-phone-number'
-                  value={clientPhoneNumber}
+                  type='number'
+                  name='clientPhoneNumber'
+                  // value={clientPhoneNumber}
                   placeholder='Insert phone number...'
-                  onChange={(e) => setClientPhoneNumber(e.target.value)}
                 />
               </FormControl>
 
@@ -169,10 +121,9 @@ function InvoiceForm() {
                 <FormLabel>Email Address</FormLabel>
                 <Input
                   type='email'
-                  name='client-phone-number'
-                  value={clientEmail}
+                  name='clientEmail'
+                  // value={clientEmail}
                   placeholder='Insert email address'
-                  onChange={(e) => setClientEmail(e.target.value)}
                 />
               </FormControl>
             </div>
@@ -184,35 +135,30 @@ function InvoiceForm() {
               <FormControl>
                 <FormLabel>PO Number</FormLabel>
                 <Input
-                  type='text'
-                  name='po-number'
-                  value={purchaseOrderNumber}
+                  type='number'
+                  name='purchaseOrderNumber'
+                  // value={purchaseOrderNumber}
                   placeholder='Insert purchase order number...'
-                  onChange={(e) => setPurchaseOrderNumber(e.target.value)}
                 />
               </FormControl>
-
-              {/* <button >Add Item</button> */}
 
               <FormControl>
                 <FormLabel>Description</FormLabel>
                 <Input
                   type='text'
                   name='description'
-                  value={description}
+                  // value={description}
                   placeholder='Insert description...'
-                  onChange={(e) => setDescription(e.target.value)}
                 />
               </FormControl>
 
               <FormControl>
                 <FormLabel>Rate</FormLabel>
                 <Input
-                  type='text'
+                  type='number'
                   name='rate'
-                  value={rate}
+                  // value={rate}
                   placeholder='Insert rate...'
-                  onChange={(e) => setRate(e.target.value)}
                 />
               </FormControl>
 
@@ -221,15 +167,13 @@ function InvoiceForm() {
                 <Input
                   type='datetime-local'
                   name='date'
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  // value={date}
                 />
               </FormControl>
 
               <input type='submit' value='CREATE INVOICE' />
             </div>
           </div>
-          {/* </div> */}
         </div>
       </form>
     </ChakraProvider>
@@ -237,8 +181,3 @@ function InvoiceForm() {
 }
 
 export default InvoiceForm;
-
-{
-  /* <Link href='/invoice-list'>
-</Link> */
-}

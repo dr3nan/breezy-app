@@ -10,7 +10,7 @@ const invoiceSchema = new Schema({
     required: false,
   },
   phoneNumber: {
-    type: String,
+    type: Number,
     required: false,
   },
   email: {

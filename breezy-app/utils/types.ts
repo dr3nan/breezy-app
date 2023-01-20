@@ -7,7 +7,7 @@ export interface invoiceFields {
   email: String;
   clientFullName: String;
   clientAddress: String;
-  clientPhoneNumber: String | null;
+  clientPhoneNumber: Number | null;
   clientEmail: String;
   purchaseOrderNumber: Number;
   description: String;
