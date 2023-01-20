@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const invoice = await Invoice.findById(id);
         if (!invoice) {
-          return await res.status(400).json(invoice);
+          return res.status(400).json(invoice);
         }
         res.status(200).json(invoice);
         // res.send(invoice);

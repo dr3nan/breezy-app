@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const invoice = await Invoice.create(req.body);
         console.log(invoice);
-        await res.status(201).json(invoice);
+        res.status(201).json(invoice);
       } catch (e) {
         console.log(e);
         return res.status(400).json(req.body);

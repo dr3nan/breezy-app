@@ -16,9 +16,7 @@ export async function getData() {
 }
 
 export async function getDataById(id: String) {
-  console.log('get data by id =====>', id);
   const res = await fetch(`${uri}/api/${id}`);
-  console.log('res', res.body);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
@@ -27,7 +25,6 @@ export async function getDataById(id: String) {
 
 export async function getInvoiceDataById(id: String) {
   const res = await fetch(`${uri}/api/pay-invoice/${id}`);
-  console.log('res', res.body);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
@@ -50,8 +47,6 @@ export async function submitData(data: invoiceFields) {
 }
 
 export async function updateData(id: String, data: invoiceFields) {
-  console.log('id from param', id);
-  console.log('data from param', data);
   try {
     const response = await fetch(`${uri}/api/${id}`, {
       method: 'PUT',

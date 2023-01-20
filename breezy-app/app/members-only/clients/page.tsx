@@ -9,8 +9,8 @@ export default async function FetchClients() {
   return (
     <>
       {data.map((data: invoiceFields) => (
-        <div key={data._id}>
-          <DisplayClients key={data._id} clientData={data} />
+        <div key={String(data._id)}>
+          <DisplayClients key={String(data._id)} clientData={data} />
         </div>
       ))}
     </>
