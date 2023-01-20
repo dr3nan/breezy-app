@@ -13,10 +13,12 @@ import { updateData } from '../utils/dataFetch';
 export default function ClientViewInvoice({
   invoice,
   dueDate,
-  currentDate
+  currentDate,
+  amount
 }) {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   console.log('invoice id', invoice);
+
   const updateStatus = async (invoice) => {
     const newInvoiceStatus = await updateData(invoice._id, invoice);
     setInvoiceStatus(newInvoiceStatus.paid);

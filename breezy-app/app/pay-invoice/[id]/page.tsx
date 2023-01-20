@@ -1,33 +1,34 @@
 import { getInvoiceDataById } from '../../../utils/dataFetch';
 import React from 'react';
 import ClientViewInvoice from '../../../components/client-view-invoice';
+import { Params } from '../../../utils/types';
 
-export default async function FetchInvoice({ params }) {
+export default async function FetchInvoice({ params }: Params) {
   console.log('params', params);
   const id = params.id;
   console.log('id from params', id);
   const data = await getInvoiceDataById(id);
   const invoice = data;
 
-  function GetDate(date) {
-    date = new Date();
+  function GetDate(date: number) {
+    const date2 = new Date();
 
-    let month = date.toLocaleString([], {
+    let month = date2.toLocaleString([], {
       month: 'numeric',
     });
 
-    let day = date.toLocaleString([], {
+    let day = date2.toLocaleString([], {
       day: 'numeric',
     });
 
-    let year = date.toLocaleString([], {
+    let year = date2.toLocaleString([], {
       year: 'numeric',
     });
 
-    if (month < 10) {
+    if (Number(month) < 10) {
       month = `0${month}`;
     }
-    if (day < 10) {
+    if (Number(day) < 10) {
       day = `0${day}`;
     }
 
@@ -36,7 +37,9 @@ export default async function FetchInvoice({ params }) {
     return formatedDate;
   }
 
-  const amount = `£${invoice.quantity * invoice.rate}`;
+  const finalRate: Number = invoice.quantity * invoice.rate;
+
+  const amount: String = `£${finalRate}`;
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
 
@@ -44,7 +47,7 @@ export default async function FetchInvoice({ params }) {
     <>
       <ClientViewInvoice
         invoice={invoice}
-        amount={amount}
+        amount ={amount}
         currentDate={currentDate}
         dueDate={dueDate}
       />
