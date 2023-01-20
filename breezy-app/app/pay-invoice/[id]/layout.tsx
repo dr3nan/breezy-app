@@ -6,4 +6,4 @@ export default function ClientViewInvoice({ children }: { children: React.ReactN
       <section>{children}</section>
     </>
   );
-}
+};

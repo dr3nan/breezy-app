@@ -1,23 +1,16 @@
 import { getDataById } from '../../../../utils/dataFetch';
-// import DisplayInvoice from '../../../../components/displayInvoice';
 import '../../../../components/displayInvoice.css'
 import React from 'react';
 import Logo from '../../../../public/For Web/png/Black logo - no background.png';
 import Image from 'next/image';
-// TODO: find type of params
-
-import { invoiceFields, Params } from '../../../../utils/types';
-
-
+import { Params } from '../../../../utils/types';
 
 export default async function FetchInvoice({ params }: Params ) {
-
   const id = params.id;
   const data = await getDataById(id);
   const invoice = data;
 
   function GetDate(date: number) {
-
     const date2 = new Date(date);
 
     let month = date2.toLocaleString([], {
@@ -45,7 +38,6 @@ export default async function FetchInvoice({ params }: Params ) {
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
 
-
   return (
     <>
       <div className='invoice-box'>
@@ -57,7 +49,6 @@ export default async function FetchInvoice({ params }: Params ) {
                   <td className='title'>
                     <Image alt='logo of the brand' src={Logo} width={150}></Image>
                   </td>
-
                   <td>
                     INVOICE #1
                     <br />
@@ -72,7 +63,6 @@ export default async function FetchInvoice({ params }: Params ) {
               </table>
             </td>
           </tr>
-
           <tr className='information'>
             <td colSpan={Number('2')}>
               <table>
@@ -84,7 +74,6 @@ export default async function FetchInvoice({ params }: Params ) {
                     <br />
                     {invoice.email}
                   </td>
-
                   <td>
                     <strong>Bill To</strong>
                     <br />
@@ -98,25 +87,20 @@ export default async function FetchInvoice({ params }: Params ) {
               </table>
             </td>
           </tr>
-
           <tr className='heading'>
             <td>Item</td>
             <td>Price</td>
           </tr>
-
           <tr className='item'>
             <td>{invoice.description}</td>
-
             <td>£{invoice.rate}</td>
           </tr>
-
           <tr className='total'>
             <td></td>
-
             <td>Total: £{invoice.rate}</td>
           </tr>
         </table>
       </div>
     </>
   );
-}
+};

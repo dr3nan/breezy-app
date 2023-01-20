@@ -1,4 +1,4 @@
-import { Key } from "react";
+import { Key } from 'react';
 
 export interface invoiceFields {
   _id: Key;
@@ -23,10 +23,6 @@ export interface Params {
   };
 }
 
-export interface Params2 {
-    id: String;
-}
-
 export interface dateFormatted {
   date: {
     year: String;
@@ -35,6 +31,5 @@ export interface dateFormatted {
     hour: String;
     minute: String;
     seconds: String;
-
   }
 }

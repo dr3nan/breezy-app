@@ -14,7 +14,6 @@ import Image from 'next/image';
 import Logo from '../../public/For Web/png/Black logo - no background.png';
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-
 import Logout from './logout';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -44,7 +43,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className={styles.logo}>
             <Image src={Logo} alt='breezy-logo' width={250} priority></Image>
           </div>
-
           <ul className={styles.menuItems}>
             {menus.map((menu, index) => (
               <>
@@ -57,7 +55,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </>
             ))}
           </ul>
-
           <div className={styles.logout}>
             <Logout></Logout>
           </div>
@@ -66,4 +63,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
     </UserProvider>
   );
-}
+};

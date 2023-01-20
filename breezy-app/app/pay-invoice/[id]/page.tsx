@@ -6,7 +6,6 @@ import { Params } from '../../../utils/types';
 export default async function FetchInvoice({ params }: Params) {
 
   const id = params.id;
-
   const data = await getInvoiceDataById(id);
   const invoice = data;
 
@@ -27,18 +26,16 @@ export default async function FetchInvoice({ params }: Params) {
 
     if (Number(month) < 10) {
       month = `0${month}`;
-    }
+    };
+
     if (Number(day) < 10) {
       day = `0${day}`;
-    }
+    };
 
-    const formatedDate = `${day}/${month}/${year}`;
-
-    return formatedDate;
+    return `${day}/${month}/${year}`;
   }
 
   const finalRate: Number = invoice.quantity * invoice.rate;
-
   const amount: String = `£${finalRate}`;
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);

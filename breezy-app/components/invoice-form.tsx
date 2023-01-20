@@ -42,7 +42,6 @@ function InvoiceForm() {
                 <strong>Personal Details</strong>
               </h2>
               <br />
-
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
                 <Input
@@ -51,7 +50,6 @@ function InvoiceForm() {
                   placeholder='Insert full name...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Address</FormLabel>
                 <Input
@@ -68,7 +66,6 @@ function InvoiceForm() {
                   placeholder='Insert phone number...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Email Address</FormLabel>
                 <Input
@@ -78,12 +75,10 @@ function InvoiceForm() {
                 />
               </FormControl>
               <br />
-
               <h2>
                 <strong>Client Details</strong>
               </h2>
               <br />
-
               <FormControl>
                 <FormLabel>Full Name</FormLabel>
                 <Input
@@ -92,7 +87,6 @@ function InvoiceForm() {
                   placeholder='Insert full name...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Address</FormLabel>
                 <Input
@@ -109,7 +103,6 @@ function InvoiceForm() {
                   placeholder='Insert phone number...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Email Address</FormLabel>
                 <Input
@@ -132,7 +125,6 @@ function InvoiceForm() {
                   placeholder='Insert purchase order number...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Description</FormLabel>
                 <Input
@@ -141,7 +133,6 @@ function InvoiceForm() {
                   placeholder='Insert description...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Rate</FormLabel>
                 <Input
@@ -150,7 +141,6 @@ function InvoiceForm() {
                   placeholder='Insert rate...'
                 />
               </FormControl>
-
               <FormControl>
                 <FormLabel>Due By</FormLabel>
                 <Input

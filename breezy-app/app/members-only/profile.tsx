@@ -20,6 +20,5 @@ export default function UserProfile() {
       </div>
     );
   }
-
   return <a href='/api/auth/login'>LOGIN</a>;
-}
+};

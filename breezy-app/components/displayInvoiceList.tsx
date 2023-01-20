@@ -3,7 +3,7 @@
 import '../components/displayInvoiceList.css';
 import React from 'react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { invoiceFields } from '../utils/types';
 
@@ -45,19 +45,14 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
 
     if (Number(month) < 10) {
       month = `0${month}`;
-    }
+    };
+
     if (Number(day) < 10) {
       day = `0${day}`;
-    }
+    };
 
-    const formatedDate = `${month} ${day}, ${year}`;
-    return formatedDate;
-  }
-
-  //const currentDate = GetDate(Date.now());
-  //const dueDate = GetDate(invoice.date);
-  //console.log(invoice.date);
-  //const newDate = GetDate(invoice.date);
+    return `${month} ${day}, ${year}`;
+  };
 
   return (
     <>
@@ -67,7 +62,6 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
           <button onClick={findPaid}>PAID</button>
           <button onClick={allInvoices}>ALL INVOICES</button>
         </div>
-
         <table className='GeneratedTable'>
           <thead>
             <tr>
@@ -77,7 +71,6 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
               <th>Due</th>
             </tr>
           </thead>
-
           {!paidRender ? (
             <tbody>
               {invoice.map((invoice) => (
@@ -122,6 +115,6 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
       </ChakraProvider>
     </>
   );
-}
+};
 
 export default DisplayInvoiceList;

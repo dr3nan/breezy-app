@@ -26,6 +26,6 @@ function DisplayClients({ clientData }: { clientData: invoiceFields }) {
       </div>
     </div>
   );
-}
+};
 
 export default DisplayClients;

@@ -1,5 +1,7 @@
 // import 'server-only'
 
+import { invoiceFields } from "./types";
+
 const uri = 'http://localhost:3000';
 
 export async function getData() {
@@ -13,16 +15,17 @@ export async function getData() {
   return parsed;
 }
 
-export async function getDataById(id) {
+export async function getDataById(id: String) {
+  console.log('get data by id =====>', id);
   const res = await fetch(`${uri}/api/${id}`);
   console.log('res', res.body);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }
   return await res.json();
-} 
+}
 
-export async function getInvoiceDataById(id) {
+export async function getInvoiceDataById(id: String) {
   const res = await fetch(`${uri}/api/pay-invoice/${id}`);
   console.log('res', res.body);
   if (!res.ok) {
@@ -31,7 +34,7 @@ export async function getInvoiceDataById(id) {
   return await res.json();
 }
 
-export async function submitData(data) {
+export async function submitData(data: invoiceFields) {
   try {
     const res = await fetch(`${uri}/api/hello`, {
       method: 'POST',
@@ -46,7 +49,7 @@ export async function submitData(data) {
   }
 }
 
-export async function updateData(id, data) {
+export async function updateData(id: String, data: invoiceFields) {
   console.log('id from param', id);
   console.log('data from param', data);
   try {

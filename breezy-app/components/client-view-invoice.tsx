@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Logo from '../public/Black logo - no background.png';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useState } from 'react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Button} from '@chakra-ui/react';
 import { updateData } from '../utils/dataFetch';
 import { invoiceFields } from '../utils/types';
 
@@ -18,8 +18,7 @@ export default function ClientViewInvoice({
   amount
 }: { invoice: invoiceFields, dueDate: String, currentDate: String, amount: String }) {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
-
-
+  // TODO; check what is the type of invoice._id
   const updateStatus = async (invoice: invoiceFields) => {
     const newInvoiceStatus = await updateData(invoice._id, invoice);
     setInvoiceStatus(newInvoiceStatus.paid);
@@ -27,7 +26,7 @@ export default function ClientViewInvoice({
 
   function handleOnClick() {
     updateStatus({ ...invoice, paid: true });
-  }
+  };
 
   return (
     <>
@@ -57,7 +56,6 @@ export default function ClientViewInvoice({
                         <td className='title'>
                           <Image alt={'logo'} src={Logo} width={150}></Image>
                         </td>
-
                         <td>
                           <>
                             #{invoice.purchaseOrderNumber}
@@ -79,7 +77,6 @@ export default function ClientViewInvoice({
                     </table>
                   </td>
                 </tr>
-
                 <tr className='information'>
                   <td colSpan={Number('2')}>
                     <table>
@@ -91,7 +88,6 @@ export default function ClientViewInvoice({
                           <br />
                           {invoice.email}
                         </td>
-
                         <td>
                           <strong>Bill To</strong>
                           <br />
@@ -105,25 +101,20 @@ export default function ClientViewInvoice({
                     </table>
                   </td>
                 </tr>
-
                 <tr className='heading'>
                   <td>Item</td>
                   <td>Price</td>
                 </tr>
-
                 <tr className='item'>
                   <td>{invoice.description}</td>
-
                   <td>
                     <>
                       £{invoice.rate}
                     </>
                   </td>
                 </tr>
-
                 <tr className='total'>
                   <td></td>
-
                   <td>
                     <>
                       Total: £{invoice.rate}
@@ -146,4 +137,4 @@ export default function ClientViewInvoice({
       </ChakraProvider>
     </>
   );
-}
+};
