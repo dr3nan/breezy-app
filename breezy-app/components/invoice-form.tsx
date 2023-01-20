@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 // import { useState } from 'react';
 import { submitData } from '../utils/dataFetch';
 import { FormControl, FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
@@ -8,6 +8,8 @@ import { FormControl, FormLabel, ChakraProvider, Input } from '@chakra-ui/react'
 import '../components/invoice-form.css';
 
 function InvoiceForm() {
+
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,12 +30,16 @@ function InvoiceForm() {
       address: formData.get('address')
     }
     await submitData(form);
-    // event.currentTarget.reset();
+    if(formRef && formRef.current) {
+      formRef.current.reset();
+  }
+
+    
   }
 
   return (
     <ChakraProvider>
-      <form onSubmit={event => handleSubmit(event)} autoComplete='off'>
+      <form ref={formRef} onSubmit={event => handleSubmit(event)} autoComplete='off'>
         <div className='form-container'>
           <div className='people-details-container'>
             <div className='personal-details-container'>
