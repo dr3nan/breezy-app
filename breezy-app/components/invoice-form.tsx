@@ -1,14 +1,11 @@
 'use client';
 
 import React, { useRef } from 'react';
-// import { useState } from 'react';
 import { submitData } from '../utils/dataFetch';
 import { FormControl, FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
-// import { invoiceFields } from '../utils/types';
 import '../components/invoice-form.css';
 
 function InvoiceForm() {
-
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,11 +27,9 @@ function InvoiceForm() {
       address: formData.get('address')
     }
     await submitData(form);
-    if(formRef && formRef.current) {
+    if (formRef && formRef.current) {
       formRef.current.reset();
-  }
-
-    
+    }
   }
 
   return (
@@ -52,9 +47,7 @@ function InvoiceForm() {
                 <FormLabel>Full Name</FormLabel>
                 <Input
                   type='text'
-                  // name='client-full'
                   name='fullName'
-                  // value={fullName}
                   placeholder='Insert full name...'
                 />
               </FormControl>
@@ -64,7 +57,6 @@ function InvoiceForm() {
                 <Input
                   type='text'
                   name='address'
-                  // value={address}
                   placeholder='Insert address...'
                 />
               </FormControl>
@@ -73,7 +65,6 @@ function InvoiceForm() {
                 <Input
                   type='number'
                   name='phoneNumber'
-                  // value={phoneNumber}
                   placeholder='Insert phone number...'
                 />
               </FormControl>
@@ -83,7 +74,6 @@ function InvoiceForm() {
                 <Input
                   type='email'
                   name='email'
-                  // value={email}
                   placeholder='Insert email address...'
                 />
               </FormControl>
@@ -99,7 +89,6 @@ function InvoiceForm() {
                 <Input
                   type='text'
                   name='clientFullName'
-                  // value={clientFullName}
                   placeholder='Insert full name...'
                 />
               </FormControl>
@@ -109,7 +98,6 @@ function InvoiceForm() {
                 <Input
                   type='text'
                   name='clientAddress'
-                  // value={clientAddress}
                   placeholder='Insert Address...'
                 />
               </FormControl>
@@ -118,7 +106,6 @@ function InvoiceForm() {
                 <Input
                   type='number'
                   name='clientPhoneNumber'
-                  // value={clientPhoneNumber}
                   placeholder='Insert phone number...'
                 />
               </FormControl>
@@ -128,7 +115,6 @@ function InvoiceForm() {
                 <Input
                   type='email'
                   name='clientEmail'
-                  // value={clientEmail}
                   placeholder='Insert email address'
                 />
               </FormControl>
@@ -143,7 +129,6 @@ function InvoiceForm() {
                 <Input
                   type='number'
                   name='purchaseOrderNumber'
-                  // value={purchaseOrderNumber}
                   placeholder='Insert purchase order number...'
                 />
               </FormControl>
@@ -153,7 +138,6 @@ function InvoiceForm() {
                 <Input
                   type='text'
                   name='description'
-                  // value={description}
                   placeholder='Insert description...'
                 />
               </FormControl>
@@ -163,7 +147,6 @@ function InvoiceForm() {
                 <Input
                   type='number'
                   name='rate'
-                  // value={rate}
                   placeholder='Insert rate...'
                 />
               </FormControl>
@@ -173,10 +156,8 @@ function InvoiceForm() {
                 <Input
                   type='datetime-local'
                   name='date'
-                  // value={date}
                 />
               </FormControl>
-
               <input type='submit' value='CREATE INVOICE' />
             </div>
           </div>
