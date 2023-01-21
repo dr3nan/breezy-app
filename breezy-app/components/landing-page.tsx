@@ -39,7 +39,7 @@ export default function LandingPage() {
       </div>
       <div className={styles.container}>
         <div className={styles.loginBox}>
-          <a href='/members-only'>
+          <a className='FreelancerLoginButton' href='/members-only'>
             <h2>Freelancer Login </h2>
           </a>
           <span className={styles.arrow}>
@@ -47,7 +47,7 @@ export default function LandingPage() {
           </span>
         </div>
         <div className={styles.loginBox}>
-          <button onClick={() => setShowInput(!showInput)}>
+          <button className='PayAnInvoiceButton' onClick={() => setShowInput(!showInput)}>
             <h2>Pay An Invoice</h2>
           </button>
           <span className={styles.arrow}>
