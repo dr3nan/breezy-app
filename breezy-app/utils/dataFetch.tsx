@@ -1,6 +1,6 @@
 // import 'server-only'
 
-import { invoiceFields } from "./types";
+import { invoiceFields } from './types';
 
 const uri = 'http://localhost:3000';
 
@@ -10,8 +10,6 @@ export async function getData() {
     throw new Error('failed to fetch data');
   }
   const parsed = await res.json()
-  console.log(parsed)
-
   return parsed;
 }
 

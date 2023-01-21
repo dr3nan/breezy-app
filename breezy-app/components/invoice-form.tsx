@@ -12,7 +12,6 @@ function InvoiceForm() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const form = {
-      _id: '',
       fullName: formData.get('fullName') as String,
       phoneNumber: formData.get('phoneNumber') as unknown as Number,
       email: formData.get('email') as String,
@@ -31,7 +30,7 @@ function InvoiceForm() {
     if (formRef && formRef.current) {
       formRef.current.reset();
     }
-  }
+  };
 
   return (
     <ChakraProvider>

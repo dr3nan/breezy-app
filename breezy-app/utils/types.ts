@@ -1,5 +1,5 @@
 export interface invoiceFields {
-  _id: String;
+  _id?: String;
   fullName: String;
   phoneNumber: Number;
   email: String;

@@ -5,14 +5,17 @@ const invoiceSchema = new Schema({
     type: String,
     required: false,
   },
+
   address: {
     type: String,
     required: false,
   },
+
   phoneNumber: {
     type: Number,
     required: false,
   },
+
   email: {
     type: String,
     required: false,
@@ -22,14 +25,17 @@ const invoiceSchema = new Schema({
     type: String,
     required: false,
   },
+
   clientAddress: {
     type: String,
     required: false,
   },
+
   clientPhoneNumber: {
     type: Number,
     required: false,
   },
+
   clientEmail: {
     type: String,
     required: false,
@@ -38,10 +44,12 @@ const invoiceSchema = new Schema({
     type: Number,
     required: false,
   },
+
   description: {
     type: String,
     required: false,
   },
+
   rate: {
     type: Number,
     required: false,
@@ -51,10 +59,11 @@ const invoiceSchema = new Schema({
     type: Date,
     required: false,
   },
+
   paid: {
     type: Boolean,
     required: false,
-  },
+  }
 });
 
 const Invoice = models.Invoice || model('Invoice', invoiceSchema);
