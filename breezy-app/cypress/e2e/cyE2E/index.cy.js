@@ -11,7 +11,7 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('example to-do app', () => {
+describe('Tests of index / home', () => {
   beforeEach(() => {
     // Cypress starts out with a blank slate for each test
     // so we must tell it to visit our website with the `cy.visit()` command.
@@ -21,17 +21,27 @@ describe('example to-do app', () => {
   })
 
   it('displays Login & PayInvoice Buttons', () => {
-    // We use the `cy.get()` command to get all elements that match the selector.
-    // Then, we use `should` to assert that there are two matched items,
-    // which are the two default items.
+
     cy.get('.FreelancerLoginButton').should('be.visible');
     cy.get('.PayAnInvoiceButton').should('be.visible');
+    cy.get('.PayAnInvoiceButton').should('be.visible');
+  })
+
+  it('input button should not be visible at the beggining', () => {
+
+    cy.get('.landing-page_inputBox__8M4LO').should('not.be.visible');
   })
 
   it('if button FreelanceLogin clicked then navigation to members-only OK', () =>{
     cy.get('.FreelancerLoginButton').click()
     cy.wait(4000)
     cy.url().should('include', 'http://localhost:3000/members-only')
+  })
+
+  it('if button PayAnInvoice clicked then the input to insert PO is VISIBLE', () =>{
+    cy.get('.PayAnInvoiceButton').click()
+    cy.wait(4000)
+    cy.get('.landing-page_inputBox__8M4LO').should('be.visible');
   })
 
 })
