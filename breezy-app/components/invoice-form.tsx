@@ -26,9 +26,13 @@ function InvoiceForm() {
       paid: false,
       address: formData.get('address') as String
     }
-    await submitData(form);
-    if (formRef && formRef.current) {
-      formRef.current.reset();
+    try {
+      await submitData(form);
+      if (formRef && formRef.current) {
+        formRef.current.reset();
+      }
+    } catch (error) {
+      console.error(error)
     }
   };
 
