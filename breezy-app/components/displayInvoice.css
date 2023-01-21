@@ -21,6 +21,7 @@
   border-bottom-width: 2px;
   padding-bottom: 20px;
 }
+
 .client-details {
   display: flex;
   flex-direction: column;
@@ -30,6 +31,7 @@
   border-bottom-width: 2px;
   padding-bottom: 20px;
 }
+
 h2 {
   font-size: 25px;
 }
