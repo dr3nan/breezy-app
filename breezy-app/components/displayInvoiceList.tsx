@@ -71,11 +71,11 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
             </tr>
           </thead>
           {!paidRender ? (
-            <tbody>
-              {invoice.map((invoice) => (
+            <tbody className='invoicesTable'>
+              {invoice.map((invoice, index) => (
                 <tr key={String(invoice._id)}>
-                  <td>
-                    <Link href={`/members-only/invoice/${invoice._id}`}>
+                  <td data-cy={`link-${index}`}>
+                    <Link className={`button-${index}`} href={`/members-only/invoice/${invoice._id}`}>
                       <>
                         #{invoice.purchaseOrderNumber}
                       </>
