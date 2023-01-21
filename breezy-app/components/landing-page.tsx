@@ -34,7 +34,7 @@ export default function LandingPage() {
     <>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <Image src={logo} height={120} priority alt='logo' />
+          <Image src={logo} height={120} priority alt='logo' data-testid="LandingPageLogo" />
         </div>
       </div>
       <div className={styles.container}>
