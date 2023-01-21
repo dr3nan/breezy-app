@@ -12,7 +12,6 @@ import { UserProvider } from '@auth0/nextjs-auth0/client';
 import Logout from './logout';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  console.log("🚀 ~ file: layout.tsx:15 ~ Layout ~ children", children)
 
   const menus = [
     {
