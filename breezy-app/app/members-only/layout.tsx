@@ -1,11 +1,6 @@
 // 'use client';
 
-import {
-  BsFillFileEarmarkTextFill,
-  BsPeopleFill,
-  BsPencilSquare,
-  BsFront,
-} from 'react-icons/bs';
+import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-icons/bs';
 
 import '../../styles/globals.css';
 import Link from 'next/link';
@@ -32,8 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       title: 'Clients',
       icon: <BsPeopleFill />,
       link: '/members-only/clients',
-    },
-    { title: 'Dashboard', icon: <BsFront />, link: '/members-only/' },
+    }
   ];
 
   return (
