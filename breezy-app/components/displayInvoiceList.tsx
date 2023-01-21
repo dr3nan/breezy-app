@@ -75,7 +75,7 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
               {invoice.map((invoice, index) => (
                 <tr key={String(invoice._id)}>
                   <td data-cy={`link-${index}`}>
-                    <Link className={`button-${index}`} href={`/members-only/invoice/${invoice._id}`}>
+                    <Link className={`linkClick-${index}`} href={`/members-only/invoice/${invoice._id}`}>
                       <>
                         #{invoice.purchaseOrderNumber}
                       </>

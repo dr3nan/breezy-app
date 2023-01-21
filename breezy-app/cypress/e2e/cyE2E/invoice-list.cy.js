@@ -20,14 +20,14 @@ describe('Tests of index / home', () => {
   })
 
   it('if a invoice is clicked then navigatation to url to see invoice details OK', () => {
-    let hrefValue;
-    cy.get('[data-cy="link-0"]').then(($a) => {
-      hrefValue = $a.attr('href');
+
+    cy.get('.linkClick-0').then(($a) => {
+      const hrefValue = $a.attr('href');
       console.log(hrefValue);
+      cy.get('.linkClick-0').click()
+      cy.wait(4000)
+      cy.url().should('include', hrefValue)
     })
-    cy.get('.button-0').click()
-    cy.wait(4000)
-    cy.url().should('include', `${hrefValue}`)
   })
 
   /* it('input button should not be visible at the beggining', () => {
