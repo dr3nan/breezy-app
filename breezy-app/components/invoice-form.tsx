@@ -26,13 +26,15 @@ function InvoiceForm() {
       paid: false,
       address: formData.get('address') as String
     }
+    // TODO: to rev
     try {
-      await submitData(form);
-      if (formRef && formRef.current) {
-        formRef.current.reset();
-      }
+      const invoiceCreated = await submitData(form);
+      return invoiceCreated;
     } catch (error) {
       console.error(error)
+    }
+    if (formRef && formRef.current) {
+      formRef.current.reset();
     }
   };
 
