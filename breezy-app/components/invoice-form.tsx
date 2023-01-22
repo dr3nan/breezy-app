@@ -36,6 +36,9 @@ function InvoiceForm() {
     if (formRef && formRef.current) {
       formRef.current.reset();
     }
+
+    console.log("🚀 ~ file: invoice-form.tsx:42 ~ handleSubmit ~ invoiceCreated", invoiceCreated);
+    alert(`Invoice Created, here is your PO number: ${invoiceCreated.purchaseOrderNumber}`)
     return invoiceCreated;
   };
 
@@ -136,7 +139,6 @@ function InvoiceForm() {
                 type='datetime-local'
                 name='date'
                 min={new Date().toISOString().slice(0, 16)}
-                required
               />
               <input type='submit' value='CREATE INVOICE' />
             </div>
