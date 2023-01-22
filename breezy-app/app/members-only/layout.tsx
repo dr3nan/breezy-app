@@ -34,7 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className={styles.pageContainer}>
         <div className={styles.sidebar}>
           <div className={styles.logo}>
-            <Image src={Logo} alt='breezy-logo' width={250} priority></Image>
+            <Image src={Logo} alt='breezy logo' width={250} priority></Image>
           </div>
           <ul className={styles.menuItems}>
             {menus.map((menu, index) => (
