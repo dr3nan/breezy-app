@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { submitData } from '../utils/dataFetch';
-import { FormControl, FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
+import { FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
 import '../components/invoice-form.css';
 
 function InvoiceForm() {
