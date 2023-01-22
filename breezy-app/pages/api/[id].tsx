@@ -10,12 +10,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (method) {
     case 'GET':
       try {
-        const invoice = await Invoice.findById(id);
-        if (!invoice) {
+        const response = await Invoice.findById(id);
+        console.log('[id] / GET invoice response body', response);
+        if (!response) {
           return res.status(404).json({ message: 'Invoice not found' });
         }
         res.status(200);
-        res.json(invoice);
+        res.json(response);
       } catch (error) {
         console.error(error);
         res.status(500);
@@ -24,8 +25,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       break;
     case 'DELETE':
       try {
-        const invoice = await Invoice.findByIdAndDelete(id);
-        if (!invoice) {
+        const response = await Invoice.findByIdAndDelete(id);
+        console.log('[id] / DELETE invoice response body', response.body);
+        if (!response) {
           return res.status(404).json({ message: 'Invoice not found' });
         }
         res.status(200);
@@ -38,19 +40,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       break;
     case 'PUT':
       try {
-        const invoice = await Invoice.findOneAndUpdate(
+        const response = await Invoice.findOneAndUpdate(
           { _id: req.body._id },
           { new: true }
         );
+        console.log('[id] / PUT invoice response body', response.body);
 
-        if (!invoice) {
+        if (!response) {
           return res.status(404).json({ message: 'Invoice not found' });
         }
-        invoice.paid = true;
-        await invoice.save();
+        response.paid = true;
+        await response.save();
 
         res.status(200)
-        res.json(invoice);
+        res.json(response);
       } catch (error) {
         console.error(error);
         res.status(500)

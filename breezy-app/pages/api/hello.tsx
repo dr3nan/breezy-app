@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   connectMongo();
   const { method } = req;
 
-  // TODO: do we need all the methods? can we do with just GET
+  // TODO: check if DELETE really needed
   switch (method) {
     case 'GET':
       console.log('GET request')
@@ -28,14 +28,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(400).json(req.body);
       }
       break;
-    case 'DELETE':
-      try {
-        const invoice = await Invoice.findByIdAndDelete(req.query.id);
-        console.log('hello / API DELETE request data:', invoice);
-        return res.status(201).json(invoice);
-      } catch (e) {
-        console.log(e);
-        return res.status(400).json(req.query);
-      }
+    // case 'DELETE':
+    //   try {
+    //     const invoice = await Invoice.findByIdAndDelete(req.query.id);
+    //     console.log('hello / API DELETE request data:', invoice);
+    //     return res.status(201).json(invoice);
+    //   } catch (e) {
+    //     console.log(e);
+    //     return res.status(400).json(req.query);
+    //   }
   }
 }

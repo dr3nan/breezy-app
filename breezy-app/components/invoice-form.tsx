@@ -38,7 +38,7 @@ function InvoiceForm() {
     }
 
     console.log("🚀 ~ file: invoice-form.tsx:42 ~ handleSubmit ~ invoiceCreated", invoiceCreated);
-    alert(`Invoice Created, here is your PO number: ${invoiceCreated.purchaseOrderNumber}`)
+    alert(`Invoice Created, here is your PO number: ${invoiceCreated.purchaseOrderNumber}`);
     return invoiceCreated;
   };
 
@@ -147,6 +147,6 @@ function InvoiceForm() {
       </form>
     </ChakraProvider>
   );
-}
+};
 
 export default InvoiceForm;
