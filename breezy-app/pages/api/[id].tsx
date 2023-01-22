@@ -12,41 +12,49 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const invoice = await Invoice.findById(id);
         if (!invoice) {
-          return res.status(400).json(invoice);
+          return res.status(404).json({ message: 'Invoice not found' });
         }
-        res.status(200).json(invoice);
-        // res.send(invoice);
+        res.status(200);
+        res.json(invoice);
       } catch (error) {
-        console.log(error);
-        res.status(400);
-        // res.status(400);
+        console.error(error);
+        res.status(500);
+        res.json({ message: 'Server error' });
       }
       break;
     case 'DELETE':
       try {
         const invoice = await Invoice.findByIdAndDelete(id);
-        res.status(201).json({ success: true });
+        if (!invoice) {
+          return res.status(404).json({ message: 'Invoice not found' });
+        }
+        res.status(200);
+        res.json({ message: 'Invoice deleted' });
       } catch (error) {
-        res.status(400).json({ success: false });
+        console.error(error);
+        res.status(500)
+        res.json({ message: 'Server error' });
       }
       break;
     case 'PUT':
       try {
-        const invoice = await Invoice.findOneAndReplace(
+        const invoice = await Invoice.findOneAndUpdate(
           { _id: req.body._id },
-          req.body
+          { new: true }
         );
 
         if (!invoice) {
-          return res.status(400).json({ success: false });
+          return res.status(404).json({ message: 'Invoice not found' });
         }
         invoice.paid = true;
-        invoice.save();
+        await invoice.save();
 
-        res.status(200).json(invoice);
+        res.status(200)
+        res.json(invoice);
       } catch (error) {
-        console.log(error);
-        res.status(400).json({ success: false });
+        console.error(error);
+        res.status(500)
+        res.json({ message: 'Server error◊' });
       }
   }
 }
