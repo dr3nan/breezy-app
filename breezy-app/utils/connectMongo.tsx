@@ -4,8 +4,6 @@ mongoose.set('strictQuery', false);
 
 const uri = 'mongodb://localhost:27017/breezy-app';
 
-mongoose.connect(uri, () => {
-  console.log('Breezy db connected');
-});
+const connectMongo = async () => mongoose.connect(uri);
 
-export default mongoose;
+export default connectMongo;
