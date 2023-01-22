@@ -1,19 +1,41 @@
 /// <reference types="cypress" />
 
-describe('Test of create invoice', () => {
+Cypress.Commands.add('getParamExists', (selector) => {
+  return cy.get(`input[name=${selector}]`)
+})
+
+describe('Create invoice', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/members-only/create-invoice')
   })
 
-  it('cy.request() - make an XHR request', () => {
-    cy.request('http://jsonplaceholder.cypress.io/comments')
+  it('should check form fields exist and are of correct type', () => {
+    cy.getParamExists('fullName').and('have.attr', 'type', 'text');
+    cy.getParamExists('address').and('have.attr', 'type', 'text');
+    cy.getParamExists('phoneNumber').and('have.attr', 'type', 'number');
+    cy.getParamExists('email').and('have.attr', 'type', 'email');
+    cy.getParamExists('clientFullName').and('have.attr', 'type', 'text');
+    cy.getParamExists('clientAddress').and('have.attr', 'type', 'text');
+    cy.getParamExists('clientPhoneNumber').and('have.attr', 'type', 'number');
+    cy.getParamExists('clientEmail').and('have.attr', 'type', 'email');
+    cy.getParamExists('purchaseOrderNumber').and('have.attr', 'type', 'number');
+    cy.getParamExists('description').and('have.attr', 'type', 'text');
+    cy.getParamExists('rate').and('have.attr', 'type', 'number');
+    cy.getParamExists('date').and('have.attr', 'type', 'datetime-local');
+  })
+
+  it('should return status and check for submit button', () => {
+    cy.request('http://localhost:3000/members-only/create-invoice')
       .should((response) => {
         expect(response.status).to.eq(200)
-        // the server sometimes gets an extra comment posted from another machine
-        // which gets returned as 1 extra object
-        expect(response.body).to.have.property('length').and.be.oneOf([500, 501])
-        expect(response).to.have.property('headers')
-        expect(response).to.have.property('duration')
       })
+    cy.get('input[type="submit"][value="CREATE INVOICE"]').should('exist')
+  })
+
+  it('should show an alert upon submit with PO number', () => {
+    const stub = cy.stub();
+    cy.on('window:alert', stub);
+    cy.get('form').submit();
+    cy.wrap(stub).should('be.called');
   })
 })
