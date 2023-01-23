@@ -10,10 +10,6 @@ import { invoiceFields } from '../utils/types';
 
 function myApp({ Component, pageProps }: AppProps<invoiceFields>) {
 
-  useEffect
-
-
-
   return (
     <UserProvider>
       <ChakraProvider>
