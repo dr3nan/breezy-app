@@ -1,14 +1,22 @@
-import { getDataById } from '../../../../utils/dataFetch';
-import '../../../../components/displayInvoice.css'
-import React from 'react'
-import Logo from '../../../../public/ForWeb/png/BlackLogo.png'
+import { getDataById } from '../../../utils/dataFetch';
+import React from 'react';
+import Logo from '../../../public/ForWeb/png/BlackLogo.png';
 import Image from 'next/image';
-import { Params } from '../../../../utils/types';
+import { Params } from '../../../utils/types';
+import { useEffect, useState } from 'react';
 
-export default async function FetchInvoice({ params }: Params ) {
-  const id = params.id;
-  const data = await getDataById(id);
-  const invoice = data;
+export default function FetchInvoice({ params }: Params ) {
+  console.log('params are:', params);
+  // const id = params.id;
+  const [ invoice, setInvoice ] = useState([])
+  const fetchInvoices = async () => {
+    const response = await getDataById(id);
+    setInvoice(response)
+  }
+
+  useEffect(()=> {
+    fetchInvoices()
+  }, [])
 
   function GetDate(date: number) {
     const date2 = new Date(date);

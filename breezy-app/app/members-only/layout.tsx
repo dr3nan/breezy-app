@@ -4,7 +4,7 @@ import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-i
 import Link from 'next/link';
 import styles from '../../styles/sidebar.module.css';
 import Image from 'next/image';
-import Logo from '../../public/For Web/png/Black logo - no background.png';
+import Logo from '../../public/ForWeb/png/BlackLogo.png';
 import React from 'react';
 import { Button, ChakraProvider } from '@chakra-ui/react';
 import '../../styles/globals.css';

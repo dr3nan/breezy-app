@@ -4,7 +4,7 @@ import React from 'react';
 import styles from '../styles/landing-page.module.css';
 import './displayInvoice.css'
 import Image from 'next/image';
-import Logo from '../public/Black logo - no background.png';
+import Logo from '../public/BlackLogo.png';
 import { ChakraProvider } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Button } from '@chakra-ui/react';

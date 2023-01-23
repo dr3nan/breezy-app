@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from '../styles/landing-page.module.css';
 import Image from 'next/image';
-import logo from '../public/Black logo - no background.png';
+import logo from '../public/BlackLogo.png';
 import { BsArrowRight } from 'react-icons/bs';
 import { getData } from '../utils/dataFetch';
 
