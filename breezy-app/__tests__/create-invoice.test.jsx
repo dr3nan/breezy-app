@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import Invoice from '../models/invoice';
+import Invoice from '../models/model';
 
 describe('create invoice', () => {
 
   beforeAll(async () => {
-    await mongoose.connect('mongodb://127.0.0.1:27017/breezy-app', {
+    mongoose.connect('mongodb://127.0.0.1:27017/breezy-app', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
