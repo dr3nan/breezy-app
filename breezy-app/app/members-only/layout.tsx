@@ -8,6 +8,7 @@ import Logo from '../../public/For Web/png/Black logo - no background.png';
 import React from 'react';
 import { Button, ChakraProvider } from '@chakra-ui/react';
 import '../../styles/globals.css';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
@@ -30,34 +31,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <ChakraProvider>
-      <div className={styles.pageContainer}>
-        <div className={styles.sidebar}>
-          <div className={styles.logo}>
-            <Image src={Logo} alt='breezy logo' width={250} priority></Image>
+    <UserProvider>
+      <ChakraProvider>
+        <div className={styles.pageContainer}>
+          <div className={styles.sidebar}>
+            <div className={styles.logo}>
+              <Image src={Logo} alt='breezy logo' width={250} priority></Image>
+            </div>
+            <ul className={styles.menuItems}>
+              {menus.map((menu, index) => (
+                <>
+                  <li key={index} className={styles.menuInfo}>
+                    <span className={styles.menuIcon}>{menu.icon}</span>
+                    <Link data-cy={`link-${index}`} href={menu.link}>
+                      <span className={styles.menuItem}>{menu.title}</span>
+                    </Link>
+                  </li>
+                </>
+              ))}
+            </ul>
+            <div className={styles.logout}>
+              <a href='/api/auth/logout'>
+                <Button className='logout-button' bg='gray.200' color='black' variant='solid' size='lg'>
+                  LOGOUT
+                </Button>
+              </a>
+            </div>
           </div>
-          <ul className={styles.menuItems}>
-            {menus.map((menu, index) => (
-              <>
-                <li key={index} className={styles.menuInfo}>
-                  <span className={styles.menuIcon}>{menu.icon}</span>
-                  <Link data-cy={`link-${index}`} href={menu.link}>
-                    <span className={styles.menuItem}>{menu.title}</span>
-                  </Link>
-                </li>
-              </>
-            ))}
-          </ul>
-          <div className={styles.logout}>
-            <a href='/api/auth/logout'>
-              <Button className='logout-button' bg='gray.200' color='black' variant='solid' size='lg'>
-                LOGOUT
-              </Button>
-            </a>
-          </div>
+          {children}
         </div>
-        {children}
-      </div>
-    </ChakraProvider>
+      </ChakraProvider>
+    </UserProvider>
   );
 };
