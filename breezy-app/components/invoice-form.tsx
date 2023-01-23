@@ -6,6 +6,7 @@ import { FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
 import '../components/invoice-form.css';
 
 function InvoiceForm() {
+  // creating a ref to the form so we can reset it once submitted
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,11 +34,11 @@ function InvoiceForm() {
     } catch (error) {
       console.error(error)
     }
+    // reset from once submitted
     if (formRef && formRef.current) {
       formRef.current.reset();
     }
 
-    console.log("🚀 ~ file: invoice-form.tsx:42 ~ handleSubmit ~ invoiceCreated", invoiceCreated);
     alert(`Invoice Created, here is your PO number: ${invoiceCreated.purchaseOrderNumber}`);
     return invoiceCreated;
   };
