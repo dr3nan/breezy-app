@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import { invoiceFields } from '../../utils/types';
 import DisplayClients from "../../components/displayClients";
 
-import Sidebar from "./sidebar";
+import Sidebar from "../../components/sidebar";
 
 
 function Clients2() {
-  const [ invoices, setInvoices ] = useState([])
+  const [invoices, setInvoices] = useState([])
 
   const fetchInvoices = async () => {
     const response = await getData();
     setInvoices(response)
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     fetchInvoices()
   }, [])
 

@@ -2,7 +2,7 @@ import { getData } from '../../utils/dataFetch';
 import React from 'react';
 import DisplayInvoiceList from '../../components/displayInvoiceList';
 import { useState, useEffect } from 'react';
-import Sidebar from './sidebar';
+import Sidebar from '../../components/sidebar';
 
 
 export default function FetchInvoiceList() {

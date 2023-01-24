@@ -2,7 +2,7 @@ import InvoiceForm from '../../components/invoice-form';
 import { getData } from '../../utils/dataFetch';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import Sidebar from './sidebar';
+import Sidebar from '../../components/sidebar';
 
 
 export default function CreateInvoice() {
