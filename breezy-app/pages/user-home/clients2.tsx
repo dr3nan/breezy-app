@@ -2,6 +2,7 @@ import { getData } from "../../utils/dataFetch";
 import { useEffect, useState } from "react";
 import { invoiceFields } from '../../utils/types';
 import DisplayClients from "../../components/displayClients";
+import Sidebar from "./sidebar";
 
 function Clients2() {
   const [ invoices, setInvoices ] = useState([])
@@ -17,13 +18,14 @@ function Clients2() {
 
   return (
     <>
+      <Sidebar />
       {invoices.map((data: invoiceFields) => (
         <div key={String(data._id)}>
           <DisplayClients key={String(data._id)} clientData={data} />
         </div>
       ))}
     </>
- 
+
   )
 }
 export default Clients2;
