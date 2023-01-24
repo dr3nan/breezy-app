@@ -40,7 +40,7 @@ export default function LandingPage() {
       <div className={styles.container}>
         <div className={styles.loginBox}>
           <a className='FreelancerLoginButton' href='/user-home/invoice-list2'>
-            <h2>Freelancer Login </h2>
+            <h2>Manage My Invoices</h2>
           </a>
           <span className={styles.arrow}>
             <BsArrowRight />

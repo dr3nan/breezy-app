@@ -3,11 +3,19 @@
 import React, { useRef } from 'react';
 import { submitData } from '../utils/dataFetch';
 import { FormLabel, ChakraProvider, Input } from '@chakra-ui/react';
+import { useUser } from '@auth0/nextjs-auth0/client';
 import '../components/invoice-form.css';
 
 function InvoiceForm() {
   // creating a ref to the form so we can reset it once submitted
   const formRef = useRef<HTMLFormElement>(null);
+  const { user, error, isLoading } = useUser();
+  if(user) console.log('user is: ', user)
+  if(user) console.log('user id is: ', user.sid)
+  
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +33,8 @@ function InvoiceForm() {
       rate: formData.get('rate') as unknown as Number,
       date: formData.get('date') as String,
       paid: false,
-      address: formData.get('address') as String
+      address: formData.get('address') as String,
+      userId: user?.sid as String
     }
     // TODO: to rev
     let invoiceCreated;
