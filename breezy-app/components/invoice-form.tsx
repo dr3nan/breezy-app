@@ -11,8 +11,6 @@ function InvoiceForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const { user, error, isLoading } = useUser();
   if(user) console.log('user is: ', user)
-  if(user) console.log('user id is: ', user.sid)
-  
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -34,7 +32,7 @@ function InvoiceForm() {
       date: formData.get('date') as String,
       paid: false,
       address: formData.get('address') as String,
-      userId: user?.sid as String
+      userId: user?.sub as String
     }
     // TODO: to rev
     let invoiceCreated;

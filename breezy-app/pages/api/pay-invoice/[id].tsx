@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (method) {
     case 'GET':
       try {
-        const invoice = await Invoice.findOne({ purchaseOrderNumber: id });
+        const invoice = await Invoice.find({ userId: id });
         if (!invoice) {
           return res.status(400).json(invoice);
         }

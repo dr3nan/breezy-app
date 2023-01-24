@@ -18,9 +18,6 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
 
   const closeModal = () => setOpen(false);
 
-
-  // console.log('invoice in displayInvoiceList: ', invoice);
-
   function findPaid() {
     let paid = invoices.filter((invoice) => invoice.paid === true);
     setPaidStatus(paid);
@@ -40,7 +37,6 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
     setSpecificInvoice(specificInvoiceID);
     setOpen(o => !o);
   }
-  console.log('specific invoice is :', specificInvoice);
 
   function GetDate(date: String) {
     const date2 = new Date(`${date}`)

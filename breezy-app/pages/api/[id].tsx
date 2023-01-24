@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (method) {
     case 'GET':
       try {
-        const response = await Invoice.findById(id);
+        const response = await Invoice.find({ userId: id });
         console.log('[id] / GET invoice response body', response);
         if (!response) {
           return res.status(404).json({ message: 'Invoice not found' });
