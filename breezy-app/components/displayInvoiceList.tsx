@@ -6,19 +6,28 @@ import Link from 'next/link';
 import { useState} from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { invoiceFields } from '../utils/types';
+import Popup from 'reactjs-popup';
+import InvoicePopUp from './InvoicePopUp';
 
-function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
+function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
   const [isPaid, setPaidStatus] = useState<invoiceFields[]>([]);
   const [paidRender, setPaidRender] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [specificInvoice, setSpecificInvoice] = useState({});
+
+
+  const closeModal = () => setOpen(false);
+
+
   // console.log('invoice in displayInvoiceList: ', invoice);
 
   function findPaid() {
-    let paid = invoice.filter((invoice) => invoice.paid === true);
+    let paid = invoices.filter((invoice) => invoice.paid === true);
     setPaidStatus(paid);
     setPaidRender(true);
   }
   function findUnpaid() {
-    let unPaid = invoice.filter((invoice) => invoice.paid === false);
+    let unPaid = invoices.filter((invoice) => invoice.paid === false);
     setPaidStatus(unPaid);
     setPaidRender(true);
   }
@@ -26,6 +35,12 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
   function allInvoices() {
     setPaidRender(false);
   }
+
+  function selectInvoice(specificInvoiceID: invoiceFields) {
+    setSpecificInvoice(specificInvoiceID);
+    setOpen(o => !o);
+  }
+  console.log('specific invoice is :', specificInvoice);
 
   function GetDate(date: String) {
     const date2 = new Date(`${date}`)
@@ -56,6 +71,13 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
   return (
     <>
       <ChakraProvider>
+        <div>
+          <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+            <div className="overlay">
+              <InvoicePopUp invoice={specificInvoice} />
+            </div>
+          </Popup>
+        </div>
         <div className='filter-buttons'>
           <button onClick={findUnpaid}>OUTSTANDING </button>
           <button onClick={findPaid}>PAID</button>
@@ -72,14 +94,11 @@ function DisplayInvoiceList({ invoice }: { invoice: invoiceFields[] }) {
           </thead>
           {!paidRender ? (
             <tbody className='invoicesTable'>
-              {invoice.map((invoice, index) => (
+              {invoices.map((invoice, index) => (
                 <tr key={String(invoice._id)}>
                   <td data-cy={`link-${index}`}>
-                    <Link className={`linkClick-${index}`} href={`/members-only/invoice/${invoice._id}`}>
-                      <>
-                        #{invoice.purchaseOrderNumber}
-                      </>
-                    </Link>
+                    <button onClick={() => selectInvoice(invoice)}>👁️ #{invoice.purchaseOrderNumber} </button>
+
                   </td>
                   <td>{invoice.clientFullName}</td>
                   <td>{GetDate(invoice.date)}</td>

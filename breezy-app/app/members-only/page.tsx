@@ -14,5 +14,4 @@ export function MembersOnly() {
   );
 };
 
-
 export default withPageAuthRequired(MembersOnly);

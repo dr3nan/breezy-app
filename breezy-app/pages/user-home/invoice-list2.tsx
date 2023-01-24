@@ -20,7 +20,7 @@ export default function FetchInvoiceList() {
   return (
     <>
       <Sidebar />
-      <DisplayInvoiceList invoice={invoices} data-testid="displayInvoiceList" />
+      <DisplayInvoiceList invoices={invoices} data-testid="displayInvoiceList" />
     </>
   );
 };
