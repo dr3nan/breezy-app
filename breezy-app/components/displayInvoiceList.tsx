@@ -3,7 +3,7 @@
 import '../components/displayInvoiceList.css';
 import React from 'react';
 import Link from 'next/link';
-import { useState} from 'react';
+import { useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { invoiceFields } from '../utils/types';
 import Popup from 'reactjs-popup';
@@ -96,16 +96,21 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
             <tbody className='invoicesTable'>
               {invoices.map((invoice, index) => (
                 <tr key={String(invoice._id)}>
-                  <td data-cy={`link-${index}`}>
-                    <button onClick={() => selectInvoice(invoice)}>👁️ #{invoice.purchaseOrderNumber} </button>
-
-                  </td>
-                  <td>{invoice.clientFullName}</td>
-                  <td>{GetDate(invoice.date)}</td>
-                  <td>
-                    <>
-                      £{invoice.rate}
-                    </></td>
+                  <>
+                    <td data-cy={`link-${index}`}>
+                      <button onClick={() => selectInvoice(invoice)}>
+                        <>
+                          👁️ #{invoice.purchaseOrderNumber}
+                        </>
+                      </button>
+                    </td>
+                    <td>{invoice.clientFullName}</td>
+                    <td>{GetDate(invoice.date)}</td>
+                    <td>
+                      <>
+                        £{invoice.rate}
+                      </></td>
+                  </>
                 </tr>
               ))}
             </tbody>
