@@ -63,6 +63,11 @@ const invoiceSchema = new Schema({
   paid: {
     type: Boolean,
     required: false,
+  },
+
+  userId: {
+    type: String,
+    required: false
   }
 });
 
