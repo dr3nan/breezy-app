@@ -2,7 +2,7 @@ import { getData } from '../../utils/dataFetch';
 import React from 'react';
 import DisplayInvoiceList from '../../components/displayInvoiceList';
 import { useState, useEffect } from 'react';
-import ProvNav from '../../components/ProvNav';
+import Sidebar from './sidebar';
 
 
 export default function FetchInvoiceList() {
@@ -19,7 +19,7 @@ export default function FetchInvoiceList() {
 
   return (
     <>
-      <ProvNav />
+      <Sidebar />
       <DisplayInvoiceList invoice={invoices} data-testid="displayInvoiceList" />
     </>
   );

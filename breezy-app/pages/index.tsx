@@ -8,7 +8,7 @@ export default function Page() {
       <UserProvider>
         <LandingPage data-testid="LandingPage" />
       </UserProvider>
-      
+
     </>
   );
 };
