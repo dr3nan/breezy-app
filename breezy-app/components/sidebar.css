@@ -1,0 +1,40 @@
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 15px;
+  align-items: flex-end;
+  background-color: rgb(220 235 255);
+}
+
+.menuItems {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  margin-bottom: -15px;
+}
+
+.create-invoice-sidebar {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid blue;
+}
+
+.invoice-list-sidebar {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(144, 0, 255);
+}
+
+.client-list-sidebar {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(255, 0, 183);
+}
+
+.logout-sidebar {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(255, 255, 0);
+}
