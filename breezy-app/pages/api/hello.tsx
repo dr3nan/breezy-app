@@ -1,9 +1,12 @@
 import connectMongo from '../../utils/connectMongo';
 import Invoice from '../../models/model';
 import { NextApiRequest, NextApiResponse } from 'next';
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   connectMongo();
+  // const { user, error, isLoading } = useUser();
+  // if(user) console.log('userid is : ', user.sid);
   const { method } = req;
 
   // TODO: check if DELETE really needed

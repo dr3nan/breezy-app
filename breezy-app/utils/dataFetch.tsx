@@ -30,6 +30,7 @@ export async function getInvoiceDataById(id: String) {
 }
 
 export async function submitData(data: invoiceFields) {
+  console.log('data in SumbitData (BE) :', data)
   try {
     const res = await fetch(`${uri}/api/hello`, {
       method: 'POST',

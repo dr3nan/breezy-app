@@ -1,8 +1,8 @@
 import React from 'react';
 import LandingPage from '../components/landing-page';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { UserProvider, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-export default function Page() {
+function Page() {
   return (
     <>
       <UserProvider>
@@ -12,3 +12,5 @@ export default function Page() {
     </>
   );
 };
+
+export default withPageAuthRequired(Page);
