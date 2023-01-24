@@ -14,7 +14,7 @@ const Sidebar = () => {
     <UserProvider>
       <div className='sidebar'>
         <div className='logo'>
-          <img src='/ForWeb/png/BlackLogo.png' alt='breezy logo' width='250' />
+          <img src='/public/BlackLogo-2.svg' alt='breezy logo' width='250' />
         </div>
         <div className='menuItems'>
           <div className='create-invoice-sidebar'>
