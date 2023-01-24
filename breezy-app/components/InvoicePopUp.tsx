@@ -7,8 +7,6 @@ import { useEffect, useState } from 'react';
 export default function InvoicePopUp({ invoice }: any ) {
   console.log('invoice inside InvoicePopUp', invoice);
 
-
-
   function GetDate(date: number) {
     const date2 = new Date(date);
 
@@ -39,7 +37,7 @@ export default function InvoicePopUp({ invoice }: any ) {
 
   return (
     <>
-    { invoice ? 
+    { invoice ?
       <div className='invoice-box'>
         <table cellPadding='0' cellSpacing='0'>
           <tr className='top'>
