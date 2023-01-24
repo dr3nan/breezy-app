@@ -13,7 +13,7 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
   const [isPaid, setPaidStatus] = useState<invoiceFields[]>([]);
   const [paidRender, setPaidRender] = useState(false);
   const [open, setOpen] = useState(false);
-  const [specificInvoice, setSpecificInvoice] = useState('');
+  const [specificInvoice, setSpecificInvoice] = useState({});
 
 
   const closeModal = () => setOpen(false);
@@ -36,7 +36,7 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
     setPaidRender(false);
   }
 
-  function selectInvoice(specificInvoiceID: String) {
+  function selectInvoice(specificInvoiceID: invoiceFields) {
     setSpecificInvoice(specificInvoiceID);
     setOpen(o => !o);
   }
