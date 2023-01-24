@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'GET':
       console.log('GET request')
       try {
-        const invoice = await Invoice.find({});
+        const invoice = await Invoice.find({ userId: "google-oauth2|112866594045029268160"});
         console.log('hello / API GET request data:', invoice);
         return res.status(200).json(invoice);
       } catch (e) {
