@@ -6,14 +6,14 @@ import Sidebar from './sidebar';
 
 
 export default function FetchInvoiceList() {
-  const [ invoices, setInvoices ] = useState([])
+  const [invoices, setInvoices] = useState([])
 
   const fetchInvoices = async () => {
     const response = await getData();
     setInvoices(response)
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     fetchInvoices()
   }, [])
 

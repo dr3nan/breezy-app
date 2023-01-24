@@ -2,7 +2,200 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Client List */
 body {
   margin: 0;
   font-size: 20px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.box {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6edf7;
+  position: relative;
+  padding: 20px;
+  width: 600px;
+  border-radius: 15px;
+  margin: 20px;
+  line-height: 40px;
+  overflow: hidden;
+  height: 220px;
+  -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0);
+  box-shadow: 0px 3px 12px -6px rgba(0, 0, 0, 1);
+}
+
+.box:hover {
+  opacity: 0.8;
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  transform: scale(1.05);
+  z-index: 10;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.grid {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.grid > div {
+  flex-basis: calc(50% - 40px);
+}
+
+p {
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+.icon {
+  display: flex;
+  padding-bottom: 2px;
+}
+
+
+/* Invoices List */
+
+table.GeneratedTable {
+  text-align: left;
+  width: 1000px;
+  padding: 15px;
+  margin-left: 100px;
+  margin-top: 5px;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-bottom-color: #787575;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+table.GeneratedTable td,
+table.GeneratedTable th {
+  border-bottom-width: 1px;
+  border-color: #e0dcdc;
+  border-bottom-style: solid;
+  padding: 15px;
+}
+
+table.GeneratedTable tr:hover {
+  opacity: 0.5;
+}
+
+table.GeneratedTable thead {
+  background-color: rgb(220, 236, 255);
+}
+
+.filter-buttons {
+  display: flex;
+  align-content: center;
+  margin-left: 100px;
+}
+
+.filter-buttons button {
+  background-color: #e2e8f0;
+  padding: 5px;
+  margin-left: 3px;
+  border-radius: 10px;
+  margin-top: 150px;
+}
+
+
+
+/* Invoice form */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Roboto:wght@900&display=swap');
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  font-size: 15px;
+  width:110ch;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.people-details-container {
+  display: flex;
+  justify-content: space-between;
+  max-height: 50%;
+}
+
+.personal-details-container {
+  max-height: 50%;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  width: 500px;
+  padding: 15px;
+}
+/* .client-details-container {
+  flex-direction: column;
+  width: 500px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  padding: 15px;
+} */
+
+.job-details-container {
+  width: 500px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  padding: 15px;
+  gap: 15px;
+  height: 55vh;
+}
+
+input[type='text'],
+[type='datetime-local'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  line-height: 10px;
+}
+
+input[type='submit'] {
+  width: 100%;
+  background-color: rgb(191,219,254);
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+}
+/* input[type="submit"]:hover {
+  opacity: 80%;
+} */
+
+h2 {
+  background-color:#e2e8f0 ;
+  padding:10px;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+
+
+
+
+
