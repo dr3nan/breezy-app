@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "e2e": "cypress open",
-    "type": "module"
+    "e2e": "cypress open"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.2.0",
@@ -19,6 +18,9 @@
     "@next/font": "13.1.1",
     "eslint-config-next": "13.1.1",
     "framer-motion": "^6.5.1",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.9.3",
+    "jspdf": "^2.5.1",
     "mongoose": "^6.8.3",
     "next": "13.1.1",
     "next-router-mock": "^0.9.1-beta.0",
