@@ -1,12 +1,21 @@
 /// <reference types="cypress" />
 
-Cypress.Commands.add('getParamExists', (selector) => {
-  return cy.get(`input[name=${selector}]`)
-})
-
 describe('Create invoice', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/user-home/create-invoice2')
+    cy.origin(
+      'https://dev-pvcybmx0ftvr8fpi.us.auth0.com',
+      { args: { username: 'pipekazaa@hotmail.com', password: 'Facilfacil.10' } },
+      ({ username, password }) => {
+        cy.get('input[name="username"]').type(username)
+        cy.get('input#password').type(password, { log: false })
+        cy.contains('button[value=default]', 'Continue').click()
+      }
+    )
+  })
+
+  Cypress.Commands.add('getParamExists', (selector) => {
+    return cy.get(`input[name=${selector}]`)
   })
 
   it('should check form fields exist and are of correct type', () => {
@@ -29,12 +38,25 @@ describe('Create invoice', () => {
       .should((response) => {
         expect(response.status).to.eq(200)
       })
+    
     cy.get('input[type="submit"][value="CREATE INVOICE"]').should('exist')
   })
 
-  it('should show an alert upon submit with PO number and reset form', () => {
+  it('Should create invoice succesfully and show an alert upon submit with PO number and reset form', () => {
     const stub = cy.stub();
     cy.on('window:alert', stub);
+    cy.getParamExists('fullName').type('test-user');
+    cy.getParamExists('address').type('test-adress');
+    cy.getParamExists('phoneNumber').type(Math.floor(Math.random()*90000) + 10000);
+    cy.getParamExists('email').type('user@test.com');
+    cy.getParamExists('clientFullName').type('test-clientFullName');
+    cy.getParamExists('clientAddress').type('test-clientAdress');
+    cy.getParamExists('clientPhoneNumber').type(Math.floor(Math.random()*90000) + 10000);
+    cy.getParamExists('clientEmail').type('client@test.com');
+    cy.getParamExists('purchaseOrderNumber').type(Math.floor(Math.random()*90000) + 10000);
+    cy.getParamExists('description').type('test-description');
+    cy.getParamExists('rate').type(Math.floor(Math.random()*90) + 10);
+    cy.getParamExists('date').type('2025-01-01T00:00');
     cy.get('form').submit();
     cy.wrap(stub).should('be.called');
     cy.getParamExists('fullName').should('have.value', '');
