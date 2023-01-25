@@ -6,11 +6,10 @@ import Image from 'next/image';
 import logo from '../public/BlackLogo.png';
 import { BsArrowRight } from 'react-icons/bs';
 import { getData } from '../utils/dataFetch';
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LandingPage() {
+const LandingPage = () => {
   const router = useRouter();
 
   const [showInput, setShowInput] = useState(false);
@@ -28,7 +27,7 @@ export default function LandingPage() {
     event.preventDefault();
     router.push(`/pay-invoice/${inputValue}`);
     setInputValue('');
-  }
+  };
 
   return (
     <>
@@ -69,4 +68,6 @@ export default function LandingPage() {
       </div>
     </>
   );
-}
+};
+
+export default LandingPage;

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 import html2pdf from 'html2pdf.js';
 
-export default function InvoicePopUp({ invoice }: any) {
+const InvoicePopUp = ({ invoice }: any) => {
   console.log('invoice inside InvoicePopUp', invoice);
 
   function GetDate(date: number) {
@@ -15,6 +15,7 @@ export default function InvoicePopUp({ invoice }: any) {
     let month = date2.toLocaleString([], {
       month: 'numeric',
     });
+
     let day = date2.toLocaleString([], {
       day: 'numeric',
     });
@@ -26,6 +27,7 @@ export default function InvoicePopUp({ invoice }: any) {
     if (Number(month) < 10) {
       month = `0${month}`;
     }
+
     if (Number(day) < 10) {
       day = `0${day}`;
     }
@@ -131,3 +133,5 @@ export default function InvoicePopUp({ invoice }: any) {
     </div>
   );
 };
+
+export default InvoicePopUp;

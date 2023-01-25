@@ -8,7 +8,6 @@ function Page() {
       <UserProvider>
         <LandingPage data-testid="LandingPage" />
       </UserProvider>
-
     </>
   );
 };

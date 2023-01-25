@@ -23,8 +23,12 @@ export default function FetchInvoiceList() {
 
   return (
     <>
-      <Sidebar />
-      <DisplayInvoiceList invoices={invoices} data-testid="displayInvoiceList" />
+      <main aria-label='invoices-view' >
+        <title>Breezy app - Invoices</title>
+        <h1 className='invisible-heading-invoice-list'>Invoice List</h1>
+        <Sidebar />
+        <DisplayInvoiceList invoices={invoices} data-testid='displayInvoiceList' />
+      </main>
     </>
   );
 };

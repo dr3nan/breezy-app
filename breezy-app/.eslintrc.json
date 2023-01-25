@@ -1,57 +1,49 @@
 {
   "env": {
     "browser": true,
-    "commonjs": true,
     "es6": true,
-    "amd": true
+    "node": true,
+    "jest/globals": true,
+    "cypress/globals": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "next/babel",
     "next/core-web-vitals"
   ],
   "parserOptions": {
-    "ecmaVersion": 9,
+    "sourceType": "module",
+    "ecmaVersion": 2022,
     "ecmaFeatures": {
-      "ecmaVersion": 2018,
       "jsx": true
     },
-    "sourceType": "module"
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
   },
   "plugins": [
+    "json",
+    "jest",
+    "cypress",
+    "react-hooks",
     "react",
-    "json"
+    "jsx-a11y",
+    "import"
   ],
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "latest"
-    }
-  },
   "rules": {
     "indent": [
       "error",
       2
     ],
     "keyword-spacing": "error",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "no-undef": 0,
-    "no-unsued-vars": 0,
+    "linebreak-style": "error",
     "quotes": [
       "error",
       "single"
     ],
-    "react/prop-types": 0,
-    "react/display-name": 0,
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": "error",
     "space-before-blocks": "error",
-    "space-before-function-paren": "error"
+    "space-before-function-paren": "error",
+    "no-undef": "off",
+    "no-unused-vars": "off"
   }
 }

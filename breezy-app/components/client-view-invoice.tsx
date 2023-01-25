@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from '../styles/landing-page.module.css';
-import './displayInvoice.css'
+import './displayInvoice.css';
 import Image from 'next/image';
 import Logo from '../public/BlackLogo.png';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -11,16 +11,16 @@ import { Button } from '@chakra-ui/react';
 import { updateData } from '../utils/dataFetch';
 import { invoiceFields } from '../utils/types';
 
-export default function ClientViewInvoice({
+const ClientViewInvoice = ({
   invoice,
   dueDate,
   currentDate,
   amount
-}: { invoice: invoiceFields, dueDate: String, currentDate: String, amount: String }) {
+}: { invoice: invoiceFields, dueDate: String, currentDate: String, amount: String }) => {
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   // TODO; check what is the type of invoice._id
   const updateStatus = async (invoice: invoiceFields) => {
-    const newInvoiceStatus = await updateData(invoice._id, invoice);
+    const newInvoiceStatus = invoice._id && await updateData(invoice._id, invoice);
     setInvoiceStatus(newInvoiceStatus.paid);
   };
 
@@ -138,3 +138,5 @@ export default function ClientViewInvoice({
     </>
   );
 };
+
+export default ClientViewInvoice;
