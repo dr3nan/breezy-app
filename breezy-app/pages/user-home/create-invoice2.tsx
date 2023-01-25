@@ -8,9 +8,9 @@ export default function CreateInvoice() {
   // TODO: find out what this call does and if it is useful for this component
   return (
     <>
-      <main aria-label='create-invoice' >
-        <title>Breezy app - Create invoice</title>
+      <main aria-labelledby='create-invoice' >
         <h1 className='invisible-heading-create-invocie'>Create Invoice</h1>
+        <title>Breezy app - Create invoice</title>
         <Sidebar />
         <InvoiceForm />
       </main>
