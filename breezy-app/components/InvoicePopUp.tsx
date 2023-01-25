@@ -60,8 +60,8 @@ const InvoicePopUp = ({ invoice }: any) => {
     //     },
     //   });
     // }
-    const invoiceBox = document.getElementById('.final-invoice');
-    html2pdf(invoiceBox)
+    // const invoiceBox = document.getElementById('.final-invoice');
+    // html2pdf(invoiceBox)
   }
 
   return (

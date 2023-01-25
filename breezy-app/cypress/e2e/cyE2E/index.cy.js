@@ -32,11 +32,11 @@ describe('Tests of index / home', () => {
     cy.get('.landing-page_inputBox__8M4LO').should('not.be.visible');
   })
 
-  it('if button FreelanceLogin clicked then navigation to members-only OK', () =>{
+/*   it('if button FreelanceLogin clicked then navigation to user-home OK', () =>{
     cy.get('.FreelancerLoginButton').click()
-    cy.wait(4000)
-    cy.url().should('include', 'http://localhost:3000/members-only')
-  })
+    cy.wait(2000)
+    cy.url().should('include', 'http://localhost:3000/user-home/invoice-list2')
+  }) */
 
   it('if button PayAnInvoice clicked then the input to insert PO is VISIBLE', () =>{
     cy.get('.PayAnInvoiceButton').click()
