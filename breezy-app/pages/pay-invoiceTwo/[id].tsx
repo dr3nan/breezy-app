@@ -17,9 +17,13 @@ export default function FetchInvoice({ params }: Params) {
 
   const fetchInvoices = async () => {
     if (invoiceNumber) {
-      const response = await getInvoiceDataById(String(invoiceNumber[0]));
-      console.log('response is: ', response[0])
-      setInvoice(response[0])
+      try {
+        const response = await getInvoiceDataById(String(invoiceNumber[0]));
+        console.log('response is: ', response[0])
+        setInvoice(response[0])
+      } catch (error) {
+        console.log('error in getInvoiceDataById: ', error)
+      }
     }
   }
 
