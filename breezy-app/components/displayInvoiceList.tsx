@@ -9,16 +9,13 @@ import { invoiceFields } from '../utils/types';
 import Popup from 'reactjs-popup';
 import InvoicePopUp from './InvoicePopUp';
 
-function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
+const DisplayInvoiceList = ({ invoices }: { invoices: invoiceFields[] }) => {
   const [isPaid, setPaidStatus] = useState<invoiceFields[]>([]);
   const [paidRender, setPaidRender] = useState(false);
   const [open, setOpen] = useState(false);
   const [specificInvoice, setSpecificInvoice] = useState({});
 
-
   const closeModal = () => setOpen(false);
-
-
   // console.log('invoice in displayInvoiceList: ', invoice);
 
   function findPaid() {
@@ -26,6 +23,7 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
     setPaidStatus(paid);
     setPaidRender(true);
   }
+
   function findUnpaid() {
     let unPaid = invoices.filter((invoice) => invoice.paid === false);
     setPaidStatus(unPaid);
@@ -44,11 +42,11 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
 
   function GetDate(date: String) {
     const date2 = new Date(`${date}`)
-    // date = new Date();
 
     let month = date2.toLocaleString([], {
       month: 'short',
     });
+
     let day = date2.toLocaleString([], {
       day: 'numeric',
     });
@@ -73,7 +71,7 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
       <ChakraProvider>
         <div>
           <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-            <div className="overlay">
+            <div className='overlay'>
               <InvoicePopUp invoice={specificInvoice} />
             </div>
           </Popup>
