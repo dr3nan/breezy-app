@@ -90,7 +90,7 @@ function DisplayInvoiceList({ invoices }: { invoices: invoiceFields[] }) {
           </thead>
           {!paidRender ? (
             <tbody className='invoicesTable'>
-              {invoices.map((invoice, index) => (
+              {invoices?.map((invoice, index) => (
                 <tr key={String(invoice._id)}>
                   <>
                     <td data-cy={`link-${index}`}>

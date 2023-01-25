@@ -6,12 +6,13 @@ const uri = 'http://localhost:3000';
 
 export async function getData(id: String) {
   console.log('user id in dataFetch module is :', id)
-  const res = await fetch(`${uri}/api/${id}`);
-  if (!res.ok) {
-    throw new Error('failed to fetch data');
+  try {
+    const res = await fetch(`${uri}/api/${id}`);
+    const parsed = await res.json()
+    return parsed;
+  } catch (error) {
+    console.log('Error in get DATA ',error);
   }
-  const parsed = await res.json()
-  return parsed;
 }
 
 export async function getDataById(id: String) {

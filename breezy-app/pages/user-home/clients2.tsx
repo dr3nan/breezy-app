@@ -21,7 +21,7 @@ function Clients2() {
   return (
     <>
       <Sidebar />
-      {invoices.map((data: invoiceFields) => (
+      {invoices?.map((data: invoiceFields) => (
         <div key={String(data._id)}>
           <DisplayClients key={String(data._id)} clientData={data} />
         </div>

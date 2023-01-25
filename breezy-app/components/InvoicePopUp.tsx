@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { invoiceFields, Params } from '../utils/types';
 import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
-import html2pdf from 'html2pdf.js';
+// import html2pdf from 'html2pdf.js';
 
 export default function InvoicePopUp({ invoice }: any) {
   console.log('invoice inside InvoicePopUp', invoice);
@@ -58,8 +58,8 @@ export default function InvoicePopUp({ invoice }: any) {
     //     },
     //   });
     // }
-    const invoiceBox = document.getElementById('.final-invoice');
-    html2pdf(invoiceBox)
+    // const invoiceBox = document.getElementById('.final-invoice');
+    // html2pdf(invoiceBox)
   }
 
   return (
