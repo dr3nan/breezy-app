@@ -34,8 +34,8 @@ function InvoiceForm() {
       date: formData.get('date') as String,
       paid: false,
       address: formData.get('address') as String,
-      userId: user?.sid as String
-    };
+      userId: user?.sub as String
+    }
     // TODO: to rev
     let invoiceCreated;
     try {

@@ -4,8 +4,9 @@ import { invoiceFields } from './types';
 
 const uri = 'http://localhost:3000';
 
-export async function getData() {
-  const res = await fetch(`${uri}/api/hello`);
+export async function getData(id: String) {
+  console.log('user id in dataFetch module is :', id)
+  const res = await fetch(`${uri}/api/${id}`);
   if (!res.ok) {
     throw new Error('failed to fetch data');
   }

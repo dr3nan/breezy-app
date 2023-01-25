@@ -38,7 +38,6 @@ const DisplayInvoiceList = ({ invoices }: { invoices: invoiceFields[] }) => {
     setSpecificInvoice(specificInvoiceID);
     setOpen(o => !o);
   }
-  console.log('specific invoice is :', specificInvoice);
 
   function GetDate(date: String) {
     const date2 = new Date(`${date}`)

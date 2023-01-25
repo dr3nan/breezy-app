@@ -3,11 +3,11 @@ import Logo from '../public/ForWeb/png/BlackLogo.png';
 import Image from 'next/image';
 import { invoiceFields, Params } from '../utils/types';
 import { useEffect, useState } from 'react';
+import jsPDF from 'jspdf';
+import html2pdf from 'html2pdf.js';
 
 const InvoicePopUp = ({ invoice }: any) => {
   console.log('invoice inside InvoicePopUp', invoice);
-
-
 
   function GetDate(date: number) {
     const date2 = new Date(date);
@@ -39,8 +39,33 @@ const InvoicePopUp = ({ invoice }: any) => {
   const currentDate = GetDate(Date.now());
   const dueDate = GetDate(invoice.date);
 
+  const generatePDF = () => {
+    // const invoiceBox = document.querySelector('.final-invoice');
+    // if (invoiceBox) {
+    //   const elements = invoiceBox.querySelectorAll('*')
+    //   elements.forEach(el => {
+    //     el.style.display = 'block'
+    //   });
+    //   const doc = new jsPDF({
+    //     orientation: 'p',
+    //     unit: 'mm',
+    //     format: [210, 297]
+    //   });
+    //   doc.html(invoiceBox.outerHTML, {
+    //     callback: function (doc) {
+    //       doc.save('invoice.pdf');
+    //       elements.forEach(el => {
+    //         el.style.display = ''
+    //       });
+    //     },
+    //   });
+    // }
+    const invoiceBox = document.getElementById('.final-invoice');
+    html2pdf(invoiceBox)
+  }
+
   return (
-    <>
+    <div className='final-invoice'>
       {invoice ?
         <div className='invoice-box'>
           <table cellPadding='0' cellSpacing='0'>
@@ -104,7 +129,8 @@ const InvoicePopUp = ({ invoice }: any) => {
           </table>
         </div>
         : null}
-    </>
+      <button onClick={generatePDF}>Download PDF</button>
+    </div>
   );
 };
 
