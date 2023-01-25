@@ -4,7 +4,7 @@ import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-i
 import Link from 'next/link';
 import './sidebar.css';
 
-const Sidebar = () => {
+const NavBar = () => {
   // TODO: add user to sidebar
   // TODO: change sidebar to navBar
   // const { user, error, isLoading } = useUser();
@@ -52,4 +52,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar;
+export default NavBar;
