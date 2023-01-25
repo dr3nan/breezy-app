@@ -6,7 +6,7 @@ Cypress.Commands.add('getParamExists', (selector) => {
 
 describe('Create invoice', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/members-only/create-invoice')
+    cy.visit('http://localhost:3000/user-home/create-invoice2')
   })
 
   it('should check form fields exist and are of correct type', () => {
@@ -25,7 +25,7 @@ describe('Create invoice', () => {
   })
 
   it('should return status and check for submit button', () => {
-    cy.request('http://localhost:3000/members-only/create-invoice')
+    cy.request('http://localhost:3000/user-home/create-invoice2')
       .should((response) => {
         expect(response.status).to.eq(200)
       })
