@@ -9,7 +9,7 @@ import { getData } from '../utils/dataFetch';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function LandingPage() {
+const LandingPage = () => {
   const router = useRouter();
 
   const [showInput, setShowInput] = useState(false);
@@ -27,7 +27,7 @@ export default function LandingPage() {
     event.preventDefault();
     router.push(`/pay-invoiceTwo/${inputValue}`);
     setInputValue('');
-  }
+  };
 
   return (
     <>
@@ -68,4 +68,6 @@ export default function LandingPage() {
       </div>
     </>
   );
-}
+};
+
+export default LandingPage;

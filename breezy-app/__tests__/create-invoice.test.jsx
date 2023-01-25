@@ -1,15 +1,14 @@
-import mongoose from 'mongoose';
-import Invoice from '../models/model';
+import mongoose from 'mongoose'
+import Invoice from '../models/model'
 
 describe('Invoices', () => {
-
   beforeAll(async () => {
     // we connect to the database
     mongoose.connect('mongodb://127.0.0.1:27017/breezy-app', {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-  });
+      useUnifiedTopology: true
+    })
+  })
   // we create an invoice
   const invoice = new Invoice({
     fullName: 'John Doe',
@@ -25,30 +24,30 @@ describe('Invoices', () => {
     rate: 100,
     date: '2021-01-01',
     paid: false
-  });
+  })
 
   it('should create an invoice', async () => {
     // we save the invoice
-    await invoice.save();
-  });
+    await invoice.save()
+  })
 
   it('should fetch invoices by email', async () => {
-    const mockInvoice = await Invoice.findOne({ email: 'test@test.com' });
+    const mockInvoice = await Invoice.findOne({ email: 'test@test.com' })
     // we check that the invoice is in the database
-    expect(mockInvoice).toBeTruthy();
+    expect(mockInvoice).toBeTruthy()
     // we check that the invoice has the correct properties
-    expect(mockInvoice.rate).toEqual(100);
-  });
+    expect(mockInvoice.rate).toEqual(100)
+  })
 
   it('should delete an invoice by id', async () => {
     // we delete the invoice
-    await Invoice.findByIdAndDelete(invoice._id);
+    await Invoice.findByIdAndDelete(invoice._id)
     // we check that the invoice is not in the database
-    expect(await Invoice.findById(invoice._id)).toBeFalsy();
-  });
+    expect(await Invoice.findById(invoice._id)).toBeFalsy()
+  })
 
   it('should close the connection to the db', async () => {
     // we close the connection to the database
-    await mongoose.connection.close();
-  });
-});
+    await mongoose.connection.close()
+  })
+})
