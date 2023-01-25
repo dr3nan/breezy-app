@@ -11,8 +11,6 @@ interface CustomExpect extends Chai.ExpectStatic {
   toBeInTheDocument(): void;
 }
 
-
-
 describe('Navbar', () => {
 
   it('should render the navbar', () => {

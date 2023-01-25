@@ -71,7 +71,7 @@ const DisplayInvoiceList = ({ invoices }: { invoices: invoiceFields[] }) => {
         <div>
           <Popup open={open} closeOnDocumentClick onClose={closeModal}>
             <div className='overlay'>
-              <InvoicePopUp invoice={specificInvoice} />
+              <InvoicePopUp invoice={specificInvoice as invoiceFields} />
             </div>
           </Popup>
         </div>

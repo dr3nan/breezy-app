@@ -33,14 +33,15 @@ const NavBar = () => {
               </button>
             </Link>
           </div>
-          <div className='client-list-sidebar'>
+          {/* Button of clients will be done later, when clients are implemented in DDBB */}
+          {/* <div className='client-list-sidebar'>
             <Link href='/user-home/clients2'>
               <button className='menuItem'>
                 <BsPeopleFill className='menuIcon' />
                 Clients
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className='logout-sidebar'>
           <a href='/api/auth/logout'>
