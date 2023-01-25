@@ -20,7 +20,7 @@ export default function ClientViewInvoice({
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   // TODO; check what is the type of invoice._id
   const updateStatus = async (invoice: invoiceFields) => {
-    const newInvoiceStatus = await updateData(invoice._id, invoice);
+    const newInvoiceStatus = await updateData(String(invoice._id), invoice);
     setInvoiceStatus(newInvoiceStatus.paid);
   };
 

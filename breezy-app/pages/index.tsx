@@ -13,4 +13,4 @@ function Page() {
   );
 };
 
-export default withPageAuthRequired(Page);
+export default Page

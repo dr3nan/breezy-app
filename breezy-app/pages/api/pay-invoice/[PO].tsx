@@ -5,26 +5,30 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectMongo();
   const { method } = req;
-  const { id } = req.query;
+  const { PO } = req.query;
 
   switch (method) {
     case 'GET':
       try {
-        const invoice = await Invoice.find({ userId: id });
+        console.log('PO in api/pay-invoice/[PO] is: ', Number(PO))
+        const invoice = await Invoice.find({ purchaseOrderNumber: PO });
+        console.log('invoice of specific puschase order at api/pay-invoice/[id] is: ', invoice)
         if (!invoice) {
-          return res.status(400).json(invoice);
+          return res.status(404).json({ message: 'Invoice not found' });
         }
-        res.status(200).json(invoice);
+        res.status(200);
+        res.json(invoice);
+        
         // res.send(invoice);
       } catch (error) {
-        console.log(error);
+        console.log('error in api/pay-invoice/[PO]', error);
         res.status(400);
         // res.status(400);
       }
       break;
     case 'DELETE':
       try {
-        const invoice = await Invoice.findByIdAndDelete(id);
+        const invoice = await Invoice.findByIdAndDelete(PO);
         res.status(201).json({ success: true });
       } catch (error) {
         res.status(400).json({ success: false });

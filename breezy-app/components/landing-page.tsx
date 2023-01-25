@@ -6,7 +6,6 @@ import Image from 'next/image';
 import logo from '../public/BlackLogo.png';
 import { BsArrowRight } from 'react-icons/bs';
 import { getData } from '../utils/dataFetch';
-
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -18,15 +17,15 @@ export default function LandingPage() {
 
   const [invoice, setInvoiceList] = useState([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     getData().then((data) => {
       if (data) setInvoiceList(data);
     });
-  }, []);
+  }, []); */
   // TODO
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    router.push(`/pay-invoice/${inputValue}`);
+    router.push(`/pay-invoiceTwo/${inputValue}`);
     setInputValue('');
   }
 
@@ -40,7 +39,7 @@ export default function LandingPage() {
       <div className={styles.container}>
         <div className={styles.loginBox}>
           <a className='FreelancerLoginButton' href='/user-home/invoice-list2'>
-            <h2>Manage My Invoices</h2>
+            <h2>Log In to My Invoices</h2>
           </a>
           <span className={styles.arrow}>
             <BsArrowRight />
