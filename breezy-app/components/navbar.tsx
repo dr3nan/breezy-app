@@ -17,7 +17,7 @@ const NavBar = () => {
           <img src='/public/BlackLogo-2.svg' alt='breezy logo' width='250' />
         </div>
         <div className='menuItems'>
-          <div className='create-invoice-sidebar'>
+          <div title='create-invoice' className='create-invoice-sidebar'>
             <Link href='/user-home/create-invoice2'>
               <button className='menuItem'>
                 <BsPencilSquare className='menuIcon' />
