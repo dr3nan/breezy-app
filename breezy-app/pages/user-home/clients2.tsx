@@ -8,14 +8,14 @@ import Sidebar from '../../components/navbar';
 function Clients2() {
   const [invoices, setInvoices] = useState([]);
 
-  const fetchInvoices = async () => {
-    const response = await getData();
-    setInvoices(response)
-  };
+  // const fetchInvoices = async () => {
+  //   const response = await getData();
+  //   setInvoices(response)
+  // };
 
-  useEffect(() => {
-    fetchInvoices()
-  }, []);
+  // useEffect(() => {
+  //   fetchInvoices()
+  // }, []);
 
   return (
     <>
