@@ -3,7 +3,12 @@ import Invoice from '../../models/model';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await connectMongo();
+  try {
+    await connectMongo();
+  } catch (error) {
+    console.log('error in connectMongo', error)
+  }
+
   const { method } = req;
   const { id } = req.query;
 

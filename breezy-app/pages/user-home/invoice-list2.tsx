@@ -12,8 +12,12 @@ function FetchInvoiceList() {
   if (user) console.log('user in invoice-list is: ', user)
 
   const fetchInvoices = async () => {
-    const response = await getData(user?.sub as String);
-    setInvoices(response)
+    try {
+      const response = await getData(user?.sub as String);
+      setInvoices(response)
+    } catch (error) {
+      console.log('error in getData', error)
+    }
   }
 
   useEffect(() => {
