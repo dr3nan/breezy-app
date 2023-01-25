@@ -23,11 +23,14 @@ export async function getDataById(id: String) {
 }
 
 export async function getInvoiceDataById(id: String) {
-  const res = await fetch(`${uri}/api/pay-invoice/${id}`);
-  if (!res.ok) {
-    throw new Error('failed to fetch data');
+  try {
+    console.log('id in getInvoiceDataById', id);
+    const res = await fetch(`${uri}/api/pay-invoice/${id}`);
+    console.log('response of getInvoiceDataById', res);
+    return await res.json();
+  } catch (error) {
+    console.log('Error in getInvoiceDatabyId :', error)
   }
-  return await res.json();
 }
 
 export async function submitData(data: invoiceFields) {

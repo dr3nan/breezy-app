@@ -20,7 +20,9 @@ const ClientViewInvoice = ({
   const [invoiceStatus, setInvoiceStatus] = useState(invoice.paid);
   // TODO; check what is the type of invoice._id
   const updateStatus = async (invoice: invoiceFields) => {
-    const newInvoiceStatus = invoice._id && await updateData(invoice._id, invoice);
+
+  const newInvoiceStatus = invoice._id && await updateData(invoice._id, invoice);
+
     setInvoiceStatus(newInvoiceStatus.paid);
   };
 

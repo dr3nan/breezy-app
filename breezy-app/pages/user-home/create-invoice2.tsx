@@ -4,7 +4,10 @@ import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import Sidebar from '../../components/sidebar';
 
-export default function CreateInvoice() {
+
+
+function CreateInvoice() {
+
   // TODO: find out what this call does and if it is useful for this component
   return (
     <>
@@ -17,3 +20,5 @@ export default function CreateInvoice() {
     </>
   );
 };
+
+export default withPageAuthRequired(CreateInvoice)
