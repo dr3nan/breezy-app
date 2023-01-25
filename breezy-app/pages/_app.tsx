@@ -13,15 +13,11 @@ import reportAccessibility from '../utils/reportAccessibility'
 function myApp({ Component, pageProps }: AppProps<invoiceFields>) {
 
   return (
-    <main aria-label='home' >
-      <title>Breezy app - Home</title>
-      <h1 className='invisible-heading-home'>Home</h1>
-      <UserProvider>
-        <ChakraProvider>
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </UserProvider>
-    </main>
+    <UserProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </UserProvider>
   );
 };
 

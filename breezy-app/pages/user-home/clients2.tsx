@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { invoiceFields } from '../../utils/types';
 
 import DisplayClients from '../../components/displayClients';
-import Sidebar from '../../components/sidebar';
+import Sidebar from '../../components/navbar';
 
 function Clients2() {
   const [invoices, setInvoices] = useState([]);
