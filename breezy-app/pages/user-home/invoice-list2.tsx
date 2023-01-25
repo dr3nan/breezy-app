@@ -2,14 +2,14 @@ import { getData } from '../../utils/dataFetch';
 import React from 'react';
 import DisplayInvoiceList from '../../components/displayInvoiceList';
 import { useState, useEffect } from 'react';
-import Sidebar from '../../components/sidebar';
+import Sidebar from '../../components/navbar';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 function FetchInvoiceList() {
   const [invoices, setInvoices] = useState([])
   const { user, error, isLoading } = useUser();
-  if(user) console.log('user in invoice-list is: ', user)
+  if (user) console.log('user in invoice-list is: ', user)
 
   const fetchInvoices = async () => {
     const response = await getData(user?.sub as String);

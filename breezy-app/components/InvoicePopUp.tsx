@@ -3,8 +3,8 @@ import Logo from '../public/ForWeb/png/BlackLogo.png';
 import Image from 'next/image';
 import { invoiceFields, Params } from '../utils/types';
 import { useEffect, useState } from 'react';
-import jsPDF from 'jspdf';
-import html2pdf from 'html2pdf.js';
+// import jsPDF from 'jspdf';
+// import html2pdf from 'html2pdf.js';
 
 const InvoicePopUp = ({ invoice }: any) => {
   console.log('invoice inside InvoicePopUp', invoice);
