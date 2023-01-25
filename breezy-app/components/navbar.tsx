@@ -2,7 +2,7 @@ import React from 'react';
 import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
 import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-icons/bs';
 import Link from 'next/link';
-import './sidebar.css';
+import './navbar.css';
 
 const NavBar = () => {
   // TODO: add user to sidebar

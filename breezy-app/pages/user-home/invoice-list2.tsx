@@ -22,9 +22,9 @@ function FetchInvoiceList() {
 
   return (
     <>
-      <main aria-label='invoices-view' >
-        <title>Breezy app - Invoices</title>
+      <main aria-labelledby='invoices-view' >
         <h1 className='invisible-heading-invoice-list'>Invoice List</h1>
+        <title>Breezy app - Invoices</title>
         <Sidebar />
         <DisplayInvoiceList invoices={invoices} data-testid='displayInvoiceList' />
       </main>
