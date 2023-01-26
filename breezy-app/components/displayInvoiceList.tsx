@@ -95,36 +95,43 @@ const DisplayInvoiceList = ({ invoices }: { invoices: invoiceFields[] }) => {
                 <tr key={String(invoice._id)}>
                   <>
                     <td data-cy={`link-${index}`}>
-                      <button onClick={() => selectInvoice(invoice)}/>
+                      <button onClick={() => selectInvoice(invoice)}>
                         <>
-                          £{invoice.rate}
-                        </></td>
-                    </>
-                  </tr>
-                ))}
-              </tbody>
-            ) : (
-              <tbody>
-                {isPaid.map((invoice) => (
-                  <tr key={String(invoice._id)}>
-                    <td>
-                      <Link href={`/members-only/invoice/${invoice._id}`}>
-                        {`#${invoice.purchaseOrderNumber}`}
-                      </Link>
+                          👁️ #{invoice.purchaseOrderNumber}
+                        </>
+                      </button>
                     </td>
                     <td>{invoice.clientFullName}</td>
                     <td>{GetDate(invoice.date)}</td>
                     <td>
                       <>
                         £{invoice.rate}
-                      </>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            )}
-          </table>
-        </div>
+                      </></td>
+                  </>
+                </tr>
+              ))}
+            </tbody>
+          ) : (
+            <tbody>
+              {isPaid.map((invoice) => (
+                <tr key={String(invoice._id)}>
+                  <td>
+                    <Link href={`/members-only/invoice/${invoice._id}`}>
+                      {`#${invoice.purchaseOrderNumber}`}
+                    </Link>
+                  </td>
+                  <td>{invoice.clientFullName}</td>
+                  <td>{GetDate(invoice.date)}</td>
+                  <td>
+                    <>
+                      £{invoice.rate}
+                    </>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          )}
+        </table>
       </ChakraProvider>
     </>
   );
