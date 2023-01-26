@@ -3,6 +3,8 @@ import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
 import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-icons/bs';
 import Link from 'next/link';
 import './navbar.css';
+import blackLogo from '../public/BlackLogo-2.svg'
+import Image from 'next/image';
 
 const NavBar = () => {
   // TODO: add user to sidebar
@@ -14,7 +16,7 @@ const NavBar = () => {
     <UserProvider>
       <div className='sidebar'>
         <div className='logo'>
-          <img src='/public/BlackLogo-2.svg' alt='breezy logo' width='250' />
+          <Image src={blackLogo} alt='breezy logo'/>
         </div>
         <div className='menuItems'>
           <div title='create-invoice' className='create-invoice-sidebar'>

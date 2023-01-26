@@ -4,14 +4,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20vh;
-  background: rgb(191, 219, 254);
+  height: 100px;
+  background: rgb(221 234 255);
   border-bottom-width: 1px;
 }
 
 .logo {
   padding: 20px;
-  margin-left: 50px;
   display: flex;
 }
 
@@ -32,10 +31,10 @@
   flex-wrap: wrap;
   padding: 40px;
   margin: 20px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-color: black;
 }
+
+
+
 .arrow {
   padding: 18px;
 }
@@ -62,3 +61,10 @@
   display: flex;
   justify-content: center;
 }
+
+.divForTable{
+  display: flex;
+  justify-content: center;
+
+}
+
