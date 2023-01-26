@@ -1,14 +1,12 @@
 import React from 'react';
 import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
-import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-icons/bs';
+import { BsFillFileEarmarkTextFill, BsPencilSquare } from 'react-icons/bs';
 import Link from 'next/link';
 import './navbar.css';
 
 const NavBar = () => {
-  // TODO: add user to sidebar
-  // TODO: change sidebar to navBar
-  // const { user, error, isLoading } = useUser();
-  // console.log('user provider', user?.name);
+  // TODO: implement user name in navbar
+  // const { user } = useUser();
 
   return (
     <UserProvider>
@@ -43,6 +41,7 @@ const NavBar = () => {
             </Link>
           </div> */}
         </div>
+        {/* <a>{user?.nickname}</a> */}
         <div className='logout-sidebar'>
           <a href='/api/auth/logout'>
             <button className='logout-button'>LOGOUT</button>
@@ -50,7 +49,7 @@ const NavBar = () => {
         </div>
       </div>
     </UserProvider>
-  )
-}
+  );
+};
 
 export default NavBar;
