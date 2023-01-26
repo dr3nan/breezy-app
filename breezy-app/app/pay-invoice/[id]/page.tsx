@@ -3,11 +3,18 @@ import React from 'react';
 import ClientViewInvoice from '../../../components/client-view-invoice';
 import { Params } from '../../../utils/types';
 
-export default async function FetchInvoice({ params }: Params) {
+const FetchInvoice = async ({ params }: Params) => {
 
   const id = params.id;
-  const data = await getInvoiceDataById(id);
-  const invoice = data;
+  let invoice;
+  try {
+    const data = await getInvoiceDataById(id);
+    invoice = data;
+  } catch (error) {
+    console.log('error in getInvoiceDataById', error)
+    
+  }
+  
 
   function GetDate(date: number) {
     const date2 = new Date();
@@ -51,3 +58,5 @@ export default async function FetchInvoice({ params }: Params) {
     </>
   );
 };
+
+export default FetchInvoice;

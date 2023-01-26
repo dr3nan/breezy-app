@@ -11,24 +11,28 @@ export async function getData(id: String) {
     const parsed = await res.json()
     return parsed;
   } catch (error) {
-    console.log('Error in get DATA ',error);
-  }
+    console.log('error in getData', error);
+  }  
 }
 
 export async function getDataById(id: String) {
-  const res = await fetch(`${uri}/api/${id}`);
-  if (!res.ok) {
-    throw new Error('failed to fetch data');
+  try {
+    const res = await fetch(`${uri}/api/${id}`);
+    return await res.json();    
+  } catch (error) {
+    console.log('error in getDataById', error);
   }
-  return await res.json();
 }
 
 export async function getInvoiceDataById(id: String) {
-  const res = await fetch(`${uri}/api/pay-invoice/${id}`);
-  if (!res.ok) {
-    throw new Error('failed to fetch data');
+  try {
+    console.log('id in getInvoiceDataById', id);
+    const res = await fetch(`${uri}/api/pay-invoice/${id}`);
+    console.log('response of getInvoiceDataById', res);
+    return await res.json();
+  } catch (error) {
+    console.log('Error in getInvoiceDatabyId :', error)
   }
-  return await res.json();
 }
 
 export async function submitData(data: invoiceFields) {

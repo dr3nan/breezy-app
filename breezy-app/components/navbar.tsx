@@ -1,14 +1,12 @@
 import React from 'react';
 import { UserProvider, useUser } from '@auth0/nextjs-auth0/client';
-import { BsFillFileEarmarkTextFill, BsPeopleFill, BsPencilSquare } from 'react-icons/bs';
+import { BsFillFileEarmarkTextFill, BsPencilSquare } from 'react-icons/bs';
 import Link from 'next/link';
-import './sidebar.css';
+import './navbar.css';
 
-const Sidebar = () => {
-  // TODO: add user to sidebar
-  // TODO: change sidebar to navBar
-  // const { user, error, isLoading } = useUser();
-  // console.log('user provider', user?.name);
+const NavBar = () => {
+  // TODO: implement user name in navbar
+  // const { user } = useUser();
 
   return (
     <UserProvider>
@@ -17,7 +15,7 @@ const Sidebar = () => {
           <img src='/public/BlackLogo-2.svg' alt='breezy logo' width='250' />
         </div>
         <div className='menuItems'>
-          <div className='create-invoice-sidebar'>
+          <div title='create-invoice' className='create-invoice-sidebar'>
             <Link href='/user-home/create-invoice2'>
               <button className='menuItem'>
                 <BsPencilSquare className='menuIcon' />
@@ -33,15 +31,17 @@ const Sidebar = () => {
               </button>
             </Link>
           </div>
-          <div className='client-list-sidebar'>
+          {/* Button of clients will be done later, when clients are implemented in DDBB */}
+          {/* <div className='client-list-sidebar'>
             <Link href='/user-home/clients2'>
               <button className='menuItem'>
                 <BsPeopleFill className='menuIcon' />
                 Clients
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
+        {/* <a>{user?.nickname}</a> */}
         <div className='logout-sidebar'>
           <a href='/api/auth/logout'>
             <button className='logout-button'>LOGOUT</button>
@@ -49,7 +49,7 @@ const Sidebar = () => {
         </div>
       </div>
     </UserProvider>
-  )
-}
+  );
+};
 
-export default Sidebar;
+export default NavBar;

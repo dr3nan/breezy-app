@@ -2,15 +2,23 @@ import InvoiceForm from '../../components/invoice-form';
 import { getData } from '../../utils/dataFetch';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import Sidebar from '../../components/sidebar';
+import Sidebar from '../../components/navbar';
 
 
-export default function CreateInvoice() {
+
+function CreateInvoice() {
+
   // TODO: find out what this call does and if it is useful for this component
   return (
     <>
-      <Sidebar />
-      <InvoiceForm />
+      <main aria-labelledby='create-invoice' >
+        <h1 className='invisible-heading-create-invocie'>Create Invoice</h1>
+        <title>Breezy app - Create invoice</title>
+        <Sidebar />
+        <InvoiceForm />
+      </main>
     </>
   );
 };
+
+export default withPageAuthRequired(CreateInvoice)

@@ -69,6 +69,20 @@ p {
 
 
 /* Invoices List */
+.invisible-heading-invoice-list{
+  display: none;
+  /* visibility: hidden; */
+}
+
+.invisible-heading-home{
+  display: none;
+  /* visibility: hidden; */
+}
+
+.invisible-heading-create-invocie{
+  display: none;
+  /* visibility: hidden; */
+}
 
 table.GeneratedTable {
   text-align: left;

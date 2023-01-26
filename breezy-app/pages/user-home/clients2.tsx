@@ -1,33 +1,36 @@
-import { getData } from "../../utils/dataFetch";
-import { useEffect, useState } from "react";
+import { getData } from '../../utils/dataFetch';
+import { useEffect, useState } from 'react';
 import { invoiceFields } from '../../utils/types';
-import DisplayClients from "../../components/displayClients";
 
-import Sidebar from "../../components/sidebar";
-
+import DisplayClients from '../../components/displayClients';
+import Sidebar from '../../components/navbar';
 
 function Clients2() {
-  const [invoices, setInvoices] = useState([])
+  const [invoices, setInvoices] = useState([]);
 
-  const fetchInvoices = async () => {
-    const response = await getData();
-    setInvoices(response)
-  }
+  // const fetchInvoices = async () => {
+  //   const response = await getData();
+  //   setInvoices(response)
+  // };
 
-  useEffect(() => {
-    fetchInvoices()
-  }, [])
+  // useEffect(() => {
+  //   fetchInvoices()
+  // }, []);
 
   return (
     <>
-      <Sidebar />
-      {invoices?.map((data: invoiceFields) => (
-        <div key={String(data._id)}>
-          <DisplayClients key={String(data._id)} clientData={data} />
-        </div>
-      ))}
+      <main aria-labelledby='clients-view' >
+        <h1 className='invisible-heading-clients'>Clients</h1>
+        <title>Breezy app - Clients</title>
+        <Sidebar />
+        {invoices?.map((data: invoiceFields) => (
+          <div key={String(data._id)}>
+            <DisplayClients key={String(data._id)} clientData={data} />
+          </div>
+        ))}
+      </main>
     </>
+  );
+};
 
-  )
-}
 export default Clients2;

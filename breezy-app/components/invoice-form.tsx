@@ -10,7 +10,9 @@ function InvoiceForm() {
   // creating a ref to the form so we can reset it once submitted
   const formRef = useRef<HTMLFormElement>(null);
   const { user, error, isLoading } = useUser();
-  if(user) console.log('user is: ', user)
+  if (user) console.log('user is: ', user);
+  if (user) console.log('user id is: ', user.sid);
+
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
@@ -40,11 +42,11 @@ function InvoiceForm() {
       invoiceCreated = await submitData(form);
     } catch (error) {
       console.error(error)
-    }
+    };
     // reset from once submitted
     if (formRef && formRef.current) {
       formRef.current.reset();
-    }
+    };
 
     alert(`Invoice Created, here is your PO number: ${invoiceCreated.purchaseOrderNumber}`);
     return invoiceCreated;

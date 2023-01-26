@@ -6,26 +6,31 @@ import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 // import html2pdf from 'html2pdf.js';
 
-export default function InvoicePopUp({ invoice }: any) {
+const InvoicePopUp = ({ invoice }: { invoice: invoiceFields }) => {
   console.log('invoice inside InvoicePopUp', invoice);
 
-  function GetDate(date: number) {
-    const date2 = new Date(date);
+  function GetDate(date: Number | String) {
+    let date2;
+    if (typeof date === 'number') date2 = new Date(Number(date));
+    if (typeof date === 'string') date2 = new Date(String(date));
+    
 
-    let month = date2.toLocaleString([], {
+    let month = date2?.toLocaleString([], {
       month: 'numeric',
     });
-    let day = date2.toLocaleString([], {
+
+    let day = date2?.toLocaleString([], {
       day: 'numeric',
     });
 
-    let year = date2.toLocaleString([], {
+    let year = date2?.toLocaleString([], {
       year: 'numeric',
     });
 
     if (Number(month) < 10) {
       month = `0${month}`;
     }
+
     if (Number(day) < 10) {
       day = `0${day}`;
     }
@@ -78,7 +83,11 @@ export default function InvoicePopUp({ invoice }: any) {
                       INVOICE #1
                       <br />
                       <br />
-                      <strong>PO Number:#{invoice.purchaseOrderNumber}</strong>
+                      <strong>
+                        <>
+                          PO Number:#{invoice.purchaseOrderNumber}
+                        </>
+                      </strong>
                       <br />
                       <strong>Date:</strong> {currentDate}
                       <br />
@@ -118,11 +127,19 @@ export default function InvoicePopUp({ invoice }: any) {
             </tr>
             <tr className='item'>
               <td>{invoice.description}</td>
-              <td>£{invoice.rate}</td>
+              <td>
+                <>
+                  £{invoice.rate}
+                </>
+              </td>
             </tr>
             <tr className='total'>
               <td></td>
-              <td>Total: £{invoice.rate}</td>
+              <td>
+                <>
+                  Total: £{invoice.rate}
+                </>
+              </td>
             </tr>
           </table>
         </div>
@@ -131,3 +148,5 @@ export default function InvoicePopUp({ invoice }: any) {
     </div>
   );
 };
+
+export default InvoicePopUp;
