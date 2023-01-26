@@ -80,31 +80,22 @@ const DisplayInvoiceList = ({ invoices }: { invoices: invoiceFields[] }) => {
           <button onClick={findPaid}>PAID</button>
           <button onClick={allInvoices}>ALL INVOICES</button>
         </div>
-        <div className='divForTable'>
-          <table className='GeneratedTable'>
-            <thead>
-              <tr>
-                <th>Invoice</th>
-                <th>Client</th>
-                <th>Due Date</th>
-                <th>Due</th>
-              </tr>
-            </thead>
-            {!paidRender ? (
-              <tbody className='invoicesTable'>
-                {invoices.map((invoice, index) => (
-                  <tr key={String(invoice._id)}>
-                    <>
-                      <td data-cy={`link-${index}`}>
-                        <button onClick={() => selectInvoice(invoice)}>
-                          <>
-                            👁️ #{invoice.purchaseOrderNumber}
-                          </>
-                        </button>
-                      </td>
-                      <td>{invoice.clientFullName}</td>
-                      <td>{GetDate(invoice.date)}</td>
-                      <td>
+        <table className='GeneratedTable'>
+          <thead>
+            <tr>
+              <th>Invoice</th>
+              <th>Client</th>
+              <th>Due Date</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          {!paidRender ? (
+            <tbody className='invoicesTable'>
+              {invoices?.map((invoice, index) => (
+                <tr key={String(invoice._id)}>
+                  <>
+                    <td data-cy={`link-${index}`}>
+                      <button onClick={() => selectInvoice(invoice)}/>
                         <>
                           £{invoice.rate}
                         </></td>
